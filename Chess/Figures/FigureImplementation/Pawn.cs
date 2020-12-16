@@ -35,7 +35,7 @@ namespace Chess.Figures.FigureImplementation
         }
 
         /// <summary>
-        /// White Team may only go to bigger values of Y
+        /// White Team may only go to lower values of Y
         /// Black Team opposite
         /// </summary>
         /// <param name="newPosition"></param>
@@ -44,9 +44,9 @@ namespace Chess.Figures.FigureImplementation
         {
             if (_teamColor == TeamColor.White)
             {
-                return newPosition.PositionY > Position.PositionY;
+                return newPosition.PositionY < Position.PositionY;
             }
-            return newPosition.PositionY < Position.PositionY;
+            return newPosition.PositionY > Position.PositionY;
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Chess.Figures.FigureImplementation
                     return vector.Length < 2.000001;
                 }
 
-                return Math.Abs(vector.Length - 2) < 0.000001;
+                return Math.Abs(vector.Length - 1) < 0.000001;
             }
             return false;
         }
@@ -77,7 +77,7 @@ namespace Chess.Figures.FigureImplementation
         private bool IsLegalDiagonalMove(Vector vector)
         {
             return vector.IsDiagonal && GameManager.IsEnemyAtPosition(vector.End, _teamColor)
-                                     && vector.DiffX == 1 && vector.DiffY == 1;
+                                     && Math.Abs(vector.DiffX) == 1 && Math.Abs(vector.DiffY) == 1;
         }
     }
 }

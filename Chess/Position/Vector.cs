@@ -11,7 +11,7 @@ namespace Chess.Position
 
         public int DiffY { get; }
         
-        public Vector(Position end, Position start)
+        public Vector(Position start, Position end)
         {
             End = end;
             Start = start;
@@ -20,7 +20,7 @@ namespace Chess.Position
         }
 
         public double Length => Math.Sqrt(DiffX * DiffX + DiffY * DiffY);
-        public bool IsDiagonal => Math.Sqrt(DiffX - DiffY) == 0;
+        public bool IsDiagonal => Math.Abs(DiffX) - Math.Abs(DiffY) == 0;
         public bool IsVertical => DiffX == 0;
         public bool IsHorizontal => DiffY == 0;
     }

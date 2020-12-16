@@ -15,7 +15,7 @@ namespace Chess.Position
 
         public static bool operator ==(Position left, Position right)
         {
-            if (left == null || right == null)
+            if (ReferenceEquals(left, null) || ReferenceEquals(right, null))
             {
                 return false;
             }

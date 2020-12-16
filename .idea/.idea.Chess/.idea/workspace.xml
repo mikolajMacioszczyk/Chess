@@ -1,23 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Chess.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Exceptions/InvalidPositionException.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/Figure.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/GameManager/IGameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Position/Position.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Position/Vector.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Team/TeamColor.cs" afterDir="false" />
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/Chess.UnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Position/Position.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Position/Position.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Position/Vector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Position/Vector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +25,6 @@
       <option value="$PROJECT_DIR$/Chess/Figures/FigureType.cs" />
       <option value="$PROJECT_DIR$/Chess/Team/Color.cs" />
       <option value="$PROJECT_DIR$/Chess/Team/TeamColor.cs" />
-      <option value="$PROJECT_DIR$/Chess/Position/Position.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" />
@@ -42,8 +32,10 @@
       <option value="$PROJECT_DIR$/Chess/GameManager/IGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/Figure.cs" />
-      <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
+      <option value="$PROJECT_DIR$/Chess/Position/Position.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" />
+      <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -53,6 +45,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997287" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -65,6 +59,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="RunManager" selected="f06e05c5-918c-4f91-9916-4e75e6c629e5" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -73,12 +68,30 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608122749435</updated>
-      <workItem from="1608122753935" duration="5303000" />
+      <workItem from="1608122753935" duration="9374000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1608128839378</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608128839378</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="233" />
+    <coverage-tree-state>
+      <expand />
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
@@ -95,5 +108,52 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs</url>
+          <line>14</line>
+          <properties documentPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" initialLine="14" containingFunctionPresentation="method 'CanMove'">
+            <startOffsets>
+              <option value="416" />
+            </startOffsets>
+            <endOffsets>
+              <option value="417" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" initialLine="25" containingFunctionPresentation="method 'CanMove'">
+            <startOffsets>
+              <option value="712" />
+            </startOffsets>
+            <endOffsets>
+              <option value="713" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs</url>
+          <line>78</line>
+          <properties documentPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" initialLine="78" containingFunctionPresentation="method 'IsLegalDiagonalMove'">
+            <startOffsets>
+              <option value="2345" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2506" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
