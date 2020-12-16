@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess.sln" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Chess.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Exceptions/InvalidPositionException.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/Figure.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Figures/FigureType.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/GameManager/IGameManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Position/Position.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Position/Vector.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/Team/TeamColor.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Chess/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Exceptions/InvalidPositionException.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureType.cs" />
+      <option value="$PROJECT_DIR$/Chess/Team/Color.cs" />
+      <option value="$PROJECT_DIR$/Chess/Team/TeamColor.cs" />
+      <option value="$PROJECT_DIR$/Chess/Position/Position.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" />
+      <option value="$PROJECT_DIR$/Chess/GameManager/IGameManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/Figure.cs" />
+      <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="" />
+      <created>1608122749435</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1608122749435</updated>
+      <workItem from="1608122753935" duration="5303000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>
