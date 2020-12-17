@@ -6,8 +6,8 @@ namespace Chess.Figures.FigureImplementation
 {
     public class King : Figure
     {
-        public King(Position.Position position, TeamColor teamColor, IGameManager gameManager) 
-            : base(position, FigureType.King, teamColor, gameManager)
+        public King(Position.Position position, TeamColor teamColor) 
+            : base(position, FigureType.King, teamColor)
         {
         }
 

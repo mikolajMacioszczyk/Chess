@@ -1,13 +1,13 @@
-using Chess.GameManager;
+using System;
 using Chess.Position;
 using Chess.Team;
 
 namespace Chess.Figures.FigureImplementation
 {
-    public class Queen : Figure
+    public class Knight : Figure
     {
-        public Queen(Position.Position position, TeamColor teamColor) 
-            : base(position, FigureType.Queen, teamColor)
+        public Knight(Position.Position position, TeamColor teamColor)
+            : base(position, FigureType.Knight, teamColor)
         {
         }
 
@@ -17,8 +17,12 @@ namespace Chess.Figures.FigureImplementation
             {
                 return false;
             }
+
             var vector = new Vector(Position, newPosition);
-            if (vector.IsHorizontal || vector.IsVertical || vector.IsDiagonal)
+            var diffX = Math.Abs(vector.DiffX);
+            var diffY = Math.Abs(vector.DiffY);
+            if (diffX == 2 && diffY == 1 ||
+                diffX == 1 && diffY == 2)
             {
                 return true;
             }

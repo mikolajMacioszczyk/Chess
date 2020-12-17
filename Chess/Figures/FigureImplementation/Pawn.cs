@@ -1,5 +1,4 @@
 using System;
-using Chess.GameManager;
 using Chess.Position;
 using Chess.Team;
 
@@ -9,8 +8,8 @@ namespace Chess.Figures.FigureImplementation
     {
         private bool _isFirstMove;
         
-        public Pawn(Position.Position position, TeamColor teamColor, IGameManager gameManager)
-            : base(position, FigureType.Pawn, teamColor, gameManager)
+        public Pawn(Position.Position position, TeamColor teamColor)
+            : base(position, FigureType.Pawn, teamColor)
         {
             _isFirstMove = true;
         }
@@ -42,7 +41,7 @@ namespace Chess.Figures.FigureImplementation
         /// <returns></returns>
         private bool IsForward(Position.Position newPosition)
         {
-            if (_teamColor == TeamColor.White)
+            if (TeamColor == TeamColor.White)
             {
                 return newPosition.PositionY < Position.PositionY;
             }
@@ -76,8 +75,7 @@ namespace Chess.Figures.FigureImplementation
         /// <returns></returns>
         private bool IsLegalDiagonalMove(Vector vector)
         {
-            return vector.IsDiagonal && GameManager.IsEnemyAtPosition(vector.End, _teamColor)
-                                     && Math.Abs(vector.DiffX) == 1 && Math.Abs(vector.DiffY) == 1;
+            return vector.IsDiagonal && Math.Abs(vector.DiffX) == 1 && Math.Abs(vector.DiffY) == 1;
         }
     }
 }

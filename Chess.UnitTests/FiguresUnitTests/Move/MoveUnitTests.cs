@@ -16,7 +16,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0, 0);
-            var king = new King(startingPosition, TeamColor.Black, null);
+            var king = new King(startingPosition, TeamColor.Black);
             
             // act
             bool result = king.CanMove(destinationPosition);
@@ -30,7 +30,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            var king = new King(startingPosition, TeamColor.Black, null);
+            var king = new King(startingPosition, TeamColor.Black);
             Position.Position destinationPosition = new Position.Position(1, 0);
             
             // act
@@ -45,7 +45,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            var king = new King(startingPosition, TeamColor.Black, null);
+            var king = new King(startingPosition, TeamColor.Black);
             Position.Position destinationPosition = new Position.Position(2, 0);
             
             // act
@@ -60,7 +60,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            var king = new King(startingPosition, TeamColor.Black, null);
+            var king = new King(startingPosition, TeamColor.Black);
             Position.Position destinationPosition = new Position.Position(1, 1);
             
             // act
@@ -75,7 +75,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            var king = new King(startingPosition, TeamColor.Black, null);
+            var king = new King(startingPosition, TeamColor.Black);
             Position.Position destinationPosition = new Position.Position(2, 2);
             
             // act
@@ -91,7 +91,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0, 0);
-            var queen = new Queen(startingPosition, TeamColor.Black, null);
+            var queen = new Queen(startingPosition, TeamColor.Black);
             
             // act
             bool result = queen.CanMove(destinationPosition);
@@ -107,7 +107,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition1 = new Position.Position(3, 0);
             Position.Position destinationPosition2 = new Position.Position(0, 5);
-            var queen = new Queen(startingPosition, TeamColor.Black, null);
+            var queen = new Queen(startingPosition, TeamColor.Black);
             
             // act
             bool result1 = queen.CanMove(destinationPosition1);
@@ -125,7 +125,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition1 = new Position.Position(3, 3);
             Position.Position destinationPosition2 = new Position.Position(-2, 2);
-            var queen = new Queen(startingPosition, TeamColor.Black, null);
+            var queen = new Queen(startingPosition, TeamColor.Black);
             
             // act
             bool result1 = queen.CanMove(destinationPosition1);
@@ -142,7 +142,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(3, 2);
-            var queen = new Queen(startingPosition, TeamColor.Black, null);
+            var queen = new Queen(startingPosition, TeamColor.Black);
             
             // act
             bool result = queen.CanMove(destinationPosition);
@@ -157,7 +157,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0, 0);
-            var rook = new Rook(startingPosition, TeamColor.Black, null);
+            var rook = new Rook(startingPosition, TeamColor.Black);
             
             // act
             bool result = rook.CanMove(destinationPosition);
@@ -172,7 +172,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(2, 0);
-            var rook = new Rook(startingPosition, TeamColor.Black, null);
+            var rook = new Rook(startingPosition, TeamColor.Black);
             
             // act
             bool result = rook.CanMove(destinationPosition);
@@ -187,7 +187,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0, 2);
-            var rook = new Rook(startingPosition, TeamColor.Black, null);
+            var rook = new Rook(startingPosition, TeamColor.Black);
             
             // act
             bool result = rook.CanMove(destinationPosition);
@@ -202,7 +202,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(1, 1);
-            var rook = new Rook(startingPosition, TeamColor.Black, null);
+            var rook = new Rook(startingPosition, TeamColor.Black);
             
             // act
             bool result = rook.CanMove(destinationPosition);
@@ -217,7 +217,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(1, 2);
-            var rook = new Rook(startingPosition, TeamColor.Black, null);
+            var rook = new Rook(startingPosition, TeamColor.Black);
             
             // act
             bool result = rook.CanMove(destinationPosition);
@@ -232,7 +232,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0, 0);
-            var bishop = new Bishop(startingPosition, TeamColor.Black, null);
+            var bishop = new Bishop(startingPosition, TeamColor.Black);
             
             // act
             bool result = bishop.CanMove(destinationPosition);
@@ -242,60 +242,120 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         }
         
         [Test]
-        public void Bishop_CanMove_ValidMoveTopRight_ShouldReturnTrue()
+        public void Bishop_CanMove_DiagonalMove_ShouldReturnTrue()
+        {
+            // arrange
+            Position.Position startingPosition = new Position.Position(0, 0);
+            Position.Position destinationPosition = new Position.Position(2, 2);
+            var bishop = new Bishop(startingPosition, TeamColor.Black);
+            
+            // act
+            bool result = bishop.CanMove(destinationPosition);
+            
+            // assert
+            Assert.True(result);
+        }
+        
+        [Test]
+        public void Bishop_CanMove_HorizontalMove_ShouldReturnFalse()
+        {
+            // arrange
+            Position.Position startingPosition = new Position.Position(0, 0);
+            Position.Position destinationPosition = new Position.Position(2, 0);
+            var bishop = new Bishop(startingPosition, TeamColor.Black);
+            
+            // act
+            bool result = bishop.CanMove(destinationPosition);
+            
+            // assert
+            Assert.False(result);
+        }
+        
+        [Test]
+        public void Bishop_CanMove_VerticalMove_ShouldReturnFalse()
+        {
+            // arrange
+            Position.Position startingPosition = new Position.Position(0, 0);
+            Position.Position destinationPosition = new Position.Position(0, 2);
+            var bishop = new Bishop(startingPosition, TeamColor.Black);
+            
+            // act
+            bool result = bishop.CanMove(destinationPosition);
+            
+            // assert
+            Assert.False(result);
+        }
+        
+        [Test]
+        public void Knight_CanMove_TheSamePosition_ShouldReturnFalse()
+        {
+            // arrange
+            Position.Position startingPosition = new Position.Position(0, 0);
+            Position.Position destinationPosition = new Position.Position(0, 0);
+            var knight = new Knight(startingPosition, TeamColor.Black);
+            
+            // act
+            bool result = knight.CanMove(destinationPosition);
+            
+            // assert
+            Assert.False(result);
+        }
+        
+        [Test]
+        public void Knight_CanMove_ValidMoveTopRight_ShouldReturnTrue()
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(2, 1);
-            var bishop = new Bishop(startingPosition, TeamColor.Black, null);
+            var knight = new Knight(startingPosition, TeamColor.Black);
             
             // act
-            bool result = bishop.CanMove(destinationPosition);
+            bool result = knight.CanMove(destinationPosition);
             
             // assert
             Assert.True(result);
         }
         
         [Test]
-        public void Bishop_CanMove_ValidMoveBottomLeft_ShouldReturnTrue()
+        public void Knight_CanMove_ValidMoveBottomLeft_ShouldReturnTrue()
         {
             // arrange
             Position.Position startingPosition = new Position.Position(1, 2);
             Position.Position destinationPosition = new Position.Position(0,0);
-            var bishop = new Bishop(startingPosition, TeamColor.Black, null);
+            var knight = new Knight(startingPosition, TeamColor.Black);
             
             // act
-            bool result = bishop.CanMove(destinationPosition);
+            bool result = knight.CanMove(destinationPosition);
             
             // assert
             Assert.True(result);
         }
         
         [Test]
-        public void Bishop_CanMove_InvalidMoveDiagonal_ShouldReturnFalse()
+        public void Knight_CanMove_InvalidMoveDiagonal_ShouldReturnFalse()
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(2,2);
-            var bishop = new Bishop(startingPosition, TeamColor.Black, null);
+            var knight = new Knight(startingPosition, TeamColor.Black);
             
             // act
-            bool result = bishop.CanMove(destinationPosition);
+            bool result = knight.CanMove(destinationPosition);
             
             // assert
             Assert.False(result);
         }
         
         [Test]
-        public void Bishop_CanMove_InvalidMoveHorizontal_ShouldReturnFalse()
+        public void Knight_CanMove_InvalidMoveHorizontal_ShouldReturnFalse()
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(2,0);
-            var bishop = new Bishop(startingPosition, TeamColor.Black, null);
+            var knight = new Knight(startingPosition, TeamColor.Black);
             
             // act
-            bool result = bishop.CanMove(destinationPosition);
+            bool result = knight.CanMove(destinationPosition);
             
             // assert
             Assert.False(result);
@@ -307,8 +367,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0,0);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -322,9 +381,8 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            Position.Position destinationPosition = new Position.Position(0,1);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            Position.Position destinationPosition = new Position.Position(1,0);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -339,8 +397,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 1);
             Position.Position destinationPosition = new Position.Position(0,0);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -355,8 +412,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(0,1);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.White, mockGameManager.Object);
+            var pawn = new Pawn(startingPosition, TeamColor.White);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -369,10 +425,9 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         public void Pawn_CanMove_DownWhite_ShouldReturnTrue()
         {
             // arrange
-            Position.Position startingPosition = new Position.Position(0, 1);
+            Position.Position startingPosition = new Position.Position(1, 0);
             Position.Position destinationPosition = new Position.Position(0,0);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.White, mockGameManager.Object);
+            var pawn = new Pawn(startingPosition, TeamColor.White);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -386,9 +441,8 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            Position.Position destinationPosition = new Position.Position(0,2);
-            var mockGameManager = new Mock<IGameManager>();
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            Position.Position destinationPosition = new Position.Position(2,0);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -402,12 +456,9 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
         {
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
-            Position.Position intermediatePosition = new Position.Position(0,1);
-            Position.Position destinationPosition = new Position.Position(0,3);
-            var mockGameManager = new Mock<IGameManager>();
-            mockGameManager.Setup(m => m.CanMove(It.IsAny<Figure>(), intermediatePosition)).Returns(true);
-            mockGameManager.Setup(m => m.CanMove(It.IsAny<Figure>(), destinationPosition)).Returns(true);
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            Position.Position intermediatePosition = new Position.Position(1,0);
+            Position.Position destinationPosition = new Position.Position(3,0);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result1 = pawn.CanMove(intermediatePosition);
@@ -424,43 +475,7 @@ namespace Chess.UnitTests.FiguresUnitTests.Move
             // arrange
             Position.Position startingPosition = new Position.Position(0, 0);
             Position.Position destinationPosition = new Position.Position(2,2);
-            var mockGameManager = new Mock<IGameManager>();
-            mockGameManager.Setup(m => m.IsEnemyAtPosition(destinationPosition, TeamColor.Black)).Returns(true);
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
-            
-            // act
-            bool result = pawn.CanMove(destinationPosition);
-            
-            // assert
-            Assert.False(result);
-        }
-        
-        [Test]
-        public void Pawn_CanMove_DiagonalOneFields_EnemyOnDiagonal_ShouldReturnTrue()
-        {
-            // arrange
-            Position.Position startingPosition = new Position.Position(0, 0);
-            Position.Position destinationPosition = new Position.Position(1,1);
-            var mockGameManager = new Mock<IGameManager>();
-            mockGameManager.Setup(m => m.IsEnemyAtPosition(destinationPosition, TeamColor.Black)).Returns(true);
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
-            
-            // act
-            bool result = pawn.CanMove(destinationPosition);
-            
-            // assert
-            Assert.True(result);
-        }
-        
-        [Test]
-        public void Pawn_CanMove_DiagonalOneFields_EnemyNotOnDiagonal_ShouldReturnFalse()
-        {
-            // arrange
-            Position.Position startingPosition = new Position.Position(0, 0);
-            Position.Position destinationPosition = new Position.Position(1,1);
-            var mockGameManager = new Mock<IGameManager>();
-            mockGameManager.Setup(m => m.IsEnemyAtPosition(destinationPosition, TeamColor.Black)).Returns(false);
-            var pawn = new Pawn(startingPosition, TeamColor.Black, mockGameManager.Object);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);

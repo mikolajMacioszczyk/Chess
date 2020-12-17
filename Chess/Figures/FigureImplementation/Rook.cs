@@ -1,4 +1,3 @@
-using Chess.GameManager;
 using Chess.Position;
 using Chess.Team;
 
@@ -6,8 +5,8 @@ namespace Chess.Figures.FigureImplementation
 {
     public class Rook : Figure
     {
-        public Rook(Position.Position position, TeamColor teamColor, IGameManager gameManager) 
-            : base(position, FigureType.Rook, teamColor, gameManager)
+        public Rook(Position.Position position, TeamColor teamColor) 
+            : base(position, FigureType.Rook, teamColor)
         {
         }
 

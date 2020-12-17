@@ -1,34 +1,27 @@
-using Chess.Exceptions;
-using Chess.GameManager;
 using Chess.Team;
 
 namespace Chess.Figures
 {
     public abstract class Figure
     {
-        protected Position.Position Position;
-        private FigureType _figureType;
-        protected TeamColor _teamColor;
-        protected readonly IGameManager GameManager;
+        public Position.Position Position { get; private set;}
+        public FigureType FigureType { get; }
+        public TeamColor TeamColor { get; }
 
-        protected Figure(Position.Position position, FigureType figureType, TeamColor teamColor, IGameManager gameManager)
+        protected Figure(Position.Position position, FigureType figureType, TeamColor teamColor)
         {
             Position = position;
-            _figureType = figureType;
-            _teamColor = teamColor;
-            GameManager = gameManager;
+            FigureType = figureType;
+            TeamColor = teamColor;
         }
 
+        /// <summary>
+        /// Does not check if move is valid
+        /// </summary>
+        /// <param name="newPosition"></param>
+        /// <returns></returns>
         public virtual Position.Position Move(Position.Position newPosition)
         {
-            if (!CanMove(newPosition))
-            {
-                throw new InvalidPositionException(Position, newPosition, $"Invalid move by figure {this}");
-            }
-            if (!GameManager.CanMove(this, newPosition))
-            {
-                throw new InvalidPositionException(Position, newPosition, $"Move not allowe by game manger");
-            }
             var oldPosition = Position;
             Position = newPosition;
             return oldPosition;

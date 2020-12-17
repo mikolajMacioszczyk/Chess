@@ -13,15 +13,24 @@
     <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.dll" t="Include" />
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Chess" t="IncludeRecursive">
+        <e p="Board" t="Include">
+          <e p="IBoard.cs" t="Include" />
+          <e p="OrdinaryChessBoard.cs" t="Include" />
+        </e>
         <e p="Chess.csproj" t="IncludeRecursive" />
         <e p="Exceptions" t="Include">
           <e p="InvalidPositionException.cs" t="Include" />
+        </e>
+        <e p="FigurePositionWeight" t="Include">
+          <e p="IFigurePositionWeight.cs" t="Include" />
+          <e p="OrdinaryChessBoardFigurePositionWeight.cs" t="Include" />
         </e>
         <e p="Figures" t="Include">
           <e p="Figure.cs" t="Include" />
           <e p="FigureImplementation" t="Include">
             <e p="Bishop.cs" t="Include" />
             <e p="King.cs" t="Include" />
+            <e p="Knight.cs" t="Include" />
             <e p="Pawn.cs" t="Include" />
             <e p="Queen.cs" t="Include" />
             <e p="Rook.cs" t="Include" />
@@ -50,6 +59,9 @@
       </e>
       <e p="Chess.UnitTests" t="IncludeRecursive">
         <e p="Chess.UnitTests.csproj" t="IncludeRecursive" />
+        <e p="FigurePositionWeightUnitTests" t="Include">
+          <e p="OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" t="Include" />
+        </e>
         <e p="FiguresUnitTests" t="Include">
           <e p="Move" t="Include">
             <e p="MoveUnitTests.cs" t="Include" />

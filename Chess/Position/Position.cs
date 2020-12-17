@@ -7,7 +7,7 @@ namespace Chess.Position
         public int PositionX { get; }
         public int PositionY { get; }
 
-        public Position(int positionX, int positionY)
+        public Position(int positionY, int positionX)
         {
             PositionX = positionX;
             PositionY = positionY;
