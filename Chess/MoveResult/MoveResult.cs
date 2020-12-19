@@ -5,7 +5,10 @@ using Chess.Exceptions;
 using Chess.Figures;
 using Chess.Figures.FigureImplementation;
 using Chess.MoveValidator;
+using Chess.Position;
 using Chess.Team;
+
+// Tests!!!
 
 namespace Chess.MoveResult
 {
@@ -36,12 +39,41 @@ namespace Chess.MoveResult
 
         public TeamColor Winner()
         {
-            throw new System.NotImplementedException();
-        }
+            if (IsCheckMate(TeamColor.Black))
+            {
+                return TeamColor.Black;
+            }
+            if (IsCheckMate(TeamColor.White))
+            {
+                return TeamColor.White;
+            }
 
-        public (bool, Figure) IsCheck(TeamColor teamColor)
+            return TeamColor.None;
+        }   
+
+        /// <summary>
+        /// Verify one by one figure, if can kill king 
+        /// </summary>
+        /// <param name="myTeamColor">My team color</param>
+        /// <returns></returns>
+        public (bool, Figure) IsCheck(TeamColor myTeamColor)
         {
-            var king = FindKing(teamColor);
+            TeamColor checkedTeamColor;
+            switch (myTeamColor)
+            {
+                case TeamColor.White:
+                    checkedTeamColor = TeamColor.Black;
+                    break;
+                case TeamColor.Black:
+                    checkedTeamColor = TeamColor.White;
+                    break;
+                case TeamColor.None:
+                    return (false, null);
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(myTeamColor), myTeamColor, null);
+            }
+            
+            var king = FindKing(checkedTeamColor);
 
             for (int i = 0; i < OrdinaryChessBoard.BoardSize; i++)
             {
@@ -57,14 +89,14 @@ namespace Chess.MoveResult
             return (false, null);
         }
 
-        private Figure FindKing(TeamColor teamColor)
+        private Figure FindKing(TeamColor kingTeamColor)
         {
             for (int i = 0; i < OrdinaryChessBoard.BoardSize; i++)
             {
                 for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
                 {
                     var figure = _board.FigureAt(_board.GetPositionAt(i, j));
-                    if (figure != null && figure.FigureType == FigureType.King && figure.TeamColor == teamColor)
+                    if (figure != null && figure.FigureType == FigureType.King && figure.TeamColor == kingTeamColor)
                     {
                         return figure;
                     }
@@ -73,29 +105,134 @@ namespace Chess.MoveResult
             throw new ImplementationException("King not found");
         }
 
-        public bool IsCheckMate(TeamColor teamColor)
+        /// <summary>
+        /// Verify if game is not done
+        /// </summary>
+        /// <param name="myTeamColor">My team color</param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public bool IsCheckMate(TeamColor myTeamColor)
         {
-            var king = FindKing(teamColor);
-            var isCheck = IsCheck(teamColor);
-            if (!isCheck.Item1)
+            TeamColor checkedTeamColor;
+            switch (myTeamColor)
+            {
+                case TeamColor.White:
+                    checkedTeamColor = TeamColor.Black;
+                    break;
+                case TeamColor.Black:
+                    checkedTeamColor = TeamColor.White;
+                    break;
+                case TeamColor.None:
+                    return false;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(myTeamColor), myTeamColor, null);
+            }
+            var king = FindKing(checkedTeamColor);
+            var check = IsCheck(myTeamColor);
+            if (!check.Item1)
             {
                 return false;
             }
 
-            if (king.Position.PositionX + 1 < OrdinaryChessBoard.BoardSize)
+            if (CheckIfKingMayEscape(king, checkedTeamColor) || CheckIfAfterKillKingWillBeFree(check.Item2.Position, checkedTeamColor))
             {
-                var newKingPosition = _board.GetPositionAt(king.Position.PositionX + 1, king.Position.PositionY);
-                if (_moveValidator.CanMove(king, newKingPosition))
-                {
-                    IBoard newBoard = _board.Copy();
-                    newBoard.RemoveFigure(king.Position);
-                    King newKing = new King(newKingPosition, king.TeamColor);
-                    newBoard.SetFigure(newKing, newKingPosition);
-                }
+                return false;
             }
+
+            throw new NotImplementedException();
+            // another figure may block the way
         }
 
-        private List<Position.Position> GetPossibleKingMoves(Figure king)
+        private IEnumerable<(Figure, Position.Position)> FindPossibleBlockers(Figure culprit, Position.Position kingPosition, TeamColor teamColor)
+        {
+            if (culprit.FigureType ==  FigureType.Knight)
+            {
+                return new List<(Figure, Position.Position)>();
+            }
+
+            throw new NotImplementedException();
+        }
+
+        private IEnumerable<Position.Position> GetPathFromTo(Position.Position from, Position.Position to)
+        {
+            var vector = new Vector(from, to);
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Helper function to IsCheckMate
+        /// Verify if after killing there is not Check
+        /// </summary>
+        /// <param name="aimPosition">Position of figure which cause Check</param>
+        /// <param name="teamColor">Color of checked Team</param>
+        /// <returns></returns>
+        private bool CheckIfAfterKillKingWillBeFree(Position.Position aimPosition, TeamColor teamColor)
+        {
+            foreach (var possibleKiller in FindPossibleKillers(aimPosition, teamColor))
+            {
+                IBoard newBoard = _board.Copy();
+                newBoard.RemoveFigure(aimPosition);
+                newBoard.RemoveFigure(possibleKiller.Position);
+                Figure killer = new Pawn(aimPosition, teamColor);
+                newBoard.SetFigure(killer, aimPosition);
+                var newMoveResult = new MoveResult(newBoard, killer, possibleKiller.Position, aimPosition, null, _moveValidator);
+                if (!newMoveResult.IsCheck(teamColor).Item1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        
+        private IEnumerable<Figure> FindPossibleKillers(Position.Position destinationPosition,
+            TeamColor colorOfCheckedTeam)
+        {
+            List<Figure> killers = new List<Figure>(); 
+            for (int i = 0; i < OrdinaryChessBoard.BoardSize; i++)
+            {
+                for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
+                {
+                    var figure = _board.FigureAt(_board.GetPositionAt(i, j));
+                    if (figure != null && figure.TeamColor == colorOfCheckedTeam && figure.CanMove(destinationPosition) && _moveValidator.CanMove(figure,destinationPosition))
+                    {
+                        killers.Add(figure);
+                    }
+                }
+            }
+            return killers;
+        }
+        
+        /// <summary>
+        /// Helper function to IsCheckMate
+        /// Verify if Any of king possible move is not Check
+        /// </summary>
+        /// <param name="king"></param>
+        /// <param name="teamColor"></param>
+        /// <returns></returns>
+        private bool CheckIfKingMayEscape(Figure king, TeamColor teamColor)
+        {
+            foreach (var possibleKingMove in GetPossibleKingMoves(king))
+            {
+                IBoard newBoard = _board.Copy();
+                newBoard.RemoveFigure(king.Position);
+                King newKing = new King(possibleKingMove, king.TeamColor);
+                newBoard.SetFigure(newKing, possibleKingMove);
+                var newMoveResult = new MoveResult(newBoard, newKing, king.Position, possibleKingMove, null, _moveValidator);
+                if (!newMoveResult.IsCheck(teamColor).Item1)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Helper function to IsCheck Mate
+        /// Returns All Moves King may perform based on current board state
+        /// </summary>
+        /// <param name="king"></param>
+        /// <returns></returns>
+        private IEnumerable<Position.Position> GetPossibleKingMoves(Figure king)
         {
             List<Position.Position> output = new List<Position.Position>();
             Position.Position newKingPosition;

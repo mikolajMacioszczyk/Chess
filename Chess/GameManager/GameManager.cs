@@ -9,7 +9,7 @@ namespace Chess.GameManager
     {
         public static readonly int BoardSize = 8;
         private readonly IMoveValidator _moveValidator;
-        
+
         public bool CanMove(Figure figure, Position.Position position)
         {
             throw new System.NotImplementedException();
