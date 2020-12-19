@@ -1,14 +1,21 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/home/mikolaj/.cache/JetBrains/Rider2020.3/resharper-host/temp/Rider/vAny/CoverageData/_Chess.1894223151/Snapshot/snapshot.utdcvr</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a220d404_002Ded62_002D4ce9_002D8c9a_002Dbdc9ebfe9b04/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="GetScoreForTeam_AfterDeleteBlack_BottomLeftPawn_BlackTeam_ShouldBe_Minus30" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/home/mikolaj/RiderProjects/Chess/Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ece4ba11_002Df3e5_002D451d_002D9976_002D303a96c2cacf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="King_CanMove_TheSamePosition_ShouldReturnFalse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.FiguresUnitTests.Move.MoveUnitTests&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.BoardUnitTests.OrdinaryChessBoardUnitTests.GetScoreForTeam_AfterMovementBlack_BottomLeftPawnTwoFieldUp_WhiteTeam_ShouldBe_1&lt;/TestId&gt;
+    &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.BoardUnitTests.OrdinaryChessBoardUnitTests.GetScoreForTeam_AfterDeleteBlack_BottomLeftPawn_BlackTeam_ShouldBe_Minus30&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Or&gt;
     &lt;TestAncestor&gt;
       &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.FiguresUnitTests.Move.MoveUnitTests&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.BoardUnitTests.OrdinaryChessBoardUnitTests.DefaultConstructor_InitializationTest&lt;/TestId&gt;
+      &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.BoardUnitTests.OrdinaryChessBoardUnitTests&lt;/TestId&gt;
     &lt;/TestAncestor&gt;
     &lt;ProjectFile&gt;93493826-54FB-440B-B9C7-463863A51F65/d:FigurePositionWeightUnitTests/f:OrdinaryChessBoardFigurePositionWeightsUnitTests.cs&lt;/ProjectFile&gt;
   &lt;/Or&gt;

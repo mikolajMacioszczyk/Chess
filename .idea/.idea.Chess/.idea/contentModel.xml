@@ -19,6 +19,7 @@
         </e>
         <e p="Chess.csproj" t="IncludeRecursive" />
         <e p="Exceptions" t="Include">
+          <e p="ImplementationException.cs" t="Include" />
           <e p="InvalidPositionException.cs" t="Include" />
         </e>
         <e p="FigurePositionWeight" t="Include">
@@ -41,6 +42,13 @@
           <e p="GameManager.cs" t="Include" />
           <e p="IGameManager.cs" t="Include" />
         </e>
+        <e p="MoveResult" t="Include">
+          <e p="IMoveResult.cs" t="Include" />
+          <e p="MoveResult.cs" t="Include" />
+        </e>
+        <e p="MoveValidator" t="Include">
+          <e p="IMoveValidator.cs" t="Include" />
+        </e>
         <e p="Position" t="Include">
           <e p="Position.cs" t="Include" />
           <e p="Vector.cs" t="Include" />
@@ -58,6 +66,9 @@
         </e>
       </e>
       <e p="Chess.UnitTests" t="IncludeRecursive">
+        <e p="BoardUnitTests" t="Include">
+          <e p="OrdinaryChessBoardUnitTests.cs" t="Include" />
+        </e>
         <e p="Chess.UnitTests.csproj" t="IncludeRecursive" />
         <e p="FigurePositionWeightUnitTests" t="Include">
           <e p="OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" t="Include" />
@@ -77,6 +88,18 @@
         </e>
       </e>
       <e p="Chess.sln" t="IncludeFlat" />
+      <e p="PlayerComputerAI" t="IncludeRecursive">
+        <e p="Class1.cs" t="Include" />
+        <e p="PlayerComputerAI.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="PlayerComputerAI.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
       <e p="packages" t="ExcludeRecursive" />
     </e>
   </component>

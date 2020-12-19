@@ -13,6 +13,18 @@ namespace Chess.Board
         public static readonly int BoardSize = 8;
         private IFigurePositionWeight _weights = new OrdinaryChessBoardFigurePositionWeight();
         private Figure[][] _board;
+        
+        private static Position.Position[][] _positionsXY = new []
+        {
+            new []{new Position.Position(0,0), new Position.Position(1,0), new Position.Position(2,0), new Position.Position(3,0), new Position.Position(4,0), new Position.Position(5,0), new Position.Position(6,0), new Position.Position(7,0)},
+            new []{new Position.Position(0,1), new Position.Position(1,1), new Position.Position(2,1), new Position.Position(3,1), new Position.Position(4,1), new Position.Position(5,1), new Position.Position(6,1), new Position.Position(7,1)},
+            new []{new Position.Position(0,2), new Position.Position(1,2), new Position.Position(2,2), new Position.Position(3,2), new Position.Position(4,2), new Position.Position(5,2), new Position.Position(6,2), new Position.Position(7,2)},
+            new []{new Position.Position(0,3), new Position.Position(1,3), new Position.Position(2,3), new Position.Position(3,3), new Position.Position(4,3), new Position.Position(5,3), new Position.Position(6,3), new Position.Position(7,3)},
+            new []{new Position.Position(0,4), new Position.Position(1,4), new Position.Position(2,4), new Position.Position(3,4), new Position.Position(4,4), new Position.Position(5,4), new Position.Position(6,4), new Position.Position(7,4)},
+            new []{new Position.Position(0,5), new Position.Position(1,5), new Position.Position(2,5), new Position.Position(3,5), new Position.Position(4,5), new Position.Position(5,5), new Position.Position(6,5), new Position.Position(7,5)},
+            new []{new Position.Position(0,6), new Position.Position(1,6), new Position.Position(2,6), new Position.Position(3,6), new Position.Position(4,6), new Position.Position(5,6), new Position.Position(6,6), new Position.Position(7,6)},
+            new []{new Position.Position(0,7), new Position.Position(1,7), new Position.Position(2,7), new Position.Position(3,7), new Position.Position(4,7), new Position.Position(5,7), new Position.Position(6,7), new Position.Position(7,7)},
+        };
 
         public OrdinaryChessBoard(OrdinaryChessBoard other)
         {
@@ -21,6 +33,7 @@ namespace Chess.Board
             {
                 _board[i] = other._board[i].ToArray();
             }
+            
         }
 
         /// <summary>
@@ -93,6 +106,16 @@ namespace Chess.Board
             return _board[position.PositionY][position.PositionX];
         }
 
+        public Position.Position GetPositionAt(int x, int y)
+        {
+            return _positionsXY[x][y];
+        }
+
+        public IBoard Copy()
+        {
+            return new OrdinaryChessBoard(this);
+        }
+
         private void CheckPosition(Position.Position position)
         {
             if (position.PositionX < 0 || position.PositionX >= BoardSize
@@ -134,8 +157,8 @@ namespace Chess.Board
             _board[0][3] = new Queen(new Position.Position(0, 3), TeamColor.Black);
             _board[0][4] = new King(new Position.Position(0, 4), TeamColor.Black);
             
-            _board[BoardSize-1][4] = new Queen(new Position.Position(BoardSize-1, 4), TeamColor.White);
-            _board[BoardSize-1][3] = new King(new Position.Position(BoardSize-1, 3), TeamColor.White);
+            _board[BoardSize-1][3] = new Queen(new Position.Position(BoardSize-1, 3), TeamColor.White);
+            _board[BoardSize-1][4] = new King(new Position.Position(BoardSize-1, 4), TeamColor.White);
         }
         
         private void InitializeKnights()
