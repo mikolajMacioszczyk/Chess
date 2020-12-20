@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Building Game Manager">
-      <change afterPath="$PROJECT_DIR$/Chess.UnitTests/VectorUnitTests/VectorUnitTests.cs" afterDir="false" />
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Verification Check and CheckMat">
+      <change afterPath="$PROJECT_DIR$/Chess.UnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess.UnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Chess/MoveValidator/OrdinaryBoardMoveValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/MoveResult/MoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/MoveResult/MoveResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/Figure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/Figure.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Knight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Knight.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/MoveValidator/IMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/MoveValidator/IMoveValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Position/Vector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Position/Vector.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -17,23 +26,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/.local/share/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
       <option value="$PROJECT_DIR$/Chess/GameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Exceptions/InvalidPositionException.cs" />
       <option value="$PROJECT_DIR$/Chess/Figures/FigureType.cs" />
       <option value="$PROJECT_DIR$/Chess/Team/Color.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Knight.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" />
       <option value="$PROJECT_DIR$/Chess/Position/Position.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Board/IFigurePositionWeight.cs" />
       <option value="$PROJECT_DIR$/Chess/FigurePositionWeight/FigurePositionWeight.cs" />
-      <option value="$PROJECT_DIR$/Chess/Figures/Figure.cs" />
       <option value="$PROJECT_DIR$/Chess/FigurePositionWeight/OrdinaryChessBoardFigurePositionWeight.cs" />
       <option value="$PROJECT_DIR$/Chess/FigurePositionWeight/IFigurePositionWeight.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/FigurePositionWeightUnitTests/OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" />
@@ -43,14 +48,26 @@
       <option value="$PROJECT_DIR$/Chess/GameManager/IGameManager.cs" />
       <option value="$PROJECT_DIR$/PlayerComputerAI/Class1.cs" />
       <option value="$PROJECT_DIR$/Chess/Exceptions/ImplementationException.cs" />
-      <option value="$PROJECT_DIR$/Chess/MoveValidator/IMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess/MoveResult/IMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Board/IBoard.cs" />
       <option value="$PROJECT_DIR$/Chess/Board/OrdinaryChessBoard.cs" />
       <option value="$PROJECT_DIR$/Chess/GameManager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/MoveResult/MoveResult.cs" />
-      <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/VectorUnitTests/VectorUnitTests.cs" />
+      <option value="$PROJECT_DIR$/Chess/MoveValidator/MoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess/MoveValidator/IMoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/Figure.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Bishop.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/King.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Knight.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Pawn.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Queen.cs" />
+      <option value="$PROJECT_DIR$/Chess/Figures/FigureImplementation/Rook.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/MoveValidator/OrdinaryMoveValidatorUnitTests.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" />
+      <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
+      <option value="$PROJECT_DIR$/Chess/MoveValidator/OrdinaryBoardMoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -74,7 +91,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="f06e05c5-918c-4f91-9916-4e75e6c629e5" />
+  <component name="RunManager" selected="a220d404-ed62-4ce9-8c9a-bdc9ebfe9b04" />
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -85,7 +102,8 @@
       <updated>1608122749435</updated>
       <workItem from="1608122753935" duration="9374000" />
       <workItem from="1608227628547" duration="12109000" />
-      <workItem from="1608404482131" duration="11058000" />
+      <workItem from="1608404482131" duration="11377000" />
+      <workItem from="1608463690680" duration="12403000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -108,7 +126,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608410775353</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Verification Check and CheckMat">
+      <created>1608416754105</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1608416754105</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,7 +143,7 @@
     <option name="coveragePercentColumnWidth" value="150" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="233" />
+    <option name="symbolColumnWidth" value="312" />
     <coverage-tree-state>
       <expand />
       <select />
@@ -143,6 +168,7 @@
     <MESSAGE value="Initial commit" />
     <MESSAGE value="Board with Utilities" />
     <MESSAGE value="Building Game Manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="Building Game Manager" />
+    <MESSAGE value="Verification Check and CheckMat" />
+    <option name="LAST_COMMIT_MESSAGE" value="Verification Check and CheckMat" />
   </component>
 </project>

@@ -24,5 +24,10 @@ namespace Chess.Figures.FigureImplementation
             }
             return false;
         }
+
+        public override Figure Copy()
+        {
+            return new Queen(Position, TeamColor);
+        }
     }
 }

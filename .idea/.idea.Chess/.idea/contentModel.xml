@@ -48,6 +48,7 @@
         </e>
         <e p="MoveValidator" t="Include">
           <e p="IMoveValidator.cs" t="Include" />
+          <e p="OrdinaryBoardMoveValidator.cs" t="Include" />
         </e>
         <e p="Position" t="Include">
           <e p="Position.cs" t="Include" />
@@ -77,6 +78,12 @@
           <e p="Move" t="Include">
             <e p="MoveUnitTests.cs" t="Include" />
           </e>
+        </e>
+        <e p="MoveResultUnitTests" t="Include">
+          <e p="MoveResultUnitTests.cs" t="Include" />
+        </e>
+        <e p="MoveValidatorUnitTests" t="Include">
+          <e p="OrdinaryMoveValidatorUnitTests.cs" t="Include" />
         </e>
         <e p="VectorUnitTests" t="Include">
           <e p="VectorUnitTests.cs" t="Include" />

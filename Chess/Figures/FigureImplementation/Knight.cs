@@ -28,5 +28,10 @@ namespace Chess.Figures.FigureImplementation
             }
             return false;
         }
+
+        public override Figure Copy()
+        {
+            return new Knight(Position, TeamColor);
+        }
     }
 }

@@ -23,5 +23,10 @@ namespace Chess.Figures.FigureImplementation
             }
             return false;
         }
+
+        public override Figure Copy()
+        {
+            return new Rook(Position, TeamColor);
+        }
     }
 }

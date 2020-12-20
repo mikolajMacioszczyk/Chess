@@ -1,4 +1,3 @@
-using Chess.GameManager;
 using Chess.Position;
 using Chess.Team;
 
@@ -22,6 +21,11 @@ namespace Chess.Figures.FigureImplementation
                 return true;
             }
             return false;
+        }
+
+        public override Figure Copy()
+        {
+            return new King(Position, TeamColor);
         }
     }
 }

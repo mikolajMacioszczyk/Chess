@@ -33,6 +33,11 @@ namespace Chess.Figures.FigureImplementation
             return IsLegalVerticalMove(vector) || IsLegalDiagonalMove(vector);
         }
 
+        public override Figure Copy()
+        {
+            return new Pawn(Position, TeamColor);
+        }
+
         /// <summary>
         /// White Team may only go to lower values of Y
         /// Black Team opposite

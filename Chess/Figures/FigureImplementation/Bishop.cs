@@ -19,5 +19,10 @@ namespace Chess.Figures.FigureImplementation
             var vector = new Vector(Position, newPosition);
             return vector.IsDiagonal;
         }
+
+        public override Figure Copy()
+        {
+            return new Bishop(Position, TeamColor);
+        }
     }
 }

@@ -90,16 +90,16 @@ namespace Chess.Position
             List<Position> output = new List<Position>();
             if (DiffX > 0)
             {
-                for (int i = Start.PositionX + 1; i < End.PositionX; i++)
+                for (int i = 1; i < DiffX; i++)
                 {
-                    output.Add(new Position(i, i));
+                    output.Add(new Position(Start.PositionY+i, Start.PositionX+i));
                 }
             }
             else
             {
-                for (int i = Start.PositionX - 1; i > End.PositionX; i--)
+                for (int i = -DiffX-1; i > 0; i--)
                 {
-                    output.Add(new Position(i, i));
+                    output.Add(new Position(End.PositionY+i, End.PositionX+i));
                 }
             }
             return output;

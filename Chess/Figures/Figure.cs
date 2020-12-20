@@ -27,5 +27,6 @@ namespace Chess.Figures
             return oldPosition;
         }
         public abstract bool CanMove(Position.Position newPosition);
+        public abstract Figure Copy();
     }
 }
