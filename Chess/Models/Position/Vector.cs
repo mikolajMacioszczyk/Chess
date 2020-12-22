@@ -90,16 +90,36 @@ namespace Chess.Models.Position
             List<Models.Position.Position> output = new List<Models.Position.Position>();
             if (DiffX > 0)
             {
-                for (int i = 1; i < DiffX; i++)
+                if (DiffY > 0)
                 {
-                    output.Add(new Models.Position.Position(Start.PositionY+i, Start.PositionX+i));
+                    for (int i = 1; i < DiffX; i++)
+                    {
+                        output.Add(new Models.Position.Position(Start.PositionY+i, Start.PositionX+i));
+                    }
+                }
+                else
+                {
+                    for (int i = 1; i < DiffX; i++)
+                    {
+                        output.Add(new Models.Position.Position(Start.PositionY-i, Start.PositionX+i));
+                    }
                 }
             }
             else
             {
-                for (int i = -DiffX-1; i > 0; i--)
+                if (DiffY < 0)
                 {
-                    output.Add(new Models.Position.Position(End.PositionY+i, End.PositionX+i));
+                    for (int i = -DiffX-1; i > 0; i--)
+                    {
+                        output.Add(new Models.Position.Position(End.PositionY+i, End.PositionX+i));
+                    }
+                }
+                else
+                {
+                    for (int i = -DiffX-1; i > 0; i--)
+                    {
+                        output.Add(new Models.Position.Position(End.PositionY-i, End.PositionX+i));
+                    }
                 }
             }
             return output;

@@ -25,7 +25,7 @@ namespace Chess.Game.MoveValidator
         /// <param name="figure"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public bool CanMove(Figure figure, Models.Position.Position position)
+        public bool CanMove(Figure figure, Position position)
         {
             return VerifyPositionInBoundaries(position) &&
                    VerifyPositionNotTakenByAlly(figure.TeamColor, position) &&
@@ -33,7 +33,7 @@ namespace Chess.Game.MoveValidator
                    VerifyPawnMove(figure, position);
         }
 
-        private bool VerifyPositionInBoundaries(Models.Position.Position position)
+        private bool VerifyPositionInBoundaries(Position position)
         {
             if (position.PositionX < 0 || 
                 position.PositionY < 0 || 
@@ -45,13 +45,13 @@ namespace Chess.Game.MoveValidator
             return true;
         }
 
-        private bool VerifyPositionNotTakenByAlly(TeamColor myTeamColor, Models.Position.Position destinationPosition)
+        private bool VerifyPositionNotTakenByAlly(TeamColor myTeamColor, Position destinationPosition)
         {
             var figure = _board.GetFigureAtPosition(destinationPosition);
             return figure == null || figure.TeamColor != myTeamColor;
         }
         
-        private bool VerifyOtherFiguresNotBlockMove(Figure figure, Models.Position.Position destinationPosition)
+        private bool VerifyOtherFiguresNotBlockMove(Figure figure, Position destinationPosition)
         {
             if (figure.FigureType == FigureType.Knight)
             {
@@ -69,7 +69,7 @@ namespace Chess.Game.MoveValidator
             return true;
         }
 
-        private bool VerifyPawnMove(Figure figure, Models.Position.Position position)
+        private bool VerifyPawnMove(Figure figure, Position position)
         {
             if (figure.FigureType != FigureType.Pawn)
             {

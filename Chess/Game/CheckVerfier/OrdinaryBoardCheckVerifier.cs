@@ -29,19 +29,19 @@ namespace Chess.Game.CheckVerfier
         }
 
         
-        public bool IsCheck(TeamColor myTeamColor)
+        public bool IsCheck(TeamColor checkedTeam)
         {
-            if (_isCheck.HasValue && _teamColor == myTeamColor)
+            if (_isCheck.HasValue && _teamColor == checkedTeam)
             {
                 return _isCheck.Value;
             }
             
-            var king = FindKing(myTeamColor);
+            var king = FindKing(checkedTeam);
 
             Figure figureCausingCheck = FindFigureCausingCheck(king);
             if (figureCausingCheck != null)
             {
-                SetState(true,figureCausingCheck, myTeamColor);
+                SetState(true,figureCausingCheck, checkedTeam);
                 return true;
             }
             SetState(false,null, TeamColor.None);
@@ -54,8 +54,11 @@ namespace Chess.Game.CheckVerfier
             {
                 for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
                 {
-                    var figure = _board.FigureAt(_board.GetPositionAt(i, j));
-                    if (figure != null && figure.CanMove(king.Position) && _moveValidator.CanMove(figure, king.Position))
+                    var figure = _board.FigureAt(_board.GetPositionAt(j, i));
+                    if (figure != null 
+                        && figure.TeamColor != king.TeamColor 
+                        && figure.CanMove(king.Position) 
+                        && _moveValidator.CanMove(figure, king.Position))
                     {
                         return figure;
                     }
@@ -71,14 +74,14 @@ namespace Chess.Game.CheckVerfier
             _teamColor = teamColor;
         }
 
-        private Figure FindKing(TeamColor otherTeamColor)
+        private Figure FindKing(TeamColor kingTeamColor)
         {
             for (int i = 0; i < OrdinaryChessBoard.BoardSize; i++)
             {
                 for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
                 {
                     var figure = _board.FigureAt(_board.GetPositionAt(i, j));
-                    if (figure != null && figure.FigureType == FigureType.King && figure.TeamColor != otherTeamColor)
+                    if (figure != null && figure.FigureType == FigureType.King && figure.TeamColor == kingTeamColor)
                     {
                         return figure;
                     }

@@ -7,8 +7,8 @@ namespace Chess.Game.CheckVerfier
     public interface ICheckVerifier
     {
         void SetBoard(IBoard board);
-        bool IsCheck(TeamColor teamColor);
-        Figure FigureCausingCheck(TeamColor teamColor);
+        bool IsCheck(TeamColor checkedTeam);
+        Figure FigureCausingCheck(TeamColor checkedTeam);
         bool VerifyMoveCauseCheck(Models.Position.Position from, Models.Position.Position destination);
     }
 }

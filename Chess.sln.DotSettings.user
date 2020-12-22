@@ -7,5 +7,10 @@
   &lt;Project Location="C:\Projects\C#\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
-  &lt;Project Location="C:\Projects\C#\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
+  &lt;Or&gt;&#xD;
+    &lt;Project Location="C:\Projects\C#\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
+    &lt;TestAncestor&gt;&#xD;
+      &lt;TestId&gt;NUnit3x::93493826-54FB-440B-B9C7-463863A51F65::.NETCoreApp,Version=v3.1::Chess.UnitTests.GameUnitTests.CheckVerifierUnitTests.OrdinaryBoardCheckVerifierUnitTests&lt;/TestId&gt;&#xD;
+    &lt;/TestAncestor&gt;&#xD;
+  &lt;/Or&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
