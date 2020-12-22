@@ -17,4 +17,9 @@
       <ProjectReference Include="..\Chess\Chess.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="GameUnitTests" />
+      <Folder Include="ModelsUnitTests" />
+    </ItemGroup>
+
 </Project>
