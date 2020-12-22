@@ -1,5 +1,6 @@
 using Chess.Game.Team;
 using Chess.Models.Figures;
+using Chess.Models.Figures.FigureImplementation;
 
 namespace Chess.Models.Board
 {
@@ -33,5 +34,6 @@ namespace Chess.Models.Board
         public Models.Position.Position GetPositionAt(int x, int y);
 
         IBoard Copy();
+        King GetKing(TeamColor kingTeamColor);
     }
 }

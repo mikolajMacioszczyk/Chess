@@ -114,6 +114,22 @@ namespace Chess.Models.Board
         {
             return new OrdinaryChessBoard(this);
         }
+        
+        public King GetKing(TeamColor kingTeamColor)
+        {
+            for (int i = 0; i < BoardSize; i++)
+            {
+                for (int j = 0; j < BoardSize; j++)
+                {
+                    var figure = _board[i][j];
+                    if (figure != null && figure.FigureType == FigureType.King && figure.TeamColor == kingTeamColor)
+                    {
+                        return (King)figure;
+                    }
+                }
+            }
+            throw new ImplementationException("King not found");
+        }
 
         private void CheckPosition(Models.Position.Position position)
         {
