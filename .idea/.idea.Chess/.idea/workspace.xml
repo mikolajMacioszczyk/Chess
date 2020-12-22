@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Hierarchy changes">
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Fix Vector Bug">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/ICheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/ICheckVerifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +14,10 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://C:/Projects/C#/Chess/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -36,7 +39,6 @@
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/Team/TeamColor.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Position/Position.cs" />
-      <option value="$PROJECT_DIR$/Chess/Models/Position/Vector.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/VectorUnitTests/VectorUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureType.cs" />
@@ -50,7 +52,6 @@
       <option value="$PROJECT_DIR$/Chess.UnitTests/FigurePositionWeightUnitTests/OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/BoardUnitTests/OrdinaryChessBoardUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/GameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/FigurePositionWeight/OrdinaryChessBoardFigurePositionWeight.cs" />
       <option value="$PROJECT_DIR$/Chess/Board/OrdinaryChessBoard.cs" />
@@ -67,8 +68,10 @@
       <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess/Exceptions/InvalidBoardActionException/InvalidMoveException.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/ICheckVerifier.cs" />
-      <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Position/Vector.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -108,7 +111,7 @@
       <workItem from="1608594235846" duration="186000" />
       <workItem from="1608594484315" duration="88000" />
       <workItem from="1608649133368" duration="3675000" />
-      <workItem from="1608656134710" duration="2160000" />
+      <workItem from="1608656134710" duration="5689000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -145,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608655703122</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix Vector Bug">
+      <created>1608659641231</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1608659641231</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,38 +192,7 @@
     <MESSAGE value="Building Game Manager" />
     <MESSAGE value="Verification Check and CheckMat" />
     <MESSAGE value="Hierarchy changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Hierarchy changes" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs</url>
-          <line>51</line>
-          <properties documentPath="C:\Projects\C#\Chess\Chess\Game\CheckVerfier\OrdinaryBoardCheckVerifier.cs" initialLine="51" containingFunctionPresentation="method 'FindFigureCausingCheck'">
-            <startOffsets>
-              <option value="1512" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1513" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs</url>
-          <line>53</line>
-          <properties documentPath="C:\Projects\C#\Chess\Chess\Game\CheckVerfier\OrdinaryBoardCheckVerifier.cs" initialLine="53" containingFunctionPresentation="method 'FindFigureCausingCheck'">
-            <startOffsets>
-              <option value="1593" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1594" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Fix Vector Bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Vector Bug" />
   </component>
 </project>

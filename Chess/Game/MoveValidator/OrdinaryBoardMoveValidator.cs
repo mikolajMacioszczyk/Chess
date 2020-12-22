@@ -58,7 +58,7 @@ namespace Chess.Game.MoveValidator
                 return true;
             }
             var vector = new Vector(figure.Position, destinationPosition);
-            IEnumerable<Models.Position.Position> path = vector.GetPath();
+            IEnumerable<Position> path = vector.GetPath();
             foreach (var position in path)
             {
                 if (_board.FigureAt(position) != null)

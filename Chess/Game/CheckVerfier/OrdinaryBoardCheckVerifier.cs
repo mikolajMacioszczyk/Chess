@@ -54,7 +54,7 @@ namespace Chess.Game.CheckVerfier
             {
                 for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
                 {
-                    var figure = _board.FigureAt(_board.GetPositionAt(j, i));
+                    var figure = _board.FigureAt(_board.GetPositionAt(j,i));
                     if (figure != null 
                         && figure.TeamColor != king.TeamColor 
                         && figure.CanMove(king.Position) 
@@ -111,6 +111,11 @@ namespace Chess.Game.CheckVerfier
             if (figure == null)
             {
                 throw new RemoveFromBoardEmptyFieldException(from);
+            }
+
+            if (!figure.CanMove(destination))
+            {
+                throw new InvalidMoveException(from, destination, figure);
             }
 
             if (_moveValidator.CanMove(figure, destination))
