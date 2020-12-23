@@ -9,9 +9,6 @@ using NUnit.Framework;
 
 namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
 {
-    /// <summary>
-    /// IsCheckMate
-    /// </summary>
     [TestFixture]
     public class MoveResultUnitTests
     {
@@ -441,7 +438,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              board.SetFigure(whiteKnight, whiteKnightSecondHopPosition);
              board.RemoveFigure(whiteKnightSecondHopPosition);
              whiteKnight.Move(whiteKnightEndPosition);
-             board.SetFigure(whiteKnight, blackPawnEndPosition);
+             board.SetFigure(whiteKnight, whiteKnightEndPosition);
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
@@ -519,16 +516,22 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
 
              var blackPawn1StartPosition = new Position(1, 5);
              var blackPawn1EndPosition = new Position(2, 5);
-             var blackPawn2StartPosition = new Position(1, 5);
-             var blackPawn2EndPosition = new Position(2, 5);
-             
+             var blackPawn2StartPosition = new Position(1, 6);
+             var blackPawn2EndPosition = new Position(3, 6);
+             var whitePawnStartPosition = new Position(6, 4);
+             var whitePawnEndPosition = new Position(4, 4);
+             var whiteQueenStartPosition = new Position(7, 3);
+             var whiteQueenEndPosition = new Position(3, 7);
 
-             var blackPawn1 = board.RemoveFigure(blackPawnStartPosition);
-             blackPawn1.Move(blackPawnEndPosition);
-             board.SetFigure(blackPawn1,blackPawnEndPosition);
+             var blackPawn1 = board.RemoveFigure(blackPawn1StartPosition);
+             blackPawn1.Move(blackPawn1EndPosition);
+             board.SetFigure(blackPawn1,blackPawn1EndPosition);
              var whitePawn = board.RemoveFigure(whitePawnStartPosition);
              whitePawn.Move(whitePawnEndPosition);
              board.SetFigure(whitePawn,whitePawnEndPosition);
+             var blackPawn2 = board.RemoveFigure(blackPawn2StartPosition);
+             blackPawn2.Move(blackPawn2EndPosition);
+             board.SetFigure(blackPawn2,blackPawn2EndPosition);
              var whiteQueen = board.RemoveFigure(whiteQueenStartPosition);
              whiteQueen.Move(whiteQueenEndPosition);
              board.SetFigure(whiteQueen,whiteQueenEndPosition);
@@ -558,7 +561,51 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          [Test]
          public void IsCheckMate_CheckMateWhiteTeam()
          {
-            
+            // arrange
+             var board = new OrdinaryChessBoard();
+
+             var whitePawn1StartPosition = new Position(6, 5);
+             var whitePawn1EndPosition = new Position(5, 5);
+             var whitePawn2StartPosition = new Position(6, 6);
+             var whitePawn2EndPosition = new Position(4, 6);
+             var blackPawnStartPosition = new Position(1, 4);
+             var blackPawnEndPosition = new Position(3, 4);
+             var blackQueenStartPosition = new Position(0, 3);
+             var blackQueenEndPosition = new Position(4, 7);
+
+             var whitePawn1 = board.RemoveFigure(whitePawn1StartPosition);
+             whitePawn1.Move(whitePawn1EndPosition);
+             board.SetFigure(whitePawn1,whitePawn1EndPosition);
+             var blackPawn = board.RemoveFigure(blackPawnStartPosition);
+             blackPawn.Move(blackPawnEndPosition);
+             board.SetFigure(blackPawn,blackPawnEndPosition);
+             var whitePawn2 = board.RemoveFigure(whitePawn2StartPosition);
+             whitePawn2.Move(whitePawn2EndPosition);
+             board.SetFigure(whitePawn2,whitePawn2EndPosition);
+             var blackQueen = board.RemoveFigure(blackQueenStartPosition);
+             blackQueen.Move(blackQueenEndPosition);
+             board.SetFigure(blackQueen,blackQueenEndPosition);
+             
+             var validator = new OrdinaryBoardMoveValidator(board);
+             var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var moveResult =
+                 new MoveResult(board, verifier, blackQueen, 
+                     blackQueenStartPosition, blackPawnEndPosition, null, validator);
+
+             var team1 = TeamColor.Black;
+             var team2 = TeamColor.White;
+             // act
+
+             var result1 = moveResult.IsCheck(team1);
+             var result2 = moveResult.IsCheck(team2);
+             var result3 = moveResult.IsCheckMate(team1);
+             var result4 = moveResult.IsCheckMate(team2);
+
+             // assert
+             Assert.False(result1);
+             Assert.True(result2);
+             Assert.False(result3);
+             Assert.True(result4);
          }
     }
 }

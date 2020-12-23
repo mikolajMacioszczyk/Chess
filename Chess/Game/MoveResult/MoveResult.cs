@@ -69,10 +69,6 @@ namespace Chess.Game.MoveResult
         public bool IsCheckMate(TeamColor myTeamColor)
         {
             var king = _board.GetKing(myTeamColor);
-            if (!IsCheck(myTeamColor))
-            {
-                return false;
-            }
 
             if (!IsCheck(myTeamColor) ||
                 VerifyIfKingMayEscape(king, myTeamColor) || 
@@ -94,7 +90,7 @@ namespace Chess.Game.MoveResult
                 var figureAtEndPos = copyBoard.RemoveFigure(figureAndPos.Item2);
                 blocker.Move(figureAndPos.Item2);
                 copyBoard.SetFigure(blocker, figureAndPos.Item2);
-                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(_board));
+                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
                 if (!verifier.IsCheck(teamColor))
                 {
                     blocker.Move(startPosition);
@@ -155,7 +151,7 @@ namespace Chess.Game.MoveResult
                 var killer = copyBoard.RemoveFigure(startPosition);
                 killer.Move(aimPosition);
                 copyBoard.SetFigure(killer, aimPosition);
-                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(_board));
+                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
                 if (!verifier.IsCheck(teamColor))
                 {
                     killer.Move(startPosition);
@@ -174,7 +170,7 @@ namespace Chess.Game.MoveResult
             {
                 for (int j = 0; j < OrdinaryChessBoard.BoardSize; j++)
                 {
-                    var figure = _board.FigureAt(_board.GetPositionAt(i, j));
+                    var figure = _board.FigureAt(_board.GetPositionAt(j, i));
                     if (figure != null && 
                         figure.TeamColor == colorOfCheckedTeam && 
                         figure.CanMove(destinationPosition) && 
@@ -200,6 +196,7 @@ namespace Chess.Game.MoveResult
             foreach (var possibleKingMove in GetPossibleKingMoves(king))
             {
                 King newKing = new King(possibleKingMove, king.TeamColor);
+                copyBoard.RemoveFigure(king.Position);
                 var figureAtKingMove = copyBoard.RemoveFigure(possibleKingMove);
                 copyBoard.SetFigure(newKing, possibleKingMove);
                 var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
