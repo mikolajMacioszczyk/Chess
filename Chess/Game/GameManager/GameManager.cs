@@ -1,55 +1,72 @@
+using System;
+using Chess.Exceptions.InvalidBoardActionException;
+using Chess.Game.CheckVerfier;
 using Chess.Game.MoveResult;
 using Chess.Game.MoveValidator;
 using Chess.Game.Team;
 using Chess.Models.Board;
-using Chess.Models.Figures;
+using Chess.Models.Position;
+using Chess.ViewModels.LastMoveViewModel;
 
 namespace Chess.Game.GameManager
 {
     public class GameManager : IGameManager
     {
-        public static readonly int BoardSize = 8;
         private readonly IMoveValidator _moveValidator;
+        private readonly ICheckVerifier _verifier;
         private IBoard _board;
 
-        public GameManager(IMoveValidator moveValidator)
+        public GameManager()
         {
-            _moveValidator = moveValidator;
             _board = new OrdinaryChessBoard();
+            _moveValidator = new OrdinaryBoardMoveValidator(_board);
+            _verifier = new OrdinaryBoardCheckVerifier(_board, _moveValidator);
         }
 
-        public bool CanMove(Figure figure, Models.Position.Position position)
+        public bool CanMove(Position from, Position destination)
         {
-            if (!_moveValidator.CanMove(figure, position))
+            var figure = _board.GetFigureAtPosition(from);
+            if (figure == null)
+            {
+                throw new NullReferenceException();
+            }
+            if (!figure.CanMove(destination) || !_moveValidator.CanMove(figure,destination))
             {
                 return false;
             }
-            throw new System.NotImplementedException();
+            return !_verifier.VerifyMoveCauseCheck(figure.Position, destination);
         }
 
-        public IMoveResult Move(Figure figure, Models.Position.Position position)
+        public IMoveResult Move(Position @from, Position destination)
         {
-            throw new System.NotImplementedException();
+            var figure = _board.GetFigureAtPosition(from);
+            if (CanMove(from,destination))
+            {
+                _board.RemoveFigure(from);
+                var killed = _board.RemoveFigure(destination);
+                figure.Move(destination);
+                _board.SetFigure(figure, destination);
+                var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
+                return new MoveResult.MoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
+            }
+            throw new InvalidMoveException(from, destination, figure);
         }
 
-        public bool IsEnemyAtPosition(Models.Position.Position position, TeamColor myTeamColor)
+        public bool IsEnemyAtPosition(Position position, TeamColor myTeamColor)
         {
-            throw new System.NotImplementedException();
+            var figure = _board.GetFigureAtPosition(position);
+            return figure != null && figure.TeamColor != myTeamColor;
         }
 
-        public bool IsAllyAtPosition(Models.Position.Position position, TeamColor myTeamColor)
+        public bool IsAllyAtPosition(Position position, TeamColor myTeamColor)
         {
-            throw new System.NotImplementedException();
+            var figure = _board.GetFigureAtPosition(position);
+            return figure != null && figure.TeamColor == myTeamColor;
         }
 
-        public bool IsPositionFree(Models.Position.Position position)
+        public bool IsPositionFree(Position position)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public int GetCurrentScore()
-        {
-            throw new System.NotImplementedException();
+            return _board.GetFigureAtPosition(position) == null;
         }
     }
 }

@@ -1,5 +1,6 @@
 using Chess.Game.Team;
 using Chess.Models.Figures;
+using Chess.ViewModels.BoardViewModel;
 
 namespace Chess.Game.MoveResult
 {
@@ -12,5 +13,6 @@ namespace Chess.Game.MoveResult
         (Figure, Models.Position.Position, Models.Position.Position) LastMoveFigureAndPositionFromAndDest();
         bool IsLastMoveSmash();
         Figure SmashedFigure();
+        BoardViewModel GetBoard();
     }
 }

@@ -1,10 +1,10 @@
-using System;
 using Chess.Game.CheckVerfier;
 using Chess.Game.MoveResult;
 using Chess.Game.MoveValidator;
 using Chess.Game.Team;
 using Chess.Models.Board;
 using Chess.Models.Position;
+using Chess.ViewModels.LastMoveViewModel;
 using NUnit.Framework;
 
 namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
@@ -26,8 +26,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              pawn.Move(endPawnPosition);
              var validator = new OrdinaryBoardMoveValidator(startingBoard);
              var verifier = new OrdinaryBoardCheckVerifier(startingBoard, validator);
+             var lastMoveVm = new LastMoveViewModel(pawn, startPawnPosition, endPawnPosition, null);
              var moveResult =
-                 new MoveResult(startingBoard, verifier, pawn, startPawnPosition, endPawnPosition, null, null);
+                 new MoveResult(startingBoard, verifier,null, lastMoveVm);
              
              int expectedScore = -1;
              // act
@@ -51,7 +52,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              board.SetFigure(pawn, endPawnPosition);
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, pawn,startPawnPosition,endPawnPosition,null, null);
+             var lastMoveVm = new LastMoveViewModel(pawn, startPawnPosition, endPawnPosition, null);
+             var moveResult = new MoveResult(board, verifier,null, lastMoveVm);
              
              int expectedScore = 1;
              // act
@@ -87,8 +89,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
 
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, blackPawn, oneHopBlackPawnPosition,
-                 oneHopWhitePawnPosition, whitePawn, null);
+             var lastMoveVm =
+                 new LastMoveViewModel(blackPawn, oneHopBlackPawnPosition, oneHopWhitePawnPosition, whitePawn);
+             var moveResult = new MoveResult(board, verifier, null, lastMoveVm);
              
              int expectedScore = 19;
              
@@ -125,9 +128,10 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             
-             var moveResult = new MoveResult(board, verifier, blackPawn, oneHopBlackPawnPosition,
-                 oneHopWhitePawnPosition, whitePawn, null);
+
+             var lastMoveVm =
+                 new LastMoveViewModel(blackPawn, oneHopBlackPawnPosition, oneHopWhitePawnPosition, whitePawn);
+             var moveResult = new MoveResult(board, verifier, null, lastMoveVm);
              
              int expectedScore = -19;
              
@@ -143,7 +147,6 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -164,8 +167,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, blackPawn, oneHopBlackPawnPosition,
-                 oneHopWhitePawnPosition, whitePawn, null);
+             var lastMoveVm =
+                 new LastMoveViewModel(blackPawn, oneHopBlackPawnPosition, oneHopWhitePawnPosition, whitePawn);
+             var moveResult = new MoveResult(board, verifier,null, lastMoveVm);
              
              // act
              var result = moveResult.IsLastMoveSmash(); 
@@ -179,7 +183,6 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -195,8 +198,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
 
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, whitePawn, startWhitePawnPosition,
-                 oneHopWhitePawnPosition, null, null);
+             var lastMoveVm = new LastMoveViewModel(whitePawn, startWhitePawnPosition, oneHopWhitePawnPosition, null);
+             var moveResult = new MoveResult(board, verifier,null, lastMoveVm);
              
              // act
              var result = moveResult.IsLastMoveSmash(); 
@@ -210,7 +213,6 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -231,8 +233,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, blackPawn, oneHopBlackPawnPosition,
-                 oneHopWhitePawnPosition, whitePawn, null);
+             var lastMoveVm =
+                 new LastMoveViewModel(blackPawn, oneHopBlackPawnPosition, oneHopWhitePawnPosition, whitePawn);
+             var moveResult = new MoveResult(board, verifier, null, lastMoveVm);
 
              var expected = whitePawn;
              
@@ -250,7 +253,6 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -271,8 +273,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, blackPawn, oneHopBlackPawnPosition,
-                 oneHopWhitePawnPosition, whitePawn, null);
+             var lastMoveVm =
+                 new LastMoveViewModel(blackPawn, oneHopBlackPawnPosition, oneHopWhitePawnPosition, whitePawn);
+             var moveResult = new MoveResult(board, verifier, null, lastMoveVm);
 
              var expectedLastMoveFigure = blackPawn;
              var expectedLastMovePositionFrom = oneHopBlackPawnPosition;
@@ -292,7 +295,6 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -308,8 +310,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-             var moveResult = new MoveResult(board, verifier, whitePawn, startWhitePawnPosition,
-                 oneHopWhitePawnPosition, null, null);
+             var lastMoveVm = new LastMoveViewModel(whitePawn, startWhitePawnPosition, oneHopWhitePawnPosition, null);
+             var moveResult = new MoveResult(board, verifier, null, lastMoveVm);
 
              var expectedLastMoveFigure = whitePawn;
              var expectedLastMovePositionFrom = startWhitePawnPosition;
@@ -339,9 +341,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm = new LastMoveViewModel(pawn, pawnStartPosition, pawnEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, pawn, 
-                     pawnStartPosition, pawnEndPosition, null, validator);
+                 new MoveResult(board, verifier, validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;
@@ -389,9 +391,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm = new LastMoveViewModel(whiteQueen, whiteQueenStartPosition, whiteQueenEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, whiteQueen, 
-                     whiteQueenStartPosition, whiteQueenEndPosition, null, validator);
+                 new MoveResult(board, verifier, validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;
@@ -442,9 +444,10 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm =
+                 new LastMoveViewModel(whiteKnight, whiteKnightSecondHopPosition, whiteKnightEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, whiteKnight, 
-                     whiteKnightSecondHopPosition, whiteKnightEndPosition, null, validator);
+                 new MoveResult(board, verifier, validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;
@@ -488,9 +491,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm = new LastMoveViewModel(whiteQueen, whiteQueenStartPosition, whitePawnEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, whiteQueen, 
-                     whiteQueenStartPosition, whiteQueenEndPosition, null, validator);
+                 new MoveResult(board, verifier, validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;
@@ -538,9 +541,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm = new LastMoveViewModel(whiteQueen, whiteQueenStartPosition, whitePawnEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, whiteQueen, 
-                     whiteQueenStartPosition, whiteQueenEndPosition, null, validator);
+                 new MoveResult(board, verifier,validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;
@@ -588,9 +591,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              
              var validator = new OrdinaryBoardMoveValidator(board);
              var verifier = new OrdinaryBoardCheckVerifier(board, validator);
+             var lastMoveVm = new LastMoveViewModel(blackQueen, blackQueenStartPosition, blackPawnEndPosition, null);
              var moveResult =
-                 new MoveResult(board, verifier, blackQueen, 
-                     blackQueenStartPosition, blackPawnEndPosition, null, validator);
+                 new MoveResult(board, verifier, validator, lastMoveVm);
 
              var team1 = TeamColor.Black;
              var team2 = TeamColor.White;

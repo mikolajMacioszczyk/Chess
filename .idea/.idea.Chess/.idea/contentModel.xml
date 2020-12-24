@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Projects\C#\Chess" t="IncludeFlat">
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.cache/JetBrains/Rider2020.3/resharper-host/local/Transient/Rider/v203/SolutionCaches/_Chess.1894223151.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+    <e p="$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/16.5.0/build/netcoreapp2.1" t="Include">
+      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
+    </e>
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/NUnit3.TestAdapter.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/NUnit3.TestAdapter.pdb" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.api.dll" t="Include" />
+    <e p="$USER_HOME$/.nuget/packages/nunit3testadapter/3.16.1/build/netcoreapp2.1/nunit.engine.dll" t="Include" />
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Chess" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
         <e p="Chess.csproj" t="IncludeRecursive" />
         <e p="Exceptions" t="Include">
           <e p="ImplementationException.cs" t="Include" />
@@ -61,6 +70,15 @@
             <e p="Vector.cs" t="Include" />
           </e>
         </e>
+        <e p="ViewModels" t="Include">
+          <e p="BoardViewModel" t="Include">
+            <e p="BoardViewModel.cs" t="Include" />
+          </e>
+          <e p="LastMoveViewModel" t="Include">
+            <e p="LastMoveViewModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -69,13 +87,27 @@
           </e>
         </e>
       </e>
-      <e p="Chess.sln" t="IncludeFlat" />
-      <e p="Chess.UnitTests" t="IncludeRecursive">
+      <e p="Chess.ConsoleApp" t="IncludeRecursive">
+        <e p="Chess.ConsoleApp.csproj" t="IncludeRecursive" />
+        <e p="ConsoleInteraction.cs" t="Include" />
+        <e p="Program.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="Chess.ConsoleApp.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="Chess.UnitTests" t="IncludeRecursive">
         <e p="Chess.UnitTests.csproj" t="IncludeRecursive" />
         <e p="GameUnitTests" t="Include">
           <e p="CheckVerifierUnitTests" t="Include">
             <e p="OrdinaryBoardCheckVerifierUnitTests.cs" t="Include" />
+          </e>
+          <e p="GameManagerUnitTests" t="Include">
+            <e p="GameManagerUnitTests.cs" t="Include" />
           </e>
           <e p="MoveResultUnitTests" t="Include">
             <e p="MoveResultUnitTests.cs" t="Include" />
@@ -100,6 +132,7 @@
             <e p="VectorUnitTests.cs" t="Include" />
           </e>
         </e>
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -108,10 +141,11 @@
           </e>
         </e>
       </e>
-      <e p="packages" t="ExcludeRecursive" />
+      <e p="Chess.sln" t="IncludeFlat" />
       <e p="PlayerComputerAI" t="IncludeRecursive">
-        <e p="bin" t="ExcludeRecursive" />
         <e p="Class1.cs" t="Include" />
+        <e p="PlayerComputerAI.csproj" t="IncludeRecursive" />
+        <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -119,19 +153,8 @@
             </e>
           </e>
         </e>
-        <e p="PlayerComputerAI.csproj" t="IncludeRecursive" />
       </e>
+      <e p="packages" t="ExcludeRecursive" />
     </e>
-    <e p="C:\Users\Mikolaj\.nuget\packages\microsoft.net.test.sdk\16.5.0\build\netcoreapp2.1" t="Include">
-      <e p="Microsoft.NET.Test.Sdk.Program.cs" t="Include" />
-    </e>
-    <e p="C:\Users\Mikolaj\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.dll" t="Include" />
-    <e p="C:\Users\Mikolaj\.nuget\packages\microsoft.testplatform.testhost\16.5.0\build\netcoreapp2.1\x64\testhost.exe" t="Include" />
-    <e p="C:\Users\Mikolaj\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.api.dll" t="Include" />
-    <e p="C:\Users\Mikolaj\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\nunit.engine.dll" t="Include" />
-    <e p="C:\Users\Mikolaj\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.dll" t="Include" />
-    <e p="C:\Users\Mikolaj\.nuget\packages\nunit3testadapter\3.16.1\build\netcoreapp2.1\NUnit3.TestAdapter.pdb" t="Include" />
-    <e p="C:\Users\Mikolaj\AppData\local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Mikolaj\AppData\local\JetBrains\Rider2020.3\resharper-host\local\Transient\Rider\v203\SolutionCaches\_Chess.1270037759.00" t="ExcludeRecursive" />
   </component>
 </project>

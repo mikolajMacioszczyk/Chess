@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Chess.Exceptions;
 using Chess.Game.CheckVerfier;
 using Chess.Game.MoveValidator;
 using Chess.Game.Team;
@@ -8,8 +7,8 @@ using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Figures.FigureImplementation;
 using Chess.Models.Position;
-
-// Tests!!!
+using Chess.ViewModels.BoardViewModel;
+using Chess.ViewModels.LastMoveViewModel;
 
 namespace Chess.Game.MoveResult
 {
@@ -18,27 +17,18 @@ namespace Chess.Game.MoveResult
         private readonly IBoard _board;
         private readonly ICheckVerifier _verifier;
         private readonly IMoveValidator _moveValidator;
-        private readonly Position _lastMovePosisionFrom;
-        private readonly Position _lastMovePosisionDest;
-        private readonly Figure _lastMoveFigureMoved;
-        private readonly Figure _lastMoveFigureSmashed;
+        private readonly LastMoveViewModel _lastMove;
         
         public MoveResult(
             IBoard board, 
             ICheckVerifier verifier,
-            Figure lastMoveFigureMoved,
-            Position lastMovePosisionFrom, 
-            Position lastMovePosisionDest,
-            Figure lastMoveFigureSmashed,
-            IMoveValidator moveValidator)
+            IMoveValidator moveValidator, 
+            LastMoveViewModel lastMove)
         {
-            _board = board;
+            _board = board; 
             _verifier = verifier;
-            _lastMoveFigureMoved = lastMoveFigureMoved;
-            _lastMovePosisionFrom = lastMovePosisionFrom;
-            _lastMovePosisionDest = lastMovePosisionDest;
-            _lastMoveFigureSmashed = lastMoveFigureSmashed;
             _moveValidator = moveValidator;
+            _lastMove = lastMove;
         }
 
         /// <summary>
@@ -83,6 +73,8 @@ namespace Chess.Game.MoveResult
         private bool VerifyIfOtherFigureMayBlock(Figure culprit, Position kingPosition,TeamColor teamColor)
         {
             IBoard copyBoard = _board.Copy();
+            var validator = new OrdinaryBoardMoveValidator(copyBoard);
+            var verifier = new OrdinaryBoardCheckVerifier(copyBoard, validator);
             foreach (var figureAndPos in FindPossibleBlockers(culprit, kingPosition, teamColor))
             {
                 var startPosition = figureAndPos.Item1.Position;
@@ -90,7 +82,6 @@ namespace Chess.Game.MoveResult
                 var figureAtEndPos = copyBoard.RemoveFigure(figureAndPos.Item2);
                 blocker.Move(figureAndPos.Item2);
                 copyBoard.SetFigure(blocker, figureAndPos.Item2);
-                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
                 if (!verifier.IsCheck(teamColor))
                 {
                     blocker.Move(startPosition);
@@ -144,6 +135,8 @@ namespace Chess.Game.MoveResult
         private bool VerifyIfAfterKillKingWillBeFree(Position aimPosition, TeamColor teamColor)
         {
             IBoard copyBoard = _board.Copy();
+            var validator = new OrdinaryBoardMoveValidator(copyBoard);
+            var verifier = new OrdinaryBoardCheckVerifier(copyBoard, validator);
             copyBoard.RemoveFigure(aimPosition);
             foreach (var possibleKiller in FindPossibleKillers(aimPosition, teamColor))
             {
@@ -151,7 +144,6 @@ namespace Chess.Game.MoveResult
                 var killer = copyBoard.RemoveFigure(startPosition);
                 killer.Move(aimPosition);
                 copyBoard.SetFigure(killer, aimPosition);
-                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
                 if (!verifier.IsCheck(teamColor))
                 {
                     killer.Move(startPosition);
@@ -193,13 +185,14 @@ namespace Chess.Game.MoveResult
         private bool VerifyIfKingMayEscape(Figure king, TeamColor teamColor)
         {
             IBoard copyBoard = _board.Copy();
+            var validator = new OrdinaryBoardMoveValidator(copyBoard);
+            var verifier = new OrdinaryBoardCheckVerifier(copyBoard, validator);
             foreach (var possibleKingMove in GetPossibleKingMoves(king))
             {
                 King newKing = new King(possibleKingMove, king.TeamColor);
                 copyBoard.RemoveFigure(king.Position);
                 var figureAtKingMove = copyBoard.RemoveFigure(possibleKingMove);
                 copyBoard.SetFigure(newKing, possibleKingMove);
-                var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
                 if (!verifier.IsCheck(teamColor))
                 {
                     return true;
@@ -257,17 +250,22 @@ namespace Chess.Game.MoveResult
 
         public (Figure, Position,Position) LastMoveFigureAndPositionFromAndDest()
         {
-            return (_lastMoveFigureMoved, _lastMovePosisionFrom, _lastMovePosisionDest);
+            return (_lastMove.FigureMoved, _lastMove.From, _lastMove.Destination);
         }
 
         public bool IsLastMoveSmash()
         {
-            return _lastMoveFigureSmashed != null;
+            return _lastMove.Smashed != null;
         }
 
         public Figure SmashedFigure()
         {
-            return _lastMoveFigureSmashed;
+            return _lastMove.Smashed;
+        }
+
+        public BoardViewModel GetBoard()
+        {
+            return new BoardViewModel(_board);
         }
     }
 }

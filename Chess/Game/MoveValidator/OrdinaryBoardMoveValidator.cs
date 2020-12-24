@@ -33,6 +33,11 @@ namespace Chess.Game.MoveValidator
                    VerifyPawnMove(figure, position);
         }
 
+        public void Update(IBoard board)
+        {
+            _board = board;
+        }
+
         private bool VerifyPositionInBoundaries(Position position)
         {
             if (position.PositionX < 0 || 

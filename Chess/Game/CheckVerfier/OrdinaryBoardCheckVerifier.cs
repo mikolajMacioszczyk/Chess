@@ -22,10 +22,11 @@ namespace Chess.Game.CheckVerfier
             _moveValidator = moveValidator;
         }
         
-        public void SetBoard(IBoard board)
+        public void Update(IBoard board)
         {
             _board = board ?? throw new NullReferenceException();
             SetState(null,null, TeamColor.None);
+            _moveValidator.Update(board);
         }
 
         
