@@ -22,6 +22,7 @@
             <e p="RemoveFromBoardEmptyFieldException.cs" t="Include" />
           </e>
           <e p="InvalidPositionException.cs" t="Include" />
+          <e p="InvalidTeamException.cs" t="Include" />
         </e>
         <e p="Game" t="Include">
           <e p="CheckVerfier" t="Include">
@@ -31,6 +32,10 @@
           <e p="GameManager" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="IGameManager.cs" t="Include" />
+          </e>
+          <e p="MoveManager" t="Include">
+            <e p="IMoveManager.cs" t="Include" />
+            <e p="MoveManager.cs" t="Include" />
           </e>
           <e p="MoveResult" t="Include">
             <e p="IMoveResult.cs" t="Include" />
@@ -77,6 +82,9 @@
           <e p="LastMoveViewModel" t="Include">
             <e p="LastMoveViewModel.cs" t="Include" />
           </e>
+          <e p="Statictics" t="Include">
+            <e p="GameStatisticsViewModel.cs" t="Include" />
+          </e>
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -106,8 +114,8 @@
           <e p="CheckVerifierUnitTests" t="Include">
             <e p="OrdinaryBoardCheckVerifierUnitTests.cs" t="Include" />
           </e>
-          <e p="GameManagerUnitTests" t="Include">
-            <e p="GameManagerUnitTests.cs" t="Include" />
+          <e p="MoveManagerUnitTests" t="Include">
+            <e p="MoveManagerUnitTests.cs" t="Include" />
           </e>
           <e p="MoveResultUnitTests" t="Include">
             <e p="MoveResultUnitTests.cs" t="Include" />

@@ -14,7 +14,23 @@ namespace Chess.Exceptions.InvalidBoardActionException
             _destination = destination;
             _figure = figure;
         }
+        
+        public InvalidMoveException(Models.Position.Position @from, Models.Position.Position destination)
+        {
+            _from = @from;
+            _destination = destination;
+        }
 
-        public override string Message => $"Cannot move figure {_figure} from {_from} to {_destination}";
+        public override string Message
+        {
+            get
+            {
+                if (_figure == null)
+                {
+                    return $"Cannot move from {_from} to {_destination}";
+                }
+                return $"Cannot move figure {_figure} from {_from} to {_destination}";
+            }
+        }
     }
 }

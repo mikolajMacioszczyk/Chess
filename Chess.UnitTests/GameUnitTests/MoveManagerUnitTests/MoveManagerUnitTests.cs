@@ -1,17 +1,17 @@
-using Chess.Game.GameManager;
+using Chess.Game.MoveManager;
 using Chess.Models.Position;
 using NUnit.Framework;
 
-namespace Chess.UnitTests.GameUnitTests.GameManagerUnitTests
+namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
 {
     [TestFixture]
-    public class GameManagerUnitTests
+    public class MoveManagerUnitTests
     {
         [Test]
         public void CanMove_ValidPosition_ShouldReturnTrue()
         {
             // arrange
-            var gameManger = new GameManager();
+            var gameManger = new MoveManager();
 
             var startPawnPosition = new Position(1, 0);
             var endPawnPosition = new Position(3, 0);
@@ -27,7 +27,7 @@ namespace Chess.UnitTests.GameUnitTests.GameManagerUnitTests
         public void CanMove_NotAllowedMoveForThisTypeOfFigure_ShouldReturnFalse()
         {
             // arrange
-            var gameManger = new GameManager();
+            var gameManger = new MoveManager();
 
             var startPawnPosition = new Position(1, 0);
             var endPawnPosition = new Position(3, 2);
@@ -43,7 +43,7 @@ namespace Chess.UnitTests.GameUnitTests.GameManagerUnitTests
         public void CanMove_PathBlockedByOtherFigure_ShouldReturnFalse()
         {
             // arrange
-            var gameManger = new GameManager();
+            var gameManger = new MoveManager();
 
             var startRookPosition = new Position(0, 0);
             var endRookPosition = new Position(3, 0);
@@ -59,7 +59,7 @@ namespace Chess.UnitTests.GameUnitTests.GameManagerUnitTests
         public void CanMove_MoveCauseCheck_ShouldReturnFalse()
         {
             // arrange
-            var gameManger = new GameManager();
+            var gameManger = new MoveManager();
             
             var whitePawnStart = new Position(6, 4);
             var whitePawnEnd = new Position(4, 4);

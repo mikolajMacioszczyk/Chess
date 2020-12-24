@@ -1,72 +1,75 @@
-using System;
+using Chess.Exceptions;
 using Chess.Exceptions.InvalidBoardActionException;
-using Chess.Game.CheckVerfier;
+using Chess.Game.MoveManager;
 using Chess.Game.MoveResult;
-using Chess.Game.MoveValidator;
 using Chess.Game.Team;
-using Chess.Models.Board;
 using Chess.Models.Position;
-using Chess.ViewModels.LastMoveViewModel;
+using Chess.ViewModels.Statictics;
 
 namespace Chess.Game.GameManager
 {
     public class GameManager : IGameManager
     {
-        private readonly IMoveValidator _moveValidator;
-        private readonly ICheckVerifier _verifier;
-        private IBoard _board;
+        private IMoveManager _moveManager;
+        private bool _isCheckMate;
+        private TeamColor _currentMovingTeam;
 
-        public GameManager()
+        public GameManager() { }
+        
+        public void Start()
         {
-            _board = new OrdinaryChessBoard();
-            _moveValidator = new OrdinaryBoardMoveValidator(_board);
-            _verifier = new OrdinaryBoardCheckVerifier(_board, _moveValidator);
+            _moveManager = new MoveManager.MoveManager();
+            _currentMovingTeam = TeamColor.White;
         }
 
-        public bool CanMove(Position from, Position destination)
+        public IMoveResult DoMove(Position @from, Position destination)
         {
-            var figure = _board.GetFigureAtPosition(from);
-            if (figure == null)
+            if (!_moveManager.IsAllyAtPosition(from, _currentMovingTeam))
             {
-                throw new NullReferenceException();
+                throw new InvalidTeamException(_currentMovingTeam, from);
             }
-            if (!figure.CanMove(destination) || !_moveValidator.CanMove(figure,destination))
+
+            if (_moveManager.CanMove(from, destination))
             {
-                return false;
+                var result = _moveManager.Move(from, destination);
+                SwitchTeam();
+                _isCheckMate = result.IsCheckMate(_currentMovingTeam);
+                return _moveManager.Move(from, destination);
             }
-            return !_verifier.VerifyMoveCauseCheck(figure.Position, destination);
+
+            throw new InvalidMoveException(from,destination);
         }
 
-        public IMoveResult Move(Position @from, Position destination)
+        private void SwitchTeam()
         {
-            var figure = _board.GetFigureAtPosition(from);
-            if (CanMove(from,destination))
+            if (_currentMovingTeam == TeamColor.Black)
             {
-                _board.RemoveFigure(from);
-                var killed = _board.RemoveFigure(destination);
-                figure.Move(destination);
-                _board.SetFigure(figure, destination);
-                var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
-                return new MoveResult.MoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
+                _currentMovingTeam = TeamColor.White;
             }
-            throw new InvalidMoveException(from, destination, figure);
+            else
+            {
+                _currentMovingTeam = TeamColor.Black;
+            }
         }
 
-        public bool IsEnemyAtPosition(Position position, TeamColor myTeamColor)
+        public GameStatisticsViewModel GetStatistics()
         {
-            var figure = _board.GetFigureAtPosition(position);
-            return figure != null && figure.TeamColor != myTeamColor;
+            throw new System.NotImplementedException();
         }
 
-        public bool IsAllyAtPosition(Position position, TeamColor myTeamColor)
+        public bool Undo()
         {
-            var figure = _board.GetFigureAtPosition(position);
-            return figure != null && figure.TeamColor == myTeamColor;
+            throw new System.NotImplementedException();
         }
 
-        public bool IsPositionFree(Position position)
+        public bool Redo()
         {
-            return _board.GetFigureAtPosition(position) == null;
+            throw new System.NotImplementedException();
+        }
+
+        public TeamColor CurrentMoveTeam()
+        {
+            return _currentMovingTeam;
         }
     }
 }
