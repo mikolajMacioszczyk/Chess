@@ -47,9 +47,9 @@ namespace Chess.Game.MoveManager
                 figure.Move(destination);
                 _board.SetFigure(figure, destination);
                 var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
-                return new MoveResult.MoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
+                return new ValidMoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
             }
-            throw new InvalidMoveException(from, destination, figure);
+            return new InvalidMoveResult($"Cannot move from position {from} to position {destination}\n");
         }
 
         public bool IsEnemyAtPosition(Position position, TeamColor myTeamColor)

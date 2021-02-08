@@ -6,6 +6,7 @@ namespace Chess.Game.MoveResult
 {
     public interface IMoveResult
     {
+        IsValidMoveResult IsValidMove();
         bool IsCheck(TeamColor teamColor);
         Figure FigureCausingCheck(TeamColor teamColor);
         bool IsCheckMate(TeamColor teamColor);

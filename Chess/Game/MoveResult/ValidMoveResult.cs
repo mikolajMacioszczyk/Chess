@@ -12,14 +12,15 @@ using Chess.ViewModels.LastMoveViewModel;
 
 namespace Chess.Game.MoveResult
 {
-    public class MoveResult : IMoveResult
+    public class ValidMoveResult : IMoveResult
     {
+        private static readonly IsValidMoveResult IsValidMoveResult = new IsValidMoveResult(true, string.Empty);
         private readonly IBoard _board;
         private readonly ICheckVerifier _verifier;
         private readonly IMoveValidator _moveValidator;
         private readonly LastMoveViewModel _lastMove;
         
-        public MoveResult(
+        public ValidMoveResult(
             IBoard board, 
             ICheckVerifier verifier,
             IMoveValidator moveValidator, 
@@ -29,6 +30,11 @@ namespace Chess.Game.MoveResult
             _verifier = verifier;
             _moveValidator = moveValidator;
             _lastMove = lastMove;
+        }
+
+        public IsValidMoveResult IsValidMove()
+        {
+            return IsValidMoveResult;
         }
 
         /// <summary>

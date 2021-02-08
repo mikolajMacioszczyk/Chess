@@ -3,9 +3,9 @@ using Chess.Game.Team;
 using Chess.Models.Figures;
 using Chess.ViewModels.BoardViewModel;
 
-namespace Chess.ConsoleApp
+namespace Chess.ConsoleApp.Helpers
 {
-    public static class ConsoleInteraction
+    public static class BoardDisplay
     {
         public static void ShowBoard(BoardViewModel board)
         {

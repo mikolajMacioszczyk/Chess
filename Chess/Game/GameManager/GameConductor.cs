@@ -8,25 +8,26 @@ using Chess.ViewModels.Statictics;
 
 namespace Chess.Game.GameManager
 {
-    public class GameManager : IGameManager
+    public class GameConductor : IGameConductor
     {
         private IMoveManager _moveManager;
         private bool _isCheckMate;
         private TeamColor _currentMovingTeam;
 
-        public GameManager() { }
+        public GameConductor() { }
         
-        public void Start()
+        public IMoveResult Start()
         {
             _moveManager = new MoveManager.MoveManager();
             _currentMovingTeam = TeamColor.White;
+            return new MoveResultStart();
         }
 
         public IMoveResult DoMove(Position @from, Position destination)
         {
             if (!_moveManager.IsAllyAtPosition(from, _currentMovingTeam))
             {
-                throw new InvalidTeamException(_currentMovingTeam, from);
+                return new InvalidMoveResult($"Cannot move opponent's figure");
             }
 
             if (_moveManager.CanMove(from, destination))
@@ -37,7 +38,7 @@ namespace Chess.Game.GameManager
                 return _moveManager.Move(from, destination);
             }
 
-            throw new InvalidMoveException(from,destination);
+            return new InvalidMoveResult($"Cannot move from position {from} to position {destination}");
         }
 
         private void SwitchTeam()
