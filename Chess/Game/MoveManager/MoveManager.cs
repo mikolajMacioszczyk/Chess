@@ -34,22 +34,19 @@ namespace Chess.Game.MoveManager
             {
                 return false;
             }
+
             return !_verifier.VerifyMoveCauseCheck(figure.Position, destination);
         }
 
         public IMoveResult Move(Position @from, Position destination)
         {
             var figure = _board.GetFigureAtPosition(from);
-            if (CanMove(from,destination))
-            {
-                _board.RemoveFigure(from);
-                var killed = _board.RemoveFigure(destination);
-                figure.Move(destination);
-                _board.SetFigure(figure, destination);
-                var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
-                return new ValidMoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
-            }
-            return new InvalidMoveResult($"Cannot move from position {from} to position {destination}\n");
+            _board.RemoveFigure(from);
+            var killed = _board.RemoveFigure(destination);
+            figure.Move(destination);
+            _board.SetFigure(figure, destination);
+            var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
+            return new ValidMoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
         }
 
         public bool IsEnemyAtPosition(Position position, TeamColor myTeamColor)

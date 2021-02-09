@@ -22,8 +22,11 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         private void SetUserColors()
         {
             Console.WriteLine(" ======================== Team ========================");
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" 1. White");
+            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine(" 2. Black");
+            Console.ForegroundColor = ConsoleColor.White;
             int choice = UserInteraction.GetPositiveNumberFromUser(
                 "Select color for User 1: ", "Expected positive number, please try again");
             switch (choice)
@@ -71,9 +74,11 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return new MovePositions() {From = from, Destination = destination};
         }
 
-        private IMoveResult MoveHelper(IMoveResult moveResult)
+        private IMoveResult MoveHelper(IMoveResult moveResult, int userNumber)
         {
             BoardDisplay.ShowBoard(moveResult.GetBoard());
+
+            Console.WriteLine($"\nUser {userNumber} move:\n");
 
             var movePositions = GetMovePositions();
             moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
@@ -82,7 +87,8 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             while (!isValid.IsValid)
             {
                 Console.WriteLine(isValid.Cause);
-                Console.WriteLine("Type positions again");
+                Console.WriteLine("Try again");
+                Console.WriteLine($"\nUser {userNumber} move:");
                 movePositions = GetMovePositions();
                 moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
                 isValid = moveResult.IsValidMove();
@@ -98,8 +104,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 EndGame(_user2Color);
             }
 
-            Console.WriteLine("User 1 move: ");
-            moveResult = MoveHelper(moveResult);
+            moveResult = MoveHelper(moveResult, 1);
 
             User2Move(moveResult);
         }
@@ -111,8 +116,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 EndGame(_user1Color);
             }
             
-            Console.WriteLine("User 2 move: ");
-            moveResult = MoveHelper(moveResult);
+            moveResult = MoveHelper(moveResult,2);
 
             User1Move(moveResult);
         }

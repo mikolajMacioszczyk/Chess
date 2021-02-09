@@ -35,7 +35,7 @@ namespace Chess.Game.GameManager
                 var result = _moveManager.Move(from, destination);
                 SwitchTeam();
                 _isCheckMate = result.IsCheckMate(_currentMovingTeam);
-                return _moveManager.Move(from, destination);
+                return result;
             }
 
             return new InvalidMoveResult($"Cannot move from position {from} to position {destination}");

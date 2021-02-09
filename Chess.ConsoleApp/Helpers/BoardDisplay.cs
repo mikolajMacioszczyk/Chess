@@ -13,12 +13,12 @@ namespace Chess.ConsoleApp.Helpers
             ShowCharacterCoordinate(board);
             Console.WriteLine();
             string delimeter = "\t";
-            for (int i = board.GetBoardSize()-1; i >= 0; i--)
+            for (int i = board.GetBoardSize() - 1; i >= 0; i--)
             {
-                Console.Write(i+1+delimeter);
+                Console.Write(i + 1 +delimeter);
                 for (int j = 0; j < board.GetBoardSize(); j++)
                 {
-                    var figure = board.GetFigureAtPosition(board.GetPositionAt(j,i));
+                    var figure = board.GetFigureAtPosition(board.GetPositionAt(i,j));
                     if (figure == null)
                     {
                         Console.Write('x'+delimeter);

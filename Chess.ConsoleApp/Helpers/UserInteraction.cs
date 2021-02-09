@@ -53,7 +53,7 @@ namespace Chess.ConsoleApp.Helpers
                 return GetPositionFromUser(message);
             }
 
-            return new Position(x, y);
+            return new Position(x-1, y-1);
         }
     }
 }

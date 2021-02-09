@@ -22,7 +22,8 @@ namespace Chess.ConsoleApp
         private static string _introText6 = "Next the computer will first ask you for the destination position:\nWe enter the x-coordinate:\n\tX: ";
         private static string _introText7 = "Next the y-coordinate:\n\tY: ";
         private static string _introText8 = "The move for this figure is correct, so it is executed\nThe board now looks like:";
-        private static string _introText9 = "Your turn. Enjoy the game!";
+        private static string _introText9 = "Figures:\nK - King\nQ - Queen\nB - Bishop\nN - Knight\nR - Rook\np - Pawn\nx - empty field";
+        private static string _introText10 = "Your turn. Enjoy the game!";
         static void ShowIntroductionMenu()
         {
             Console.WriteLine(" ======================== Welcome ========================");
@@ -59,6 +60,7 @@ namespace Chess.ConsoleApp
             board.SetFigure(knight, board.GetPositionAt(2,0));
             BoardDisplay.ShowBoard(new BoardViewModel(board));
             Console.WriteLine(_introText9);
+            Console.WriteLine(_introText10);
         }
         
         static void Main(string[] args)
