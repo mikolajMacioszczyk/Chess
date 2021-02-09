@@ -1,8 +1,10 @@
+using System;
 using Chess.Models.Figures;
 using Chess.Models.Position;
 
 namespace Chess.ViewModels.LastMoveViewModel
 {
+    [Serializable]
     public class LastMoveViewModel
     {
         public Figure FigureMoved { get;}

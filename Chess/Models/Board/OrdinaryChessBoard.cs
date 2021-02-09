@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Chess.Exceptions;
 using Chess.Game.Team;
@@ -7,6 +8,7 @@ using Chess.Models.Figures.FigureImplementation;
 
 namespace Chess.Models.Board
 {
+    [Serializable]
     public class OrdinaryChessBoard : IBoard
     {
         public static readonly int BoardSize = 8;

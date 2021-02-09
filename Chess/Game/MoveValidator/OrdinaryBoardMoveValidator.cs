@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Chess.Exceptions;
 using Chess.Game.Team;
@@ -7,6 +8,7 @@ using Chess.Models.Position;
 
 namespace Chess.Game.MoveValidator
 {
+    [Serializable]
     public class OrdinaryBoardMoveValidator : IMoveValidator
     {
         private IBoard _board;

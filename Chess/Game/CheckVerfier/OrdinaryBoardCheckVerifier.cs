@@ -8,6 +8,7 @@ using Chess.Models.Figures;
 
 namespace Chess.Game.CheckVerfier
 {
+    [Serializable]
     public class OrdinaryBoardCheckVerifier : ICheckVerifier
     {
         private IBoard _board;

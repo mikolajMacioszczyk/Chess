@@ -10,9 +10,9 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=a220d404_002Ded62_002D4ce9_002D8c9a_002Dbdc9ebfe9b04/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="GetScoreForTeam_AfterDeleteBlack_BottomLeftPawn_BlackTeam_ShouldBe_Minus30" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="\home\mikolaj\RiderProjects\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ece4ba11_002Df3e5_002D451d_002D9976_002D303a96c2cacf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="King_CanMove_TheSamePosition_ShouldReturnFalse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ece4ba11_002Df3e5_002D451d_002D9976_002D303a96c2cacf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="King_CanMove_TheSamePosition_ShouldReturnFalse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\Projects\DotNet\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\Projects\DotNet\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

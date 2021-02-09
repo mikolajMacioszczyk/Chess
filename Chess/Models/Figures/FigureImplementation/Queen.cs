@@ -1,8 +1,10 @@
+using System;
 using Chess.Game.Team;
 using Chess.Models.Position;
 
 namespace Chess.Models.Figures.FigureImplementation
 {
+    [Serializable]
     public class Queen : Figure
     {
         public Queen(Models.Position.Position position, TeamColor teamColor) 

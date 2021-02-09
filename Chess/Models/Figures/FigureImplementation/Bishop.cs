@@ -1,8 +1,10 @@
+using System;
 using Chess.Game.Team;
 using Chess.Models.Position;
 
 namespace Chess.Models.Figures.FigureImplementation
 {
+    [Serializable]
     public class Bishop : Figure
     {
         public Bishop(Models.Position.Position position, TeamColor teamColor) : 

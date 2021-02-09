@@ -1,5 +1,3 @@
-using Chess.Exceptions;
-using Chess.Exceptions.InvalidBoardActionException;
 using Chess.Game.MoveManager;
 using Chess.Game.MoveResult;
 using Chess.Game.Team;
@@ -14,8 +12,6 @@ namespace Chess.Game.GameManager
         private bool _isCheckMate;
         private TeamColor _currentMovingTeam;
 
-        public GameConductor() { }
-        
         public IMoveResult Start()
         {
             _moveManager = new MoveManager.MoveManager();

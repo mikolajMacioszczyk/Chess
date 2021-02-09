@@ -4,6 +4,7 @@ using Chess.Models.Figures;
 
 namespace Chess.Models.Board.FigurePositionWeight
 {
+    [Serializable]
     public class OrdinaryChessBoardFigurePositionWeight : IFigurePositionWeight
     {
         private static readonly int[][] QueenWeights =

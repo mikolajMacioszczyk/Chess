@@ -12,6 +12,7 @@ using Chess.ViewModels.LastMoveViewModel;
 
 namespace Chess.Game.MoveResult
 {
+    [Serializable]
     public class ValidMoveResult : IMoveResult
     {
         private static readonly IsValidMoveResult IsValidMoveResult = new IsValidMoveResult(true, string.Empty);

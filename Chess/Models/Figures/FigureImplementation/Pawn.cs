@@ -4,6 +4,7 @@ using Chess.Models.Position;
 
 namespace Chess.Models.Figures.FigureImplementation
 {
+    [Serializable]
     public class Pawn : Figure
     {
         private bool _isFirstMove;

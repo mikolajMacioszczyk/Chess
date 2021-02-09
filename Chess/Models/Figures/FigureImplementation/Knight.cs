@@ -4,6 +4,7 @@ using Chess.Models.Position;
 
 namespace Chess.Models.Figures.FigureImplementation
 {
+    [Serializable]
     public class Knight : Figure
     {
         public Knight(Models.Position.Position position, TeamColor teamColor)

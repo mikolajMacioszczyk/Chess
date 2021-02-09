@@ -1,7 +1,9 @@
+using System;
 using Chess.Game.Team;
 
 namespace Chess.Models.Figures
 {
+    [Serializable]
     public abstract class Figure
     {
         public Models.Position.Position Position { get; private set;}

@@ -2,6 +2,7 @@ using System;
 
 namespace Chess.Models.Position
 {
+    [Serializable]
     public class Position
     {
         public int Row { get; }
