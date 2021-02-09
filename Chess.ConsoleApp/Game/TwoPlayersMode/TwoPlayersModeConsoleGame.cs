@@ -76,7 +76,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             BoardDisplay.ShowBoard(moveResult.GetBoard());
 
             var movePositions = GetMovePositions();
-            _gameConductor.DoMove(movePositions.From, movePositions.Destination);
+            moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
 
             var isValid = moveResult.IsValidMove();
             while (!isValid.IsValid)

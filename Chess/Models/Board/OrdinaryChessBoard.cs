@@ -32,7 +32,6 @@ namespace Chess.Models.Board
             {
                 _board[i] = other._board[i].ToArray();
             }
-            
         }
 
         /// <summary>
@@ -62,14 +61,14 @@ namespace Chess.Models.Board
         public void SetFigure(Figure figure, Models.Position.Position position)
         {
             CheckPosition(position);
-            _board[position.PositionY][position.PositionX] = figure;
+            _board[position.PositionX][position.PositionY] = figure;
         }
 
         public Figure RemoveFigure(Models.Position.Position position)
         {
             CheckPosition(position);
-            Figure removed = _board[position.PositionY][position.PositionX];
-            _board[position.PositionY][position.PositionX] = null;
+            Figure removed = _board[position.PositionX][position.PositionY];
+            _board[position.PositionX][position.PositionY] = null;
             return removed;
         }
 
@@ -151,45 +150,45 @@ namespace Chess.Models.Board
 
         private void InitializeRooks()
         {
-            _board[0][0] = new Rook(new Models.Position.Position(0, 0), TeamColor.Black);
-            _board[0][BoardSize-1] = new Rook(new Models.Position.Position(0, BoardSize-1), TeamColor.Black);
+            _board[0][0] = new Rook(new Models.Position.Position(0, 0), TeamColor.White);
+            _board[0][BoardSize-1] = new Rook(new Models.Position.Position(0, BoardSize-1), TeamColor.White);
             
-            _board[BoardSize-1][0] = new Rook(new Models.Position.Position(BoardSize-1, 0), TeamColor.White);
-            _board[BoardSize-1][BoardSize-1] = new Rook(new Models.Position.Position(BoardSize-1, BoardSize-1), TeamColor.White);
+            _board[BoardSize-1][0] = new Rook(new Models.Position.Position(BoardSize-1, 0), TeamColor.Black);
+            _board[BoardSize-1][BoardSize-1] = new Rook(new Models.Position.Position(BoardSize-1, BoardSize-1), TeamColor.Black);
         }
 
         private void InitializeBishops()
         {
-            _board[0][2] = new Bishop(new Models.Position.Position(0, 2), TeamColor.Black);
-            _board[0][BoardSize-3] = new Bishop(new Models.Position.Position(0, BoardSize-3), TeamColor.Black);
+            _board[0][2] = new Bishop(new Models.Position.Position(0, 2), TeamColor.White);
+            _board[0][BoardSize-3] = new Bishop(new Models.Position.Position(0, BoardSize-3), TeamColor.White);
             
-            _board[BoardSize-1][2] = new Bishop(new Models.Position.Position(BoardSize-1, 2), TeamColor.White);
-            _board[BoardSize-1][BoardSize-3] = new Bishop(new Models.Position.Position(BoardSize-1, BoardSize-3), TeamColor.White);
+            _board[BoardSize-1][2] = new Bishop(new Models.Position.Position(BoardSize-1, 2), TeamColor.Black);
+            _board[BoardSize-1][BoardSize-3] = new Bishop(new Models.Position.Position(BoardSize-1, BoardSize-3), TeamColor.Black);
         }
 
         private void InitializeKingFamilies()
         {
-            _board[0][3] = new Queen(new Models.Position.Position(0, 3), TeamColor.Black);
-            _board[0][4] = new King(new Models.Position.Position(0, 4), TeamColor.Black);
+            _board[0][3] = new Queen(new Models.Position.Position(0, 3), TeamColor.White);
+            _board[0][4] = new King(new Models.Position.Position(0, 4), TeamColor.White);
             
-            _board[BoardSize-1][3] = new Queen(new Models.Position.Position(BoardSize-1, 3), TeamColor.White);
-            _board[BoardSize-1][4] = new King(new Models.Position.Position(BoardSize-1, 4), TeamColor.White);
+            _board[BoardSize-1][3] = new Queen(new Models.Position.Position(BoardSize-1, 3), TeamColor.Black);
+            _board[BoardSize-1][4] = new King(new Models.Position.Position(BoardSize-1, 4), TeamColor.Black);
         }
         
         private void InitializeKnights()
         {
-            _board[0][1] = new Knight(new Models.Position.Position(0, 1), TeamColor.Black);
-            _board[0][BoardSize-2] = new Knight(new Models.Position.Position(0, BoardSize-2), TeamColor.Black);
-            _board[BoardSize-1][BoardSize-2] = new Knight(new Models.Position.Position(BoardSize-1, BoardSize-2), TeamColor.White);
-            _board[BoardSize-1][1] = new Knight(new Models.Position.Position(BoardSize-1, 1), TeamColor.White);
+            _board[0][1] = new Knight(new Models.Position.Position(0, 1), TeamColor.White);
+            _board[0][BoardSize-2] = new Knight(new Models.Position.Position(0, BoardSize-2), TeamColor.White);
+            _board[BoardSize-1][BoardSize-2] = new Knight(new Models.Position.Position(BoardSize-1, BoardSize-2), TeamColor.Black);
+            _board[BoardSize-1][1] = new Knight(new Models.Position.Position(BoardSize-1, 1), TeamColor.Black);
         }
 
         private void InitializePawns()
         {
             for (int i = 0; i < BoardSize; i++)
             {
-                _board[1][i] = new Pawn(new Models.Position.Position(1, i), TeamColor.Black);
-                _board[BoardSize-2][i] = new Pawn(new Models.Position.Position(BoardSize-2, i), TeamColor.White);
+                _board[1][i] = new Pawn(new Models.Position.Position(1, i), TeamColor.White);
+                _board[BoardSize-2][i] = new Pawn(new Models.Position.Position(BoardSize-2, i), TeamColor.Black);
             }
         }
     }

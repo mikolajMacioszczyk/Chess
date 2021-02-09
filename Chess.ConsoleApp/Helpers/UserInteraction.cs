@@ -20,30 +20,24 @@ namespace Chess.ConsoleApp.Helpers
             return GetPositiveNumberFromUser(message, callback);
         }
 
-        public static string GetStringFromUser(string message, string patter, string callback)
-        {
-            Console.WriteLine(message);
-            string input = Console.ReadLine();
-            Regex rg = new Regex(patter);
-            if (rg.IsMatch(input ?? string.Empty))
-            {
-                return input;
-            }
-            
-            Console.WriteLine(callback);
-            return GetStringFromUser(message, patter, callback);
-        }
-
         private static bool ParseStringToIntCoordinate(string coordinate, out int num)
         {
             Console.Write(coordinate);
             string input = Console.ReadLine();
-            if (!int.TryParse(input, out num))
+            
+            if (input?.Trim().Length == 1 && char.IsLetter(input[0]))
             {
-                Console.WriteLine("Expected integer number. Try again");
-                return false;
+                num = Math.Abs(input[0] - 'b');
+                return true;
             }
-            return true;
+            
+            if (int.TryParse(input, out num))
+            {
+                return true;
+            }
+            
+            Console.WriteLine("Expected integer number. Try again");
+            return false;
         }
         
         public static Position GetPositionFromUser(string message)

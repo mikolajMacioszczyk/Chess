@@ -4,31 +4,14 @@
     <projectFile>Chess.ConsoleApp/Chess.ConsoleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Add Game Manager Functionality, improve performance of Move Result check mat verification">
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Enums/PlayerMode.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/IConsoleGame.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeConsoleGame.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/InvalidMoveResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/IsValidMoveResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStart.cs" afterDir="false" />
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Start Building Console Interface. Change IMoveResult Interface">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/shelf/Uncommitted_changes_before_Update_at_24_12_2020,_14_21_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/shelf/Uncommitted_changes_before_Update_at_24_12_2020__14_21__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/ConsoleInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/IGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerComputerAI/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +26,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Chess.UnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Position/Vector.cs" />
       <option value="$PROJECT_DIR$/Chess/MoveValidator/OrdinaryBoardMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" />
@@ -72,14 +54,12 @@
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/TwoPlayersMode/TwoPlayersModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/SinglePlayerMode/SinglePlayerModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/ConsoleInteraction.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Enums/PlayerMode.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/IGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/IConsoleGame.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultOk.cs" />
@@ -92,8 +72,11 @@
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -103,7 +86,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.34997287" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
@@ -118,7 +101,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected=".NET Project.Chess.ConsoleApp">
     <configuration name="Chess.ConsoleApp" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -151,7 +134,8 @@
       <workItem from="1608404482131" duration="11377000" />
       <workItem from="1608463690680" duration="12403000" />
       <workItem from="1608823422600" duration="1321000" />
-      <workItem from="1612806710072" duration="9041000" />
+      <workItem from="1612806710072" duration="12129000" />
+      <workItem from="1612865040344" duration="3387000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -188,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608823478351</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Start Building Console Interface. Change IMoveResult Interface">
+      <created>1612815941438</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1612815941438</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,6 +216,26 @@
     <MESSAGE value="Building Game Manager" />
     <MESSAGE value="Verification Check and CheckMat" />
     <MESSAGE value="Add Game Manager Functionality, improve performance of Move Result check mat verification" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Game Manager Functionality, improve performance of Move Result check mat verification" />
+    <MESSAGE value="Start Building Console Interface. Change IMoveResult Interface" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start Building Console Interface. Change IMoveResult Interface" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess.ConsoleApp/Program.cs</url>
+          <line>57</line>
+          <properties documentPath="D:\Projects\DotNet\Chess\Chess.ConsoleApp\Program.cs" initialLine="57" containingFunctionPresentation="method 'ShowInstructions'">
+            <startOffsets>
+              <option value="3214" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3273" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -61,7 +61,7 @@ namespace Chess.ConsoleApp.Helpers
 
         private static void ShowBlackFigure(FigureType figureType)
         {
-            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.ForegroundColor = ConsoleColor.Red;
             string delimeter = "\t";
             ShowFigure(figureType, delimeter);
             Console.ResetColor();
@@ -69,7 +69,7 @@ namespace Chess.ConsoleApp.Helpers
         
         private static void ShowWhiteFigure(FigureType figureType)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ForegroundColor = ConsoleColor.Blue;
             string delimeter = "\t";
             ShowFigure(figureType, delimeter);
             Console.ResetColor();
