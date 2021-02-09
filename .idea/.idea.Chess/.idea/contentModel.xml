@@ -17,6 +17,10 @@
       <e p="Chess" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="Chess.csproj" t="IncludeRecursive" />
+        <e p="Enums" t="Include">
+          <e p="PlayerMode.cs" t="Include" />
+          <e p="TeamColor.cs" t="Include" />
+        </e>
         <e p="Exceptions" t="Include">
           <e p="ImplementationException.cs" t="Include" />
           <e p="InvalidBoardActionException" t="Include">
@@ -45,19 +49,19 @@
             <e p="InvalidMoveResult.cs" t="Include" />
             <e p="IsValidMoveResult.cs" t="Include" />
             <e p="MoveResultStart.cs" t="Include" />
+            <e p="MoveResultStatus.cs" t="Include" />
+            <e p="StoppedMoveResult.cs" t="Include" />
             <e p="ValidMoveResult.cs" t="Include" />
           </e>
           <e p="MoveValidator" t="Include">
             <e p="IMoveValidator.cs" t="Include" />
             <e p="OrdinaryBoardMoveValidator.cs" t="Include" />
           </e>
-          <e p="Team" t="Include">
-            <e p="TeamColor.cs" t="Include" />
-          </e>
         </e>
         <e p="GameSaver" t="Include">
           <e p="ChessGameSerializer.cs" t="Include" />
           <e p="ChessGameState.cs" t="Include" />
+          <e p="SaveRepository.cs" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="Board" t="Include">
@@ -111,9 +115,6 @@
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Chess.ConsoleApp.csproj" t="IncludeRecursive" />
-        <e p="Enums" t="Include">
-          <e p="PlayerMode.cs" t="Include" />
-        </e>
         <e p="Game" t="Include">
           <e p="IConsoleGame.cs" t="Include" />
           <e p="SinglePlayerMode" t="Include">
@@ -142,6 +143,7 @@
         <e p="Chess.UnitTests.csproj" t="IncludeRecursive" />
         <e p="GameSaverUnitTests" t="Include">
           <e p="ChessGameSerializerUnitTests.cs" t="Include" />
+          <e p="SaveRepositoryUnitTests.cs" t="Include" />
         </e>
         <e p="GameUnitTests" t="Include">
           <e p="CheckVerifierUnitTests" t="Include">

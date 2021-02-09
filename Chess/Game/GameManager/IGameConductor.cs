@@ -1,5 +1,5 @@
+using Chess.Enums;
 using Chess.Game.MoveResult;
-using Chess.Game.Team;
 using Chess.Models.Position;
 using Chess.ViewModels.Statictics;
 

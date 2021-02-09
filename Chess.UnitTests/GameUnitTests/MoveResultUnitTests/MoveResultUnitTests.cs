@@ -1,7 +1,7 @@
+using Chess.Enums;
 using Chess.Game.CheckVerfier;
 using Chess.Game.MoveResult;
 using Chess.Game.MoveValidator;
-using Chess.Game.Team;
 using Chess.Models.Board;
 using Chess.Models.Position;
 using Chess.ViewModels.LastMoveViewModel;

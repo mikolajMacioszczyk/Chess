@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using Chess.Enums;
 using Chess.Exceptions;
-using Chess.Game.Team;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Position;

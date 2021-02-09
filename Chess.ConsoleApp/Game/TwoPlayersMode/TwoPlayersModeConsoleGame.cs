@@ -1,8 +1,8 @@
 ﻿using System;
 using Chess.ConsoleApp.Helpers;
+using Chess.Enums;
 using Chess.Game.GameManager;
 using Chess.Game.MoveResult;
-using Chess.Game.Team;
 using Chess.Models.Position;
 
 namespace Chess.ConsoleApp.Game.TwoPlayersMode
@@ -74,27 +74,49 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return new MovePositions() {From = from, Destination = destination};
         }
 
-        private IMoveResult MoveHelper(IMoveResult moveResult, int userNumber)
+        private IMoveResult MoveHelper()
         {
-            BoardDisplay.ShowBoard(moveResult.GetBoard());
-
-            Console.WriteLine($"\nUser {userNumber} move:\n");
-
             var movePositions = GetMovePositions();
-            moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
+            IMoveResult moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
 
             var isValid = moveResult.IsValidMove();
-            while (!isValid.IsValid)
+            while (isValid.Status != MoveResultStatus.Valid)
             {
                 Console.WriteLine(isValid.Cause);
                 Console.WriteLine("Try again");
-                Console.WriteLine($"\nUser {userNumber} move:");
                 movePositions = GetMovePositions();
                 moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
                 isValid = moveResult.IsValidMove();
             }
 
             return moveResult;
+        }
+
+        private static IMoveResult SaveGame(IMoveResult moveResult, int currentPlayer)
+        {
+            Console.WriteLine("Under what name save the game?");
+            string file = UserInteraction.ReadNotEmptyStringFromUser();
+            // TODO : Check if repository
+            return null;
+        }
+        
+        private IMoveResult NextTurn(IMoveResult moveResult, int playerNumber)
+        {
+            BoardDisplay.ShowBoard(moveResult.GetBoard());
+            
+            Console.WriteLine($"\n ==================== User {playerNumber} ===================== ");
+            int choice = UserInteraction.GetPositiveNumberFromUser(
+                "1. Next move\n2. Save game", "Number should be positive. Please try again");
+            switch (choice)
+            {
+                case 1:
+                    return MoveHelper();
+                case 2:
+                    return SaveGame(moveResult, playerNumber);
+                default:
+                    Console.WriteLine($"Option {choice} not found. Please try again");
+                    return NextTurn(moveResult, playerNumber);
+            }
         }
         
         private void User1Move(IMoveResult moveResult)
@@ -104,7 +126,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 EndGame(_user2Color);
             }
 
-            moveResult = MoveHelper(moveResult, 1);
+            moveResult = NextTurn(moveResult, 1);
 
             User2Move(moveResult);
         }
@@ -116,7 +138,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 EndGame(_user1Color);
             }
             
-            moveResult = MoveHelper(moveResult,2);
+            moveResult = NextTurn(moveResult,2);
 
             User1Move(moveResult);
         }

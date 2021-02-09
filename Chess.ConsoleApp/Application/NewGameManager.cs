@@ -1,9 +1,9 @@
 ﻿using System;
-using Chess.ConsoleApp.Enums;
 using Chess.ConsoleApp.Game;
 using Chess.ConsoleApp.Game.SinglePlayerMode;
 using Chess.ConsoleApp.Game.TwoPlayersMode;
 using Chess.ConsoleApp.Helpers;
+using Chess.Enums;
 
 namespace Chess.ConsoleApp.Application
 {

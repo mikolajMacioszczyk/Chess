@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
+using Chess.Enums;
 using Chess.Game.CheckVerfier;
 using Chess.Game.MoveValidator;
-using Chess.Game.Team;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Figures.FigureImplementation;
@@ -15,7 +15,7 @@ namespace Chess.Game.MoveResult
     [Serializable]
     public class ValidMoveResult : IMoveResult
     {
-        private static readonly IsValidMoveResult IsValidMoveResult = new IsValidMoveResult(true, string.Empty);
+        private static readonly IsValidMoveResult IsValidMoveResult = new IsValidMoveResult(MoveResultStatus.Valid, string.Empty);
         private readonly IBoard _board;
         private readonly ICheckVerifier _verifier;
         private readonly IMoveValidator _moveValidator;

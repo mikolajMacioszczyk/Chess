@@ -1,6 +1,6 @@
 using System;
 
-namespace Chess.Game.Team
+namespace Chess.Enums
 {
     [Serializable]
     public enum TeamColor

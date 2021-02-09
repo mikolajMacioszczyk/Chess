@@ -6,18 +6,12 @@ using Chess.ViewModels.BoardViewModel;
 
 namespace Chess.Game.MoveResult
 {
-    public class InvalidMoveResult : IMoveResult
+    public class StoppedMoveResult : IMoveResult
     {
-        private readonly string CallbackInfo = "Last move was not valid. Firstly check why that happened.";
-        private readonly string _cause;
-        public InvalidMoveResult(string cause)
-        {
-            _cause = cause;
-        }
-        
+        private static string CallbackInfo = "Game has been stopped.";
         public IsValidMoveResult IsValidMove()
         {
-            return new IsValidMoveResult(MoveResultStatus.Invalid, _cause);
+            return new IsValidMoveResult(MoveResultStatus.Stopped, "");
         }
 
         public bool IsCheck(TeamColor teamColor)

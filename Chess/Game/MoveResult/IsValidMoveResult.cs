@@ -5,12 +5,12 @@ namespace Chess.Game.MoveResult
     [Serializable]
     public readonly struct IsValidMoveResult
     {
-        public readonly bool IsValid { get; }
-        public readonly string Cause { get; }
+        public MoveResultStatus Status { get; }
+        public string Cause { get; }
 
-        public IsValidMoveResult(bool isValid, string cause)
+        public IsValidMoveResult(MoveResultStatus status, string cause)
         {
-            IsValid = isValid;
+            Status = status;
             Cause = cause;
         }
     }

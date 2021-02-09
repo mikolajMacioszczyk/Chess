@@ -1,4 +1,4 @@
-using Chess.Game.Team;
+using Chess.Enums;
 using Chess.Models.Board.FigurePositionWeight;
 using Chess.Models.Figures;
 using Chess.Models.Figures.FigureImplementation;

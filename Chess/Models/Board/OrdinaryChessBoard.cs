@@ -1,7 +1,7 @@
 using System;
 using System.Linq;
+using Chess.Enums;
 using Chess.Exceptions;
-using Chess.Game.Team;
 using Chess.Models.Board.FigurePositionWeight;
 using Chess.Models.Figures;
 using Chess.Models.Figures.FigureImplementation;

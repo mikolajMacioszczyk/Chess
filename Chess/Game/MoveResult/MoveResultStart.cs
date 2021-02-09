@@ -1,4 +1,4 @@
-﻿using Chess.Game.Team;
+﻿using Chess.Enums;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Position;
@@ -8,7 +8,7 @@ namespace Chess.Game.MoveResult
 {
     public class MoveResultStart : IMoveResult
     {
-        private static readonly IsValidMoveResult ValidMoveResult = new IsValidMoveResult(true, string.Empty);
+        private static readonly IsValidMoveResult ValidMoveResult = new IsValidMoveResult(MoveResultStatus.Valid, string.Empty);
         public IsValidMoveResult IsValidMove()
         {
             return ValidMoveResult;

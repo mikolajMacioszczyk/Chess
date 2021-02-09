@@ -1,5 +1,5 @@
 using System;
-using Chess.Game.Team;
+using Chess.Enums;
 
 namespace Chess.Models.Figures
 {

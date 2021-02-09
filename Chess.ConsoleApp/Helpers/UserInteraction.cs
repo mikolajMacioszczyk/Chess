@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using Chess.ConsoleApp.Enums;
 using Chess.Models.Position;
 
 namespace Chess.ConsoleApp.Helpers
@@ -38,6 +37,17 @@ namespace Chess.ConsoleApp.Helpers
             
             Console.WriteLine("Expected integer number. Try again");
             return false;
+        }
+
+        public static string ReadNotEmptyStringFromUser()
+        {
+            string input = Console.ReadLine();
+            while (string.IsNullOrEmpty(input))
+            {
+                Console.WriteLine("Please type not empty string");
+                input = Console.ReadLine();
+            }
+            return input;
         }
         
         public static Position GetPositionFromUser(string message)

@@ -1,5 +1,5 @@
 using System;
-using Chess.Game.Team;
+using Chess.Enums;
 using Chess.Models.Figures;
 
 namespace Chess.Models.Board.FigurePositionWeight

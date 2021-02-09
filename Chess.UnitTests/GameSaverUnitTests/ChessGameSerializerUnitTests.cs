@@ -1,8 +1,10 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Chess.Enums;
 using Chess.Game.CheckVerfier;
 using Chess.Game.MoveResult;
 using Chess.Game.MoveValidator;
-using Chess.Game.Team;
 using Chess.GameSaver;
 using Chess.Models.Board;
 using Chess.Models.Figures.FigureImplementation;
@@ -39,7 +41,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
-            var fromFile = ChessGameSerializer.ReadFromFile(filePath);
+            ChessGameState fromFile = ChessGameSerializer.ReadFromFile<ChessGameState>(filePath);
 
             // assert
             Assert.AreEqual(fromFile.IsEnded, isGameEnded);
@@ -73,7 +75,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
-            var fromFile = ChessGameSerializer.ReadFromFile(filePath);
+            ChessGameState fromFile = ChessGameSerializer.ReadFromFile<ChessGameState>(filePath);
 
             // assert
             Assert.AreEqual(fromFile.IsEnded, isGameEnded);
@@ -108,7 +110,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
             ChessGameSerializer.SaveInFile(filePath, gameState);
-            var fromFile = ChessGameSerializer.ReadFromFile(filePath);
+            ChessGameState fromFile = ChessGameSerializer.ReadFromFile<ChessGameState>(filePath);
 
             // assert
             Assert.AreEqual(fromFile.IsEnded, isGameEnded);
@@ -130,6 +132,38 @@ namespace Chess.UnitTests.GameSaverUnitTests
             
             // assert
             Assert.False(ChessGameSerializer.ClearFile(filePath));
+        }
+
+        [Test]
+        public void TryReadFromFileTest_ExistingFile_ShouldReturnThatObject()
+        {
+            // arrange
+            var input = new HashSet<string>() {"one", "two", "three"};
+            const string filePath = "Test_TryReadFromFileTest_ExistingFile_ShouldReturnThatObject.bin";
+            
+            // act
+            ChessGameSerializer.SaveInFile(filePath, input);
+            HashSet<string> fromFile = ChessGameSerializer.TryReadFromFile<HashSet<string>>(filePath);
+
+            // assert
+            Assert.True(fromFile.SequenceEqual(input));
+            
+            // clear
+            Assert.True(ChessGameSerializer.ClearFile(filePath));
+        }
+
+        [Test]
+        public void TryReadFromFileTest_NotExistingFile_ShouldReturnNewObject()
+        {
+            // arrange
+            const string filePath = "Test_TryReadFromFileTest_NotExistingFile_ShouldReturnNewObject.bin";
+            var expected = new HashSet<string>();
+            
+            // act
+            HashSet<string> fromFile = ChessGameSerializer.TryReadFromFile<HashSet<string>>(filePath);
+
+            // assert
+            Assert.True(fromFile.SequenceEqual(expected));
         }
     }
 }

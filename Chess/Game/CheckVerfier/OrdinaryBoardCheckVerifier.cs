@@ -1,8 +1,8 @@
 ﻿using System;
+using Chess.Enums;
 using Chess.Exceptions;
 using Chess.Exceptions.InvalidBoardActionException;
 using Chess.Game.MoveValidator;
-using Chess.Game.Team;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 
