@@ -374,12 +374,12 @@ namespace Chess.UnitTests.ModelsUnitTests.FiguresUnitTests.Move
         }
         
         [Test]
-        public void Pawn_CanMove_UpBlack_ShouldReturnTrue()
+        public void Pawn_CanMove_UpWhite_ShouldReturnTrue()
         {
             // arrange
             Models.Position.Position startingPosition = new Models.Position.Position(0, 0);
             Models.Position.Position destinationPosition = new Models.Position.Position(1,0);
-            var pawn = new Pawn(startingPosition, TeamColor.Black);
+            var pawn = new Pawn(startingPosition, TeamColor.White);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -419,12 +419,12 @@ namespace Chess.UnitTests.ModelsUnitTests.FiguresUnitTests.Move
         }
         
         [Test]
-        public void Pawn_CanMove_DownWhite_ShouldReturnTrue()
+        public void Pawn_CanMove_DownBlack_ShouldReturnTrue()
         {
             // arrange
             Models.Position.Position startingPosition = new Models.Position.Position(1, 0);
             Models.Position.Position destinationPosition = new Models.Position.Position(0,0);
-            var pawn = new Pawn(startingPosition, TeamColor.White);
+            var pawn = new Pawn(startingPosition, TeamColor.Black);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -439,7 +439,7 @@ namespace Chess.UnitTests.ModelsUnitTests.FiguresUnitTests.Move
             // arrange
             Models.Position.Position startingPosition = new Models.Position.Position(0, 0);
             Models.Position.Position destinationPosition = new Models.Position.Position(2,0);
-            var pawn = new Pawn(startingPosition, TeamColor.Black);
+            var pawn = new Pawn(startingPosition, TeamColor.White);
             
             // act
             bool result = pawn.CanMove(destinationPosition);
@@ -455,7 +455,7 @@ namespace Chess.UnitTests.ModelsUnitTests.FiguresUnitTests.Move
             Models.Position.Position startingPosition = new Models.Position.Position(0, 0);
             Models.Position.Position intermediatePosition = new Models.Position.Position(1,0);
             Models.Position.Position destinationPosition = new Models.Position.Position(3,0);
-            var pawn = new Pawn(startingPosition, TeamColor.Black);
+            var pawn = new Pawn(startingPosition, TeamColor.White);
             
             // act
             bool result1 = pawn.CanMove(intermediatePosition);

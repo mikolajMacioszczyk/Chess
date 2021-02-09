@@ -46,11 +46,11 @@ namespace Chess.Models.Figures.FigureImplementation
         /// <returns></returns>
         private bool IsForward(Models.Position.Position newPosition)
         {
-            if (TeamColor == TeamColor.White)
+            if (TeamColor == TeamColor.Black)
             {
-                return newPosition.PositionY < Position.PositionY;
+                return newPosition.Row < Position.Row;
             }
-            return newPosition.PositionY > Position.PositionY;
+            return newPosition.Row > Position.Row;
         }
 
         /// <summary>

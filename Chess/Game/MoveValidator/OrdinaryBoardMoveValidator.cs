@@ -40,10 +40,10 @@ namespace Chess.Game.MoveValidator
 
         private bool VerifyPositionInBoundaries(Position position)
         {
-            if (position.PositionX < 0 || 
-                position.PositionY < 0 || 
-                position.PositionX >= OrdinaryChessBoard.BoardSize ||
-                position.PositionY >= OrdinaryChessBoard.BoardSize)
+            if (position.Row < 0 || 
+                position.Column < 0 || 
+                position.Row >= OrdinaryChessBoard.BoardSize ||
+                position.Column >= OrdinaryChessBoard.BoardSize)
             {
                 return false;
             }

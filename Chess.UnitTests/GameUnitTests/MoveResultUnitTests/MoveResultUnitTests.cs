@@ -13,11 +13,11 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
     public class MoveResultUnitTests
     {
          [Test]
-         public void GetScore_AfterMovementBlack_BottomLeftPawnTwoFieldUp_BlackTeam_ShouldBe_Minus1()
+         public void GetScore_AfterMovementBlack_BottomLeftPawnTwoFieldUp_WhiteTeam_ShouldBe_Minus1()
          {
              // arrange
              var startingBoard = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.Black;
+             TeamColor team = TeamColor.White;
              var startPawnPosition = new Position(1, 0);
              var endPawnPosition = new Position(3, 0);
              
@@ -39,11 +39,11 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          }
          
          [Test]
-         public void GetScore_AfterMovementBlack_BottomLeftPawnTwoFieldUp_WhiteTeam_ShouldBe_1()
+         public void GetScore_AfterMovementBlack_BottomLeftPawnTwoFieldUp_BlackTeam_ShouldBe_1()
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
+             TeamColor team = TeamColor.Black;
              var startPawnPosition = new Position(1, 0);
              var endPawnPosition = new Position(3, 0);
 
@@ -64,11 +64,11 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          }
          
          [Test]
-         public void GetScore_AfterKilledWhite_BlackTeam_ShouldBe_Plus19()
+         public void GetScore_AfterKilledWhite_WhiteTeam_ShouldBe_Plus19()
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.Black;
+             TeamColor team = TeamColor.White;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -103,11 +103,11 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
          }
          
          [Test]
-         public void GetScore_AfterKilledWhite_WhiteTeam_ShouldBe_Minus19()
+         public void GetScore_AfterKilledWhite_BlackTeam_ShouldBe_Minus19()
          {
              // arrange
              var board = new OrdinaryChessBoard();
-             TeamColor team = TeamColor.White;
+             TeamColor team = TeamColor.Black;
              var startBlackPawnPosition = new Position(1, 5);
              var oneHopBlackPawnPosition = new Position(3, 5);
              var startWhitePawnPosition = new Position(6, 4);
@@ -395,8 +395,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              var moveResult =
                  new ValidMoveResult(board, verifier, validator, lastMoveVm);
 
-             var team1 = TeamColor.Black;
-             var team2 = TeamColor.White;
+             var team1 = TeamColor.White;
+             var team2 = TeamColor.Black;
              // act
 
              var result1 = moveResult.IsCheck(team1);
@@ -449,8 +449,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              var moveResult =
                  new ValidMoveResult(board, verifier, validator, lastMoveVm);
 
-             var team1 = TeamColor.Black;
-             var team2 = TeamColor.White;
+             var team1 = TeamColor.White;
+             var team2 = TeamColor.Black;
              // act
 
              var result1 = moveResult.IsCheck(team1);
@@ -495,8 +495,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              var moveResult =
                  new ValidMoveResult(board, verifier, validator, lastMoveVm);
 
-             var team1 = TeamColor.Black;
-             var team2 = TeamColor.White;
+             var team1 = TeamColor.White;
+             var team2 = TeamColor.Black;
              // act
 
              var result1 = moveResult.IsCheck(team1);
@@ -545,8 +545,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              var moveResult =
                  new ValidMoveResult(board, verifier,validator, lastMoveVm);
 
-             var team1 = TeamColor.Black;
-             var team2 = TeamColor.White;
+             var team1 = TeamColor.White;
+             var team2 = TeamColor.Black;
              // act
 
              var result1 = moveResult.IsCheck(team1);
@@ -595,8 +595,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveResultUnitTests
              var moveResult =
                  new ValidMoveResult(board, verifier, validator, lastMoveVm);
 
-             var team1 = TeamColor.Black;
-             var team2 = TeamColor.White;
+             var team1 = TeamColor.White;
+             var team2 = TeamColor.Black;
              // act
 
              var result1 = moveResult.IsCheck(team1);

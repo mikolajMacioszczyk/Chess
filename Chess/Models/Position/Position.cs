@@ -4,13 +4,13 @@ namespace Chess.Models.Position
 {
     public class Position
     {
-        public int PositionX { get; }
-        public int PositionY { get; }
+        public int Row { get; }
+        public int Column { get; }
 
-        public Position(int positionY, int positionX)
+        public Position(int row, int column)
         {
-            PositionX = positionX;
-            PositionY = positionY;
+            Row = row;
+            Column = column;
         }
 
         public static bool operator ==(Position left, Position right)
@@ -19,7 +19,7 @@ namespace Chess.Models.Position
             {
                 return false;
             }
-            return left.PositionX == right.PositionX && left.PositionY == right.PositionY;
+            return left.Row == right.Row && left.Column == right.Column;
         }
 
         public static bool operator !=(Position left, Position right)
@@ -37,17 +37,17 @@ namespace Chess.Models.Position
 
         public override int GetHashCode()
         {
-            return HashCode.Combine(PositionX, PositionY);
+            return HashCode.Combine(Row, Column);
         }
 
         protected bool Equals(Position other)
         {
-            return PositionX == other.PositionX && PositionY == other.PositionY;
+            return Row == other.Row && Column == other.Column;
         }
         
         public override string ToString()
         {
-            return $"[{PositionX} : {PositionY}]";
+            return $"[{Row} : {Column}]";
         }
     }
 }

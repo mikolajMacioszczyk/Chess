@@ -219,19 +219,19 @@ namespace Chess.Game.MoveResult
         {
             List<Position> output = new List<Position>();
 
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX+1, king.Position.PositionY);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row+1, king.Position.Column);
                 
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX+1, king.Position.PositionY+1);
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX, king.Position.PositionY+1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row+1, king.Position.Column+1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row, king.Position.Column+1);
 
             
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX+1, king.Position.PositionY-1);
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX, king.Position.PositionY-1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row+1, king.Position.Column-1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row, king.Position.Column-1);
             
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX-1, king.Position.PositionY);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row-1, king.Position.Column);
             
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX-1, king.Position.PositionY+1);
-            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.PositionX-1, king.Position.PositionY-1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row-1, king.Position.Column+1);
+            AddPositionIfInBoundariesAndCanMove(output,king,king.Position.Row-1, king.Position.Column-1);
 
             return output;
         }

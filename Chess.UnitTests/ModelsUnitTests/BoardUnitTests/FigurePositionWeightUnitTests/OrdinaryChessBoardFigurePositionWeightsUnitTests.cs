@@ -55,27 +55,10 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         
         [Test]
-        public void GetPositionWeight_King_Black_DownLeftCorner_ShouldReturn_4()
+        public void GetPositionWeight_King_Black_DownLeftCorner_ShouldReturn_Minus6()
         {
             // arrange
             var postion = new Models.Position.Position(0, 0);
-            var team = TeamColor.Black;
-            var figure = new King(postion, team);
-            int expected = 4;
-            var weights = new OrdinaryChessBoardFigurePositionWeight();
-
-            // act
-            var result = weights.GetPositionWeight(figure);
-            
-            // assert
-            Assert.AreEqual(expected,result);
-        }
-        
-        [Test]
-        public void GetPositionWeight_King_Black_TopLeftCorner_ShouldReturn_Minus6()
-        {
-            // arrange
-            var postion = new Models.Position.Position(7, 0);
             var team = TeamColor.Black;
             var figure = new King(postion, team);
             int expected = -6;
@@ -89,13 +72,13 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         
         [Test]
-        public void GetPositionWeight_King_Black_AlmostTopRightCorner_ShouldReturn_Minus8()
+        public void GetPositionWeight_King_Black_TopLeftCorner_ShouldReturn_Minus4()
         {
             // arrange
-            var postion = new Models.Position.Position(7, 6);
+            var postion = new Models.Position.Position(7, 0);
             var team = TeamColor.Black;
             var figure = new King(postion, team);
-            int expected = -8;
+            int expected = 4;
             var weights = new OrdinaryChessBoardFigurePositionWeight();
 
             // act
@@ -106,13 +89,30 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         
         [Test]
-        public void GetPositionWeight_King_Black_AlmostDownRightCorner_ShouldReturn_6()
+        public void GetPositionWeight_King_Black_AlmostTopRightCorner_ShouldReturn_6()
+        {
+            // arrange
+            var postion = new Models.Position.Position(7, 6);
+            var team = TeamColor.Black;
+            var figure = new King(postion, team);
+            int expected = 6;
+            var weights = new OrdinaryChessBoardFigurePositionWeight();
+
+            // act
+            var result = weights.GetPositionWeight(figure);
+            
+            // assert
+            Assert.AreEqual(expected,result);
+        }
+        
+        [Test]
+        public void GetPositionWeight_King_Black_AlmostDownRightCorner_ShouldReturn_Minus8()
         {
             // arrange
             var postion = new Models.Position.Position(0, 6);
             var team = TeamColor.Black;
             var figure = new King(postion, team);
-            int expected = 6;
+            int expected = -8;
             var weights = new OrdinaryChessBoardFigurePositionWeight();
 
             // act
@@ -126,7 +126,7 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         public void GetPositionWeight_King_Black_SomewhereInTheMiddle_ShouldReturn_Minus10()
         {
             // arrange
-            var postion = new Models.Position.Position(4, 3);
+            var postion = new Models.Position.Position(3, 3);
             var team = TeamColor.Black;
             var figure = new King(postion, team);
             int expected = -10;
@@ -140,27 +140,10 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         //
         [Test]
-        public void GetPositionWeight_King_White_DownLeftCorner_ShouldReturn_Minus6()
+        public void GetPositionWeight_King_White_DownLeftCorner_ShouldReturn_4()
         {
             // arrange
             var postion = new Models.Position.Position(0, 0);
-            var team = TeamColor.White;
-            var figure = new King(postion, team);
-            int expected = -6;
-            var weights = new OrdinaryChessBoardFigurePositionWeight();
-
-            // act
-            var result = weights.GetPositionWeight(figure);
-            
-            // assert
-            Assert.AreEqual(expected,result);
-        }
-        
-        [Test]
-        public void GetPositionWeight_King_White_TopLeftCorner_ShouldReturn_4()
-        {
-            // arrange
-            var postion = new Models.Position.Position(7, 0);
             var team = TeamColor.White;
             var figure = new King(postion, team);
             int expected = 4;
@@ -174,10 +157,44 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         
         [Test]
-        public void GetPositionWeight_King_White_AlmostTopRightCorner_ShouldReturn_6()
+        public void GetPositionWeight_King_White_TopLeftCorner_ShouldReturn_Minus6()
+        {
+            // arrange
+            var postion = new Models.Position.Position(7, 0);
+            var team = TeamColor.White;
+            var figure = new King(postion, team);
+            int expected = -6;
+            var weights = new OrdinaryChessBoardFigurePositionWeight();
+
+            // act
+            var result = weights.GetPositionWeight(figure);
+            
+            // assert
+            Assert.AreEqual(expected,result);
+        }
+        
+        [Test]
+        public void GetPositionWeight_King_White_AlmostTopRightCorner_ShouldReturn_Minus8()
         {
             // arrange
             var postion = new Models.Position.Position(7, 6);
+            var team = TeamColor.White;
+            var figure = new King(postion, team);
+            int expected = -8;
+            var weights = new OrdinaryChessBoardFigurePositionWeight();
+
+            // act
+            var result = weights.GetPositionWeight(figure);
+            
+            // assert
+            Assert.AreEqual(expected,result);
+        }
+        
+        [Test]
+        public void GetPositionWeight_King_White_AlmostDownRightCorner_ShouldReturn_6()
+        {
+            // arrange
+            var postion = new Models.Position.Position(0, 6);
             var team = TeamColor.White;
             var figure = new King(postion, team);
             int expected = 6;
@@ -191,30 +208,13 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests.FigurePositionWeightUni
         }
         
         [Test]
-        public void GetPositionWeight_King_White_AlmostDownRightCorner_ShouldReturn_Minus8()
+        public void GetPositionWeight_King_White_SomewhereInTheMiddle_ShouldReturn_Minus4()
         {
             // arrange
-            var postion = new Models.Position.Position(0, 6);
+            var postion = new Models.Position.Position(2, 3);
             var team = TeamColor.White;
             var figure = new King(postion, team);
-            int expected = -8;
-            var weights = new OrdinaryChessBoardFigurePositionWeight();
-
-            // act
-            var result = weights.GetPositionWeight(figure);
-            
-            // assert
-            Assert.AreEqual(expected,result);
-        }
-        
-        [Test]
-        public void GetPositionWeight_King_White_SomewhereInTheMiddle_ShouldReturn_Minus8()
-        {
-            // arrange
-            var postion = new Models.Position.Position(4, 3);
-            var team = TeamColor.White;
-            var figure = new King(postion, team);
-            int expected = -8;
+            int expected = -4;
             var weights = new OrdinaryChessBoardFigurePositionWeight();
 
             // act

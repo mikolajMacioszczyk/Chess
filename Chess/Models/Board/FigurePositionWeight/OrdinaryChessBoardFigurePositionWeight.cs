@@ -13,9 +13,11 @@ namespace Chess.Models.Board.FigurePositionWeight
             new [] { -2,1,1,1,1,1,0,-2},
             new [] { 0,0,1,1,1,1,0,-1},
             new [] { -1,0,1,1,1,1,0,-1},
+            new [] { -2,0,1,1,1,1,0,-2},
             new [] { -2,0,0,0,0,0,0,-2},
             new [] { -4,-2,-2,-1,-1,-2,-2,-4},
         };
+        
         private static readonly int[][] KingWeights =
         {
             new[] {4, 6, 2, 0, 0, 2, 6, 4},
@@ -131,16 +133,16 @@ namespace Chess.Models.Board.FigurePositionWeight
             }
         }
 
-        private int GetBlackTeamWeight(FigureType figureType, Models.Position.Position position)
-        {
-            int[][] weights = GetTableWeights(figureType);
-            return weights[position.PositionY][position.PositionX];
-        }
-        
         private int GetWhiteTeamWeight(FigureType figureType, Models.Position.Position position)
         {
             int[][] weights = GetTableWeights(figureType);
-            return weights[OrdinaryChessBoard.BoardSize - 1 - position.PositionY][OrdinaryChessBoard.BoardSize - 1 - position.PositionX];
+            return weights[position.Row][position.Column];
+        }
+        
+        private int GetBlackTeamWeight(FigureType figureType, Models.Position.Position position)
+        {
+            int[][] weights = GetTableWeights(figureType);
+            return weights[OrdinaryChessBoard.BoardSize - 1 - position.Row][OrdinaryChessBoard.BoardSize - 1 - position.Column];
         }
     }
 }

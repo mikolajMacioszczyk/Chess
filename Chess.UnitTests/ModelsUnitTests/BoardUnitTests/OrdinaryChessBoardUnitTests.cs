@@ -1,5 +1,6 @@
 using Chess.Game.Team;
 using Chess.Models.Board;
+using Chess.Models.Board.FigurePositionWeight;
 using Chess.Models.Figures;
 using NUnit.Framework;
 
@@ -15,26 +16,26 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests
                         
             // act
             var board = new OrdinaryChessBoard();
-            var blackRock = board.FigureAt(new Models.Position.Position(0, 0));
-            var whiteKnight = board.FigureAt(new Models.Position.Position(7, 1));
-            var blackBishop = board.FigureAt(new Models.Position.Position(0, 5));
-            var whiteQueen = board.FigureAt(new Models.Position.Position(7, 3));
-            var blackKing = board.FigureAt(new Models.Position.Position(0, 4));
-            var whitePawn = board.FigureAt(new Models.Position.Position(6, 2));
+            var whiteRock = board.FigureAt(new Models.Position.Position(0, 0));
+            var blackKnight = board.FigureAt(new Models.Position.Position(7, 1));
+            var whiteBishop = board.FigureAt(new Models.Position.Position(0, 5));
+            var blackQueen = board.FigureAt(new Models.Position.Position(7, 3));
+            var whiteKing = board.FigureAt(new Models.Position.Position(0, 4));
+            var blackPawn = board.FigureAt(new Models.Position.Position(6, 2));
 
             // assert
-            Assert.AreEqual(FigureType.Rook, blackRock.FigureType);
-            Assert.AreEqual(TeamColor.Black, blackRock.TeamColor);
-            Assert.AreEqual(FigureType.Knight, whiteKnight.FigureType);
-            Assert.AreEqual(TeamColor.White, whiteKnight.TeamColor);
-            Assert.AreEqual(FigureType.Bishop, blackBishop.FigureType);
-            Assert.AreEqual(TeamColor.Black, blackBishop.TeamColor);
-            Assert.AreEqual(FigureType.Queen, whiteQueen.FigureType);
-            Assert.AreEqual(TeamColor.White, whiteQueen.TeamColor);
-            Assert.AreEqual(FigureType.King, blackKing.FigureType);
-            Assert.AreEqual(TeamColor.Black, blackKing.TeamColor);
-            Assert.AreEqual(FigureType.Pawn, whitePawn.FigureType);
-            Assert.AreEqual(TeamColor.White, whitePawn.TeamColor);
+            Assert.AreEqual(FigureType.Rook, whiteRock.FigureType);
+            Assert.AreEqual(TeamColor.White, whiteRock.TeamColor);
+            Assert.AreEqual(FigureType.Knight, blackKnight.FigureType);
+            Assert.AreEqual(TeamColor.Black, blackKnight.TeamColor);
+            Assert.AreEqual(FigureType.Bishop, whiteBishop.FigureType);
+            Assert.AreEqual(TeamColor.White, whiteBishop.TeamColor);
+            Assert.AreEqual(FigureType.Queen, blackQueen.FigureType);
+            Assert.AreEqual(TeamColor.Black, blackQueen.TeamColor);
+            Assert.AreEqual(FigureType.King, whiteKing.FigureType);
+            Assert.AreEqual(TeamColor.White, whiteKing.TeamColor);
+            Assert.AreEqual(FigureType.Pawn, blackPawn.FigureType);
+            Assert.AreEqual(TeamColor.Black, blackPawn.TeamColor);
         }
         
         [Test]
@@ -103,19 +104,27 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests
         }
         
         [Test]
-        public void GetScoreForTeam_AfterMovementBlack_BottomLeftPawnTwoFieldUp_BlackTeam_ShouldBe_Minus1()
+        public void GetScoreForTeam_AfterMovementWhite_BottomLeftPawnTwoFieldUp_WhiteTeam_ShouldBe_Minus1()
         {
             // arrange
             var board = new OrdinaryChessBoard();
-            TeamColor team = TeamColor.Black;
+            TeamColor team = TeamColor.White;
             int expectedScore = -1;
             var startPawnPosition = new Models.Position.Position(1, 0);
             var endPawnPosition = new Models.Position.Position(3, 0);
-            
+
             // act
             var pawn = board.RemoveFigure(startPawnPosition);
+
+            var x = new OrdinaryChessBoardFigurePositionWeight();
+
+            x.GetPositionWeight(pawn);
+            
             board.SetFigure(pawn, endPawnPosition);
             pawn.Move(endPawnPosition);
+            
+            x.GetPositionWeight(pawn);
+            
             var result = board.GetScoreForTeam(team);
 
             // assert
@@ -123,11 +132,11 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests
         }
         
         [Test]
-        public void GetScoreForTeam_AfterMovementBlack_BottomLeftPawnTwoFieldUp_WhiteTeam_ShouldBe_1()
+        public void GetScoreForTeam_AfterMovementWhite_BottomLeftPawnTwoFieldUp_BlackTeam_ShouldBe_1()
         {
             // arrange
             var board = new OrdinaryChessBoard();
-            TeamColor team = TeamColor.White;
+            TeamColor team = TeamColor.Black;
             int expectedScore = 1;
             var startPawnPosition = new Models.Position.Position(1, 0);
             var endPawnPosition = new Models.Position.Position(3, 0);
@@ -143,11 +152,11 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests
         }
         
         [Test]
-        public void GetScoreForTeam_AfterDeleteBlack_BottomLeftPawn_BlackTeam_ShouldBe_Minus30()
+        public void GetScoreForTeam_AfterDeleteWhite_BottomLeftPawn_WhiteTeam_ShouldBe_Minus21()
         {
             // arrange
             var board = new OrdinaryChessBoard();
-            TeamColor team = TeamColor.Black;
+            TeamColor team = TeamColor.White;
             int expectedScore = -21;
             var pawnPosition = new Models.Position.Position(1, 0);
             
@@ -160,11 +169,11 @@ namespace Chess.UnitTests.ModelsUnitTests.BoardUnitTests
         }
         
         [Test]
-        public void GetScoreForTeam_AfterDeleteBlack_BottomLeftPawn_WhiteTeam_ShouldBe_30()
+        public void GetScoreForTeam_AfterDeleteWhite_BottomLeftPawn_BlackTeam_ShouldBe_21()
         {
             // arrange
             var board = new OrdinaryChessBoard();
-            TeamColor team = TeamColor.White;
+            TeamColor team = TeamColor.Black;
             int expectedScore = 21;
             var pawnPosition = new Models.Position.Position(1, 0);
             
