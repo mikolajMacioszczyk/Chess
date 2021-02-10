@@ -90,7 +90,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Chess.AssemblyInfo.cs" t="Include" />
             </e>
@@ -102,9 +102,6 @@
           </e>
           <e p="LastMoveViewModel" t="Include">
             <e p="LastMoveViewModel.cs" t="Include" />
-          </e>
-          <e p="Statictics" t="Include">
-            <e p="GameStatisticsViewModel.cs" t="Include" />
           </e>
         </e>
       </e>
@@ -129,7 +126,7 @@
           <e p="UserInteraction.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Chess.ConsoleApp.AssemblyInfo.cs" t="Include" />
             </e>
@@ -176,7 +173,7 @@
           </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="Chess.UnitTests.AssemblyInfo.cs" t="Include" />
             </e>
@@ -187,7 +184,7 @@
       <e p="PlayerComputerAI" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
-          <e p="Debug" t="Include">
+          <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
               <e p="PlayerComputerAI.AssemblyInfo.cs" t="Include" />
             </e>

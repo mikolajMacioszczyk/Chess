@@ -3,7 +3,6 @@ using Chess.Game.MoveManager;
 using Chess.Game.MoveResult;
 using Chess.GameSaver;
 using Chess.Models.Position;
-using Chess.ViewModels.Statictics;
 
 namespace Chess.Game.GameManager
 {
@@ -12,7 +11,6 @@ namespace Chess.Game.GameManager
         private IMoveManager _moveManager;
         private bool _isCheckMate;
         private TeamColor _currentMovingTeam;
-
 
         public GameConductor(ChessGameState state)
         {
@@ -62,19 +60,14 @@ namespace Chess.Game.GameManager
             }
         }
 
-        public GameStatisticsViewModel GetStatistics()
-        {
-            throw new System.NotImplementedException();
-        }
-
         public bool Undo()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public bool Redo()
-        {
-            throw new System.NotImplementedException();
+            if (_moveManager.Undo())
+            {
+                SwitchTeam();
+                return true;
+            }
+            return false;
         }
 
         public TeamColor CurrentMoveTeam()

@@ -30,5 +30,19 @@ namespace Chess.Models.Figures
         }
         public abstract bool CanMove(Models.Position.Position newPosition);
         public abstract Figure Copy();
+
+        public static bool operator ==(Figure lhs, Figure rhs)
+        {
+            if (ReferenceEquals(lhs, rhs))
+            { return true; }
+            if (ReferenceEquals(lhs, null) || ReferenceEquals(rhs, null))
+            { return false; }
+            return lhs.FigureType == rhs.FigureType && lhs.TeamColor == rhs.TeamColor;
+        }
+
+        public static bool operator !=(Figure lhs, Figure rhs)
+        {
+            return !(lhs == rhs);
+        }
     }
 }

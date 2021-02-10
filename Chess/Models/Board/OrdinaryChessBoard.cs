@@ -32,7 +32,7 @@ namespace Chess.Models.Board
             _board = new Figure[BoardSize][];
             for (int i = 0; i < BoardSize; i++)
             {
-                _board[i] = other._board[i].ToArray();
+                _board[i] = other._board[i].Select(f => f == null ? null : f.Copy()).ToArray();
             }
         }
 
@@ -98,12 +98,6 @@ namespace Chess.Models.Board
                 }
             }
             return sum;
-        }
-
-        public Figure GetFigureAtPosition(Models.Position.Position position)
-        {
-            CheckPosition(position);
-            return _board[position.Row][position.Column];
         }
 
         public Models.Position.Position GetPositionAt(int x, int y)

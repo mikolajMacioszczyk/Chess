@@ -22,8 +22,6 @@ namespace Chess.Models.Board
         public void SetFigure(Figure figure, Models.Position.Position position);
         public Figure RemoveFigure(Models.Position.Position position);
         public int GetScoreForTeam(TeamColor teamColor);
-        public Figure GetFigureAtPosition(Models.Position.Position position);
-        
         /// <summary>
         /// Return instance of position at indicated coordinates
         /// if out of bounds - throw OutOfBoundsException

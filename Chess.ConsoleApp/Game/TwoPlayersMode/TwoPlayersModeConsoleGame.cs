@@ -62,13 +62,9 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         public void Start()
         {
             if (_player1Color == _gameConductor.CurrentMoveTeam())
-            {
                 User1Move(_moveResult);
-            }
             else
-            {
                 User2Move(_moveResult);
-            }
         }
         
         private struct MovePositions
@@ -84,11 +80,30 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return new MovePositions() {From = from, Destination = destination};
         }
 
+        private bool UserSubmitMovement()
+        {
+            int choice = UserInteraction.GetPositiveNumberFromUser(
+                "1. Submit\n2. Undo", "Expected positive number. Try again");
+            switch (choice)
+            {
+                case 1:
+                    return true;
+                case 2:
+                    if (_gameConductor.Undo())
+                        Console.WriteLine("The move has been withdrawn");
+                    else
+                        Console.WriteLine("YOu cannot withdraw this move");   
+                    return false;
+                default:
+                    Console.WriteLine($"Option {choice} not found. Please try again.");
+                    return UserSubmitMovement();
+            }
+        }
+
         private IMoveResult MoveHelper()
         {
             var movePositions = GetMovePositions();
             IMoveResult moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
-
             var isValid = moveResult.IsValidMove();
             while (isValid.Status != MoveResultStatus.Valid)
             {
@@ -98,7 +113,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
                 isValid = moveResult.IsValidMove();
             }
-
+            BoardDisplay.ShowBoard(moveResult.GetBoard());
             return moveResult;
         }
 
@@ -131,7 +146,12 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             switch (choice)
             {
                 case 1:
-                    return MoveHelper();
+                    var newMoveResult = MoveHelper();
+                    if (!UserSubmitMovement())
+                    {
+                        return NextTurn(moveResult, playerNumber);
+                    }
+                    return newMoveResult;
                 case 2:
                     return SaveGame(moveResult, playerNumber);
                 default:

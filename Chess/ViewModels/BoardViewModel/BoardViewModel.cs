@@ -15,7 +15,7 @@ namespace Chess.ViewModels.BoardViewModel
 
         public Figure GetFigureAtPosition(Position position)
         {
-            return _board.GetFigureAtPosition(position);
+            return _board.FigureAt(position);
         }
 
         public int GetBoardSize()

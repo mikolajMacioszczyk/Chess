@@ -54,7 +54,7 @@ namespace Chess.Game.MoveValidator
 
         private bool VerifyPositionNotTakenByAlly(TeamColor myTeamColor, Position destinationPosition)
         {
-            var figure = _board.GetFigureAtPosition(destinationPosition);
+            var figure = _board.FigureAt(destinationPosition);
             return figure == null || figure.TeamColor != myTeamColor;
         }
         
@@ -84,7 +84,7 @@ namespace Chess.Game.MoveValidator
             }
 
             var vector = new Vector(figure.Position, position);
-            var figureAtPosition = _board.GetFigureAtPosition(position);
+            var figureAtPosition = _board.FigureAt(position);
 
             if (vector.IsVertical)
             {

@@ -117,7 +117,7 @@ namespace Chess.Game.MoveResult
                 {
                     for (int j = 0; j < _board.GetBoardSize(); j++)
                     {
-                        var figure = _board.GetFigureAtPosition(_board.GetPositionAt(i, j));
+                        var figure = _board.FigureAt(_board.GetPositionAt(i, j));
                         if (figure != null &&
                             figure.TeamColor == kingTeamColor &&
                             figure.FigureType != FigureType.King &&
