@@ -16,9 +16,12 @@ namespace Chess.Game.MoveManager
         private readonly ICheckVerifier _verifier;
         private IBoard _board;
 
-        public MoveManager()
+        public MoveManager() : this(new OrdinaryChessBoard())
+        { }
+
+        public MoveManager(IBoard board)
         {
-            _board = new OrdinaryChessBoard();
+            _board = board;
             _moveValidator = new OrdinaryBoardMoveValidator(_board);
             _verifier = new OrdinaryBoardCheckVerifier(_board, _moveValidator);
         }

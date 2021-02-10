@@ -5,7 +5,7 @@ namespace Chess.GameSaver
 {
     public class SaveRepository
     {
-        public HashSet<string> Files { get; }
+        private HashSet<string> Files { get; }
 
         private readonly string _directory;
         private readonly string _repositorySaveFilePath;
@@ -48,6 +48,11 @@ namespace Chess.GameSaver
             }
 
             throw new ArgumentException($"File {filePath} not exist");
+        }
+
+        public IEnumerable<string> GetAllFiles()
+        {
+            return Files;
         }
 
         public bool Delete(string filePath)

@@ -1,5 +1,6 @@
 using Chess.Enums;
 using Chess.Game.MoveResult;
+using Chess.Models.Board;
 using Chess.Models.Position;
 
 namespace Chess.Game.MoveManager

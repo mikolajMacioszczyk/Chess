@@ -4,9 +4,16 @@
     <projectFile>Chess.ConsoleApp/Chess.ConsoleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Fill SaveRepositoryUnitTests.cs">
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Save function">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,10 +38,7 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeGameManager.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/IConsoleGame.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultOk.cs" />
@@ -49,8 +53,6 @@
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/Team/TeamColor.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/ViewModels/LastMoveViewModel/LastMoveViewModel.cs" />
@@ -76,12 +78,17 @@
       <option value="$PROJECT_DIR$/Chess/Enums/TeamColor.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" />
       <option value="$PROJECT_DIR$/Chess/Enums/PlayerMode.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -106,7 +113,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected=".NET Project.Chess.ConsoleApp">
+  <component name="RunManager">
     <configuration name="Chess.ConsoleApp" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -146,7 +153,8 @@
       <workItem from="1612889052048" duration="3780000" />
       <workItem from="1612913137141" duration="1322000" />
       <workItem from="1612914500207" duration="2074000" />
-      <workItem from="1612916636581" duration="605000" />
+      <workItem from="1612916636581" duration="874000" />
+      <workItem from="1612943089861" duration="4548000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -225,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612916661054</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Save function">
+      <created>1612917504099</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1612917504099</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,6 +283,39 @@
     <MESSAGE value="Fix Check Verifier bug" />
     <MESSAGE value="Add Save Repository" />
     <MESSAGE value="Fill SaveRepositoryUnitTests.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fill SaveRepositoryUnitTests.cs" />
+    <MESSAGE value="Save function" />
+    <option name="LAST_COMMIT_MESSAGE" value="Save function" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs</url>
+          <line>26</line>
+          <properties documentPath="D:\Projects\DotNet\Chess\Chess.ConsoleApp\Game\TwoPlayersMode\TwoPlayersModeConsoleGame.cs" initialLine="26" containingFunctionPresentation="constructor 'TwoPlayersModeConsoleGame'">
+            <startOffsets>
+              <option value="755" />
+            </startOffsets>
+            <endOffsets>
+              <option value="815" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs</url>
+          <line>27</line>
+          <properties documentPath="D:\Projects\DotNet\Chess\Chess.ConsoleApp\Helpers\UserInteraction.cs" initialLine="27" containingFunctionPresentation="method 'ParseStringToIntCoordinate'">
+            <startOffsets>
+              <option value="867" />
+            </startOffsets>
+            <endOffsets>
+              <option value="868" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

@@ -27,5 +27,10 @@ namespace Chess.ViewModels.BoardViewModel
         {
             return _board.GetPositionAt(x, y);
         }
+
+        public IBoard GetCopy()
+        {
+            return _board.Copy();
+        }
     }
 }

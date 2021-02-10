@@ -13,13 +13,23 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         private TeamColor _player1Color;
         private TeamColor _player2Color;
         private readonly GameConductor _gameConductor;
+        private IMoveResult _moveResult;
         
         public TwoPlayersModeConsoleGame()
         {
             SetUserColors();
             _gameConductor = new GameConductor();
+            _moveResult = _gameConductor.Start();
         }
 
+        public TwoPlayersModeConsoleGame(ChessGameState state)
+        {
+            BoardDisplay.ShowBoard(state.LastGameMoveResult.GetBoard());
+            SetUserColors();
+            _gameConductor = new GameConductor(state);
+            _moveResult = state.LastGameMoveResult;
+        }
+        
         private void SetUserColors()
         {
             Console.WriteLine(" ======================== Team ========================");
@@ -51,14 +61,13 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         public void Start()
         {
-            var moveResult = _gameConductor.Start();
-            if (_player1Color == TeamColor.White)
+            if (_player1Color == _gameConductor.CurrentMoveTeam())
             {
-                User1Move(moveResult);
+                User1Move(_moveResult);
             }
             else
             {
-                User2Move(moveResult);
+                User2Move(_moveResult);
             }
         }
         

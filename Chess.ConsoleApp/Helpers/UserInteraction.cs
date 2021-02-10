@@ -26,7 +26,7 @@ namespace Chess.ConsoleApp.Helpers
             
             if (input?.Trim().Length == 1 && char.IsLetter(input[0]))
             {
-                num = Math.Abs(input[0] - 'b');
+                num = input[0] - 'a' + 1;
                 return true;
             }
             

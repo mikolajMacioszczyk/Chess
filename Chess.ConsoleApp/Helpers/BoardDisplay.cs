@@ -15,7 +15,7 @@ namespace Chess.ConsoleApp.Helpers
             string delimeter = "\t";
             for (int i = board.GetBoardSize() - 1; i >= 0; i--)
             {
-                Console.Write(i + 1 +delimeter);
+                Console.Write(i + 1 + delimeter);
                 for (int j = 0; j < board.GetBoardSize(); j++)
                 {
                     var figure = board.GetFigureAtPosition(board.GetPositionAt(i,j));
@@ -28,7 +28,7 @@ namespace Chess.ConsoleApp.Helpers
                         ShowFigure(figure);
                     }
                 }
-                Console.WriteLine(i);
+                Console.WriteLine(i + 1);
             }
             Console.WriteLine();
             ShowCharacterCoordinate(board);
