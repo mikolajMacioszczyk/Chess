@@ -6,21 +6,18 @@ namespace Chess.GameSaver
     public class SaveRepository
     {
         public HashSet<string> Files { get; }
-        private static SaveRepository _instance;
 
-        public static SaveRepository GetRepository()
+        private readonly string _directory;
+        private readonly string _repositorySaveFilePath;
+        public SaveRepository(string directory, string repositorySaveFilePath)
         {
-            if (_instance == null)
+            _directory = directory;
+            if (!System.IO.Directory.Exists(directory))
             {
-                _instance = new SaveRepository(Directory + RepositorySaveFilePath);
+                System.IO.Directory.CreateDirectory(directory);
             }
-            return _instance;
-        }
-        private static readonly string Directory = "Saved/";
-        private static readonly string RepositorySaveFilePath = "SaveRepository.bin";
-        private SaveRepository(string path)
-        {
-            Files = ChessGameSerializer.TryReadFromFile<HashSet<string>>(path);
+            _repositorySaveFilePath = repositorySaveFilePath;
+            Files = ChessGameSerializer.TryReadFromFile<HashSet<string>>(directory + repositorySaveFilePath);
         }
 
         public bool Contains(string filePath)
@@ -30,16 +27,16 @@ namespace Chess.GameSaver
 
         public void Save(string filePath, ChessGameState state)
         {
-            ChessGameSerializer.SaveInFile(Directory + filePath, state);
+            ChessGameSerializer.SaveInFile(_directory + filePath, state);
             Files.Add(filePath);
-            ChessGameSerializer.SaveInFile(Directory + RepositorySaveFilePath, Files);
+            ChessGameSerializer.SaveInFile(_directory + _repositorySaveFilePath, Files);
         }
 
         public ChessGameState Read(string filePath)
         {
             if (Files.Contains(filePath))
             {
-                return ChessGameSerializer.ReadFromFile<ChessGameState>(Directory + filePath);
+                return ChessGameSerializer.ReadFromFile<ChessGameState>(_directory + filePath);
             }
 
             throw new ArgumentException($"File {filePath} not exist");
@@ -47,10 +44,10 @@ namespace Chess.GameSaver
 
         public bool Delete(string filePath)
         {
-            if (Files.Contains(filePath) || ChessGameSerializer.ClearFile(Directory + filePath))
+            if (Files.Contains(filePath) || ChessGameSerializer.ClearFile(_directory + filePath))
             {
                 Files.Remove(filePath);
-                ChessGameSerializer.SaveInFile(Directory + RepositorySaveFilePath, Files);
+                ChessGameSerializer.SaveInFile(_directory + _repositorySaveFilePath, Files);
                 return true;
             }
             return false;

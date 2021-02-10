@@ -5,48 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStatus.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/StoppedMoveResult.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Enums/PlayerMode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Enums/PlayerMode.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/FigurePositionWeightUnitTests/OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/FigurePositionWeightUnitTests/OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/OrdinaryChessBoardUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/OrdinaryChessBoardUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Exceptions/InvalidTeamException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Exceptions/InvalidTeamException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/ICheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/ICheckVerifier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/InvalidMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/InvalidMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/IsValidMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/IsValidMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStart.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/Team/TeamColor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Enums/TeamColor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/FigurePositionWeight/OrdinaryChessBoardFigurePositionWeight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/FigurePositionWeight/OrdinaryChessBoardFigurePositionWeight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/IBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/IBoard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Bishop.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Bishop.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/King.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/King.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Knight.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Knight.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Pawn.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Pawn.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Queen.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Queen.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Rook.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Rook.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,14 +26,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F752E69F-4D75-404D-B475-B9040659A952/1F/Directory.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BC542A5C-3AD0-4C34-A080-02E941B52719/2A/Math.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F752E69F-4D75-404D-B475-B9040659A952/23/File.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BC542A5C-3AD0-4C34-A080-02E941B52719/2E/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Application/NewGameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/nunit/nunit/c933a883ea25263ec575a654dae69fa38000edd9/src/NUnitFramework/framework/Internal/Execution/SimpleWorkItemDispatcher.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/IGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/IConsoleGame.cs" />
@@ -120,6 +85,7 @@
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -181,7 +147,9 @@
       <workItem from="1612865040344" duration="12358000" />
       <workItem from="1612879456975" duration="187000" />
       <workItem from="1612884730252" duration="3145000" />
-      <workItem from="1612889052048" duration="3643000" />
+      <workItem from="1612889052048" duration="3780000" />
+      <workItem from="1612913137141" duration="1322000" />
+      <workItem from="1612914500207" duration="2074000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -246,7 +214,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612878848964</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add Save Repository">
+      <created>1612892849593</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1612892849593</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,6 +262,7 @@
     <MESSAGE value="Add Intro with move example" />
     <MESSAGE value="Change Position constructor and fields, fix bugs, fix tests" />
     <MESSAGE value="Fix Check Verifier bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Check Verifier bug" />
+    <MESSAGE value="Add Save Repository" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Save Repository" />
   </component>
 </project>

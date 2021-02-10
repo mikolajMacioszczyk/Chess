@@ -49,7 +49,7 @@ namespace Chess.GameSaver
                 File.Delete(path);
                 return true;
             }
-            catch (Exception ignored)
+            catch (Exception)
             {
                 return ClearFile(path, repeats - 1);
             }
