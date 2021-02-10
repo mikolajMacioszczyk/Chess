@@ -3,14 +3,15 @@ using Chess.ConsoleApp.Helpers;
 using Chess.Enums;
 using Chess.Game.GameManager;
 using Chess.Game.MoveResult;
+using Chess.GameSaver;
 using Chess.Models.Position;
 
 namespace Chess.ConsoleApp.Game.TwoPlayersMode
 {
     public class TwoPlayersModeConsoleGame : IConsoleGame
     {
-        private TeamColor _user1Color;
-        private TeamColor _user2Color;
+        private TeamColor _player1Color;
+        private TeamColor _player2Color;
         private readonly GameConductor _gameConductor;
         
         public TwoPlayersModeConsoleGame()
@@ -32,12 +33,12 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             switch (choice)
             {
                 case 1:
-                    _user1Color = TeamColor.White;
-                    _user2Color = TeamColor.Black;
+                    _player1Color = TeamColor.White;
+                    _player2Color = TeamColor.Black;
                     break;
                 case 2:
-                    _user1Color = TeamColor.Black;
-                    _user2Color = TeamColor.White;
+                    _player1Color = TeamColor.Black;
+                    _player2Color = TeamColor.White;
                     break;
                 default:
                     Console.WriteLine($"Option {choice} not found. Please try again.");
@@ -45,13 +46,13 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                     break;
             }
 
-            Console.WriteLine($"User 1 has color: {_user1Color}\nUser 2 has color: {_user2Color}");
+            Console.WriteLine($"User 1 has color: {_player1Color}\nUser 2 has color: {_player2Color}");
         }
         
         public void Start()
         {
             var moveResult = _gameConductor.Start();
-            if (_user1Color == TeamColor.White)
+            if (_player1Color == TeamColor.White)
             {
                 User1Move(moveResult);
             }
@@ -92,12 +93,23 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return moveResult;
         }
 
-        private static IMoveResult SaveGame(IMoveResult moveResult, int currentPlayer)
+        private IMoveResult SaveGame(IMoveResult moveResult, int currentPlayer)
         {
             Console.WriteLine("Under what name save the game?");
             string file = UserInteraction.ReadNotEmptyStringFromUser();
-            // TODO : Check if repository
-            return null;
+            var saveRepository = SaveRepository.GetDefaultRepository();
+
+            var state = new ChessGameState()
+            {
+                IsEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White),
+                PlayerMode = PlayerMode.TwoPlayers,
+                CurrentMovingTeam = currentPlayer == 1 ? _player1Color : _player2Color,
+                LastGameMoveResult = moveResult
+            };
+            
+            saveRepository.Save(file+".bin", state);
+            Console.WriteLine("Game saved.");
+            return new StoppedMoveResult();
         }
         
         private IMoveResult NextTurn(IMoveResult moveResult, int playerNumber)
@@ -121,25 +133,33 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         private void User1Move(IMoveResult moveResult)
         {
-            if (moveResult.IsCheckMate(_user1Color))
+            if (moveResult.IsCheckMate(_player1Color))
             {
-                EndGame(_user2Color);
+                EndGame(_player2Color);
             }
 
             moveResult = NextTurn(moveResult, 1);
+            if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
+            {
+                return;
+            }
 
             User2Move(moveResult);
         }
 
         private void User2Move(IMoveResult moveResult)
         {
-            if (moveResult.IsCheckMate(_user2Color))
+            if (moveResult.IsCheckMate(_player2Color))
             {
-                EndGame(_user1Color);
+                EndGame(_player1Color);
             }
             
             moveResult = NextTurn(moveResult,2);
-
+            if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
+            {
+                return;
+            }
+            
             User1Move(moveResult);
         }
 

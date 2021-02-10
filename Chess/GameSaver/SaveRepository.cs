@@ -9,6 +9,14 @@ namespace Chess.GameSaver
 
         private readonly string _directory;
         private readonly string _repositorySaveFilePath;
+
+        private static readonly SaveRepository DefaultsRepository =
+            new SaveRepository("Save/", "SaveRepository.bin");
+        public static SaveRepository GetDefaultRepository()
+        {
+            return DefaultsRepository;
+        }
+        
         public SaveRepository(string directory, string repositorySaveFilePath)
         {
             _directory = directory;

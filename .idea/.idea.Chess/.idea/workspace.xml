@@ -4,12 +4,8 @@
     <projectFile>Chess.ConsoleApp/Chess.ConsoleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" afterDir="false" />
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Fill SaveRepositoryUnitTests.cs">
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,11 +77,11 @@
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" />
       <option value="$PROJECT_DIR$/Chess/Enums/PlayerMode.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" />
+      <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -150,6 +146,7 @@
       <workItem from="1612889052048" duration="3780000" />
       <workItem from="1612913137141" duration="1322000" />
       <workItem from="1612914500207" duration="2074000" />
+      <workItem from="1612916636581" duration="605000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -221,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612892849593</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Fill SaveRepositoryUnitTests.cs">
+      <created>1612916661054</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1612916661054</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -263,6 +267,7 @@
     <MESSAGE value="Change Position constructor and fields, fix bugs, fix tests" />
     <MESSAGE value="Fix Check Verifier bug" />
     <MESSAGE value="Add Save Repository" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Save Repository" />
+    <MESSAGE value="Fill SaveRepositoryUnitTests.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fill SaveRepositoryUnitTests.cs" />
   </component>
 </project>
