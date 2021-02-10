@@ -34,18 +34,19 @@ namespace Chess.Game.GameManager
         {
             if (!_moveManager.IsAllyAtPosition(from, _currentMovingTeam))
             {
-                return new InvalidMoveResult($"Cannot move opponent's figure");
+                return new InvalidMoveResult($"Your figure is not in the given position");
             }
 
-            if (_moveManager.CanMove(from, destination))
+            var moveManagerValidation = _moveManager.CanMove(from, destination);
+            if (!moveManagerValidation.Item1)
             {
-                var result = _moveManager.Move(from, destination);
-                SwitchTeam();
-                _isCheckMate = result.IsCheckMate(_currentMovingTeam);
-                return result;
+                return new InvalidMoveResult(moveManagerValidation.Item2);
             }
-
-            return new InvalidMoveResult($"Cannot move from position {from} to position {destination}");
+            
+            var result = _moveManager.Move(from, destination);
+            SwitchTeam();
+            _isCheckMate = result.IsCheckMate(_currentMovingTeam);
+            return result;
         }
 
         private void SwitchTeam()

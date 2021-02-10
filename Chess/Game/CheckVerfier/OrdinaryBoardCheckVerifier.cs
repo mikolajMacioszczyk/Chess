@@ -60,7 +60,7 @@ namespace Chess.Game.CheckVerfier
                     if (figure != null 
                         && figure.TeamColor != king.TeamColor 
                         && figure.CanMove(king.Position) 
-                        && _moveValidator.CanMove(figure, king.Position))
+                        && _moveValidator.CanMove(figure, king.Position).Item1)
                     {
                         return figure;
                     }
@@ -120,7 +120,7 @@ namespace Chess.Game.CheckVerfier
                 throw new InvalidMoveException(from, destination, figure);
             }
 
-            if (_moveValidator.CanMove(figure, destination))
+            if (_moveValidator.CanMove(figure, destination).Item1)
             {
                 figure.Move(destination);
                 copyBoard.SetFigure(figure, destination);

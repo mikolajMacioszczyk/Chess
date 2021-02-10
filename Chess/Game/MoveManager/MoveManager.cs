@@ -30,15 +30,30 @@ namespace Chess.Game.MoveManager
             _verifier = new OrdinaryBoardCheckVerifier(_board, _moveValidator);
         }
 
-        public bool CanMove(Position from, Position destination)
+        public (bool, string) CanMove(Position from, Position destination)
         {
             var figure = _board.FigureAt(from);
-            if (figure == null || !figure.CanMove(destination) || !_moveValidator.CanMove(figure,destination))
+            if (figure == null)
             {
-                return false;
+                return (false, "There is no figure at the given position");
+            }
+            if (!figure.CanMove(destination))
+            {
+                return (false, $"This move is not possible for a type figure: {figure.FigureType}");
             }
 
-            return !_verifier.VerifyMoveCauseCheck(figure.Position, destination);
+            var moveValidatorResult = _moveValidator.CanMove(figure, destination);
+            if (!moveValidatorResult.Item1)
+            {
+                return moveValidatorResult;
+            }
+
+            if (_verifier.VerifyMoveCauseCheck(figure.Position, destination))
+            {
+                return (false, "You can't make this move, because it would put your king in a chequered position");
+            }
+
+            return (true, "OK");
         }
 
         public IMoveResult Move(Position @from, Position destination)

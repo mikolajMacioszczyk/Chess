@@ -13,7 +13,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
     {
         private readonly Player[] _players = new Player[2];
         private readonly GameConductor _gameConductor;
-        private readonly IMoveResult _moveResult;
+        private IMoveResult _moveResult;
         
         public TwoPlayersModeConsoleGame()
         {
@@ -58,21 +58,34 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return new MovePositions() {From = from, Destination = destination};
         }
 
-        private bool UserSubmitMovement()
+        enum PlayerAction
+        {
+            Submit,
+            Undo,
+            Save
+        }
+        
+        private PlayerAction PlayerActionApprove(ref IMoveResult moveResult, int currentPlayer)
         {
             int choice = UserInteraction.GetPositiveNumberFromUser(
-                "1. Submit\n2. Undo", "Expected positive number. Try again");
+                "1. Submit\n2. Undo\n3. Save", "Expected positive number. Try again");
             if (choice == 1)
-                return true;
+                return PlayerAction.Submit;
 
             if (choice == 2)
             {
                 Console.WriteLine(_gameConductor.Undo() ? "The move has been withdrawn" : "You cannot withdraw this move");
-                return false;
+                return PlayerAction.Undo;
+            }
+
+            if (choice == 3)
+            {
+                moveResult = SaveGame(moveResult, currentPlayer == 0 ? 1 : 0);
+                return PlayerAction.Save;
             }
             
             Console.WriteLine($"Option {choice} not found. Please try again.");
-            return UserSubmitMovement();
+            return PlayerActionApprove(ref moveResult, currentPlayer);
         }
 
         private IMoveResult MoveHelper()
@@ -100,7 +113,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 IsEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White),
                 PlayerMode = PlayerMode.TwoPlayers,
                 Players = _players,
-                CurrentMovingTeam = _players[currentPlayer-1].TeamColor,
+                CurrentMovingTeam = _players[currentPlayer].TeamColor,
                 LastGameMoveResult = moveResult
             };
             
@@ -108,29 +121,30 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             Console.WriteLine("Game saved.");
             return new StoppedMoveResult();
         }
+
+        private void VerifyCheckAndDisplayMessage(IMoveResult moveResult, int playerNumber)
+        {
+            if (moveResult.IsCheck(_players[playerNumber].TeamColor))
+            {
+                Console.WriteLine("!!!");
+                Console.WriteLine("Beware, your king is in check!");
+                Console.WriteLine("!!!");
+            }
+        }
         
         private IMoveResult NextTurn(IMoveResult moveResult, int playerNumber)
         {
             BoardDisplay.ShowBoard(moveResult.GetBoard());
+            VerifyCheckAndDisplayMessage(moveResult, playerNumber);
             
             Console.WriteLine($"\n ==================== {_players[playerNumber]} ===================== ");
-            int choice = UserInteraction.GetPositiveNumberFromUser(
-                "1. Next move\n2. Save game", "Number should be positive. Please try again");
-            switch (choice)
+            var newMoveResult = MoveHelper();
+            var playerApprove = PlayerActionApprove(ref newMoveResult, playerNumber);
+            if (playerApprove == PlayerAction.Undo)
             {
-                case 1:
-                    var newMoveResult = MoveHelper();
-                    if (!UserSubmitMovement())
-                    {
-                        return NextTurn(moveResult, playerNumber);
-                    }
-                    return newMoveResult;
-                case 2:
-                    return SaveGame(moveResult, playerNumber);
-                default:
-                    Console.WriteLine($"Option {choice} not found. Please try again");
-                    return NextTurn(moveResult, playerNumber);
+                return NextTurn(moveResult, playerNumber);
             }
+            return newMoveResult;
         }
         
         private void User1Move(IMoveResult moveResult)

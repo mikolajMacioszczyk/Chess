@@ -4,25 +4,23 @@
     <projectFile>Chess.ConsoleApp/Chess.ConsoleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="">
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Add Player class">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Chess.ConsoleApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Chess.ConsoleApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Application/RepositoryGameManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveManagerUnitTests/MoveManagerUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveManagerUnitTests/MoveManagerUnitTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/IBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/IBoard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess/ViewModels/Statictics/GameStatisticsViewModel.cs" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +40,7 @@
     <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BC542A5C-3AD0-4C34-A080-02E941B52719/2A/Math.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/F752E69F-4D75-404D-B475-B9040659A952/23/File.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Application/RepositoryGameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/BC542A5C-3AD0-4C34-A080-02E941B52719/2E/Object.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -51,24 +49,17 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultOk.cs" />
-      <option value="$APPLICATION_CONFIG_DIR$/scratches/scratch.txt" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResult.cs" />
-      <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/OrdinaryChessBoardUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/BoardUnitTests/FigurePositionWeightUnitTests/OrdinaryChessBoardFigurePositionWeightsUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/FiguresUnitTests/Move/MoveUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/ModelsUnitTests/VectorUnitTests/VectorUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Position/Vector.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveResultUnitTests/MoveResultUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/CheckVerifierUnitTests/OrdinaryBoardCheckVerifierUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/Team/TeamColor.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/ViewModels/LastMoveViewModel/LastMoveViewModel.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureType.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Position/Position.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Board/FigurePositionWeight/OrdinaryChessBoardFigurePositionWeight.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/King.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Bishop.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Knight.cs" />
@@ -81,26 +72,33 @@
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/StoppedMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/IsValidMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Enums/TeamColor.cs" />
-      <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" />
       <option value="$PROJECT_DIR$/Chess/Enums/PlayerMode.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/ChessGameSerializerUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameSaverUnitTests/SaveRepositoryUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/ReadGameManager.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/BoardDisplay.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/IGameConductor.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Board/IBoard.cs" />
       <option value="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel/BoardViewModel.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/MoveHelper/TwoPlayersModeMoveHelper.cs" />
+      <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameState.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Player/Player.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/RepositoryGameManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/GameManager/GameConductor.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveManagerUnitTests/MoveManagerUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess/Models/Figures/Figure.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
-      <option value="$PROJECT_DIR$/Chess/Models/Board/OrdinaryChessBoard.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/ValidMoveResult.cs" />
+      <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
     </changedPaths>
   </component>
@@ -174,7 +172,8 @@
       <workItem from="1612965679953" duration="161000" />
       <workItem from="1612965870939" duration="52000" />
       <workItem from="1612966016285" duration="345000" />
-      <workItem from="1612966389213" duration="2712000" />
+      <workItem from="1612966389213" duration="6153000" />
+      <workItem from="1612977016115" duration="4529000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -267,7 +266,21 @@
       <option name="project" value="LOCAL" />
       <updated>1612947872125</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Undo feature">
+      <created>1612969603118</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1612969603118</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add Player class">
+      <created>1612972917281</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1612972917281</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -282,7 +295,7 @@
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 5% 2482/2609" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 5% 2500/2627" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -317,65 +330,11 @@
     <MESSAGE value="Fill SaveRepositoryUnitTests.cs" />
     <MESSAGE value="Save function" />
     <MESSAGE value="Read game feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Read game feature" />
+    <MESSAGE value="Undo feature" />
+    <MESSAGE value="Add Player class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Player class" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs</url>
-          <line>45</line>
-          <properties documentPath="D:\Projects\DotNet\Chess\Chess\Game\MoveManager\MoveManager.cs" initialLine="45" containingFunctionPresentation="method 'Move'">
-            <startOffsets>
-              <option value="1409" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1425" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs</url>
-          <line>34</line>
-          <properties documentPath="D:\Projects\DotNet\Chess\Chess\Game\MoveManager\MoveManager.cs" initialLine="34" containingFunctionPresentation="method 'CanMove'">
-            <startOffsets>
-              <option value="1018" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1053" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs</url>
-          <line>140</line>
-          <properties documentPath="D:\Projects\DotNet\Chess\Chess.ConsoleApp\Game\TwoPlayersMode\TwoPlayersModeConsoleGame.cs" initialLine="140" containingFunctionPresentation="method 'NextTurn'">
-            <startOffsets>
-              <option value="5388" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5389" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs</url>
-          <line>141</line>
-          <properties documentPath="D:\Projects\DotNet\Chess\Chess.ConsoleApp\Game\TwoPlayersMode\TwoPlayersModeConsoleGame.cs" initialLine="141" containingFunctionPresentation="method 'NextTurn'">
-            <startOffsets>
-              <option value="5402" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5448" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="30" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Chess.Models.Board.OrdinaryChessBoard" memberName="_board" />

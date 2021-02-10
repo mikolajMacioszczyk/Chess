@@ -22,7 +22,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(king, destPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -39,7 +39,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(king, destPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -56,7 +56,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(king, destPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -80,7 +80,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(king, destPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -99,7 +99,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -118,7 +118,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -135,7 +135,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -160,7 +160,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -178,7 +178,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -204,7 +204,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destQueenPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -223,7 +223,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -240,7 +240,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -263,7 +263,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -284,7 +284,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -302,7 +302,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -323,7 +323,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(queen, destRookPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -343,7 +343,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -363,7 +363,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -381,7 +381,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -407,7 +407,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -425,7 +425,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -452,7 +452,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destBishopPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -470,7 +470,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destKnightPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -494,7 +494,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destKnightPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -512,7 +512,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destKnightPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -530,7 +530,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destKnightPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -554,7 +554,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(bishop, destKnightPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -572,7 +572,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(pawn, destPawnPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -590,7 +590,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(pawn, destPawnPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -613,7 +613,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(pawn, destPawnPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
         
         [Test]
@@ -637,7 +637,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(pawn, destPawnPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
         
         [Test]
@@ -660,7 +660,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveValidatorUnitTests
             var result = validator.CanMove(pawn, destPawnPosition);
             
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Chess.ConsoleApp.Helpers
         {
             Console.WriteLine(message);
             string input = Console.ReadLine();
-            if (int.TryParse(input, out int number))
+            if (int.TryParse(input, out int number) && number >= 0)
             {
                 return number;
             }
@@ -70,9 +70,9 @@ namespace Chess.ConsoleApp.Helpers
 
         private static (string, string) GetUserNames()
         {
-            Console.WriteLine("User 1 name: ");
+            Console.Write("User 1 name:\t\t");
             string firstUserName = ReadNotEmptyStringFromUser();
-            Console.WriteLine("User 2 name: ");
+            Console.Write("User 2 name:\t\t");
             string secondUserName = ReadNotEmptyStringFromUser();
             return (firstUserName, secondUserName);
         }
@@ -83,11 +83,9 @@ namespace Chess.ConsoleApp.Helpers
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" 1. White");
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" 2. Black");
+            Console.Write(" 2. Black");
             Console.ForegroundColor = ConsoleColor.White;
             int choice = GetPositiveNumberFromUser("", "Expected positive number, please try again");
-            TeamColor value1 = TeamColor.None; 
-            TeamColor value2 = TeamColor.None;
 
             if (choice == 1)
                 return (TeamColor.White, TeamColor.Black);

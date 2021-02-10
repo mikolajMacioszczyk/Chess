@@ -9,7 +9,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2578d73e_002D3930_002D46fb_002Dbf07_002Dae2ab69a9b8c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="IsCheckMate_Black_CheckMateBlackTeam" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Projects\C#\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3a4ab5c4_002D3479_002D4ebb_002D9a8c_002D6befcc5ddd87/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="CanMove_ValidPosition_ShouldReturnTrue #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3a4ab5c4_002D3479_002D4ebb_002D9a8c_002D6befcc5ddd87/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CanMove_ValidPosition_ShouldReturnTrue #2" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\Projects\DotNet\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=41151b45_002D114b_002D4185_002D8bbd_002D797d2056c828/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="CanMove_PathBlockedByOtherFigure_ShouldReturnFalse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
@@ -40,6 +40,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=ece4ba11_002Df3e5_002D451d_002D9976_002D303a96c2cacf/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="King_CanMove_TheSamePosition_ShouldReturnFalse" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\Projects\DotNet\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=f06e05c5_002D918c_002D4f91_002D9916_002D4e75e6c629e5/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="MoveUnitTests" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="D:\Projects\DotNet\Chess\Chess.UnitTests" Presentation="&amp;lt;Chess.UnitTests&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

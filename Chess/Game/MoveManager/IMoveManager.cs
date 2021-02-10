@@ -6,7 +6,7 @@ namespace Chess.Game.MoveManager
 {
     public interface IMoveManager
     {
-        bool CanMove(Position from, Position destination);
+        (bool, string) CanMove(Position from, Position destination);
         IMoveResult Move(Position from, Position destination);
         bool IsAllyAtPosition(Position position, TeamColor myTeamColor);
         bool Undo();

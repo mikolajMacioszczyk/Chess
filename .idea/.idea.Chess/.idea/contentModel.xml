@@ -111,7 +111,7 @@
       <e p="Chess.ConsoleApp" t="IncludeRecursive">
         <e p="Application" t="Include">
           <e p="NewGameManager.cs" t="Include" />
-          <e p="ReadGameManager.cs" t="Include" />
+          <e p="RepositoryGameManager.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Chess.ConsoleApp.csproj" t="IncludeRecursive" />

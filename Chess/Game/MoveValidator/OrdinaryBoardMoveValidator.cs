@@ -27,12 +27,17 @@ namespace Chess.Game.MoveValidator
         /// <param name="figure"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        public bool CanMove(Figure figure, Position position)
+        public (bool, string) CanMove(Figure figure, Position position)
         {
-            return VerifyPositionInBoundaries(position) &&
-                   VerifyPositionNotTakenByAlly(figure.TeamColor, position) &&
-                   VerifyOtherFiguresNotBlockMove(figure, position) &&
-                   VerifyPawnMove(figure, position);
+            if (!VerifyPositionInBoundaries(position))
+                return (false, "Position out of board");
+            if (!VerifyPositionNotTakenByAlly(figure.TeamColor, position))
+                return (false, "Position already taken by ally");
+            if (!VerifyOtherFiguresNotBlockMove(figure, position))
+                return (false, "Other figures are on the path to the target position");
+            if (!VerifyPawnMove(figure, position))
+                return (false, "Invalid move for figure type: Pawn");
+            return (true, "OK");
         }
 
         public void Update(IBoard board)

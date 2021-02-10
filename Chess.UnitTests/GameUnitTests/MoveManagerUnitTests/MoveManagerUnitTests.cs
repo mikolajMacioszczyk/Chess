@@ -20,7 +20,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             var result = gameManger.CanMove(startPawnPosition, endPawnPosition);
             
             // assert
-            Assert.True(result);
+            Assert.True(result.Item1);
         }
 
         [Test]
@@ -36,7 +36,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             var result = gameManger.CanMove(startPawnPosition, endPawnPosition);
 
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             var result = gameManger.CanMove(startRookPosition, endRookPosition);
 
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
 
         [Test]
@@ -79,7 +79,7 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             var result = gameManger.CanMove(blackPawn1Start, blackPawn1End);
 
             // assert
-            Assert.False(result);
+            Assert.False(result.Item1);
         }
 
         [Test]
@@ -92,9 +92,9 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             moveManager.Move(from, dest);
 
             // act
-            bool before = moveManager.CanMove(from, dest);
+            bool before = moveManager.CanMove(from, dest).Item1;
             bool result = moveManager.Undo();
-            bool after = moveManager.CanMove(from, dest);
+            bool after = moveManager.CanMove(from, dest).Item1;
 
             // assert
             Assert.False(before);
@@ -115,10 +115,10 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             moveManager.Move(from, dest);
 
             // act
-            bool before = moveManager.CanMove(from, dest);
+            bool before = moveManager.CanMove(from, dest).Item1;
             bool result = moveManager.Undo();
-            bool after = moveManager.CanMove(from, dest);
-            bool afterKilled = moveManager.CanMove(dest, from);
+            bool after = moveManager.CanMove(from, dest).Item1;
+            bool afterKilled = moveManager.CanMove(dest, from).Item1;
 
             // assert
             Assert.False(before);
@@ -141,8 +141,8 @@ namespace Chess.UnitTests.GameUnitTests.MoveManagerUnitTests
             // act
             bool firstUndo = moveManager.Undo();
             bool secondUndo = moveManager.Undo();
-            bool canMoveValid = moveManager.CanMove(mid, dest);
-            bool canMoveInvalid = moveManager.CanMove(from, mid);
+            bool canMoveValid = moveManager.CanMove(mid, dest).Item1;
+            bool canMoveInvalid = moveManager.CanMove(from, mid).Item1;
 
             // assert
             Assert.True(firstUndo);

@@ -29,7 +29,8 @@ namespace Chess.ConsoleApp
             Console.WriteLine(" ======================== Welcome ========================");
             Console.WriteLine(" 1. New Game");
             Console.WriteLine(" 2. Read Game");
-            Console.WriteLine(" 3. Quit");
+            Console.WriteLine(" 3. Delete Game");
+            Console.WriteLine(" 4. Quit");
         }
 
         private static void ShowInColor(string message, ConsoleColor color)
@@ -69,7 +70,7 @@ namespace Chess.ConsoleApp
             Console.WriteLine();
             
             int choice = 0;
-            const int choiceEnd = 3; 
+            const int choiceEnd = 4; 
             while (choice != choiceEnd)
             {
                 ShowIntroductionMenu();
@@ -81,7 +82,10 @@ namespace Chess.ConsoleApp
                         NewGameManager.Run();
                         break;
                     case 2:
-                        ReadGameManager.Run();
+                        RepositoryGameManager.Read();
+                        break;
+                    case 3:
+                        RepositoryGameManager.Delete();
                         break;
                     case choiceEnd:
                         break;

@@ -122,7 +122,7 @@ namespace Chess.Game.MoveResult
                             figure.TeamColor == kingTeamColor &&
                             figure.FigureType != FigureType.King &&
                             figure.CanMove(field) && 
-                            _moveValidator.CanMove(figure,field))
+                            _moveValidator.CanMove(figure,field).Item1)
                         {
                             blockers.Add((figure, field));
                         }
@@ -173,7 +173,7 @@ namespace Chess.Game.MoveResult
                     if (figure != null && 
                         figure.TeamColor == colorOfCheckedTeam && 
                         figure.CanMove(destinationPosition) && 
-                        _moveValidator.CanMove(figure,destinationPosition))
+                        _moveValidator.CanMove(figure,destinationPosition).Item1)
                     {
                         killers.Add(figure);
                     }
@@ -243,7 +243,7 @@ namespace Chess.Game.MoveResult
             && posY >= 0 && posY < _board.GetBoardSize())
             {
                 var position = _board.GetPositionAt(posX, posY);
-                if (_moveValidator.CanMove(figure,position))
+                if (_moveValidator.CanMove(figure,position).Item1)
                 {
                     list.Add(position);
                 }

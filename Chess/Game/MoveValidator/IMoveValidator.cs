@@ -14,7 +14,7 @@ namespace Chess.Game.MoveValidator
         /// <param name="figure"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        bool CanMove(Figure figure, Models.Position.Position position);
+        (bool, string) CanMove(Figure figure, Models.Position.Position position);
 
         void Update(IBoard board);
     }
