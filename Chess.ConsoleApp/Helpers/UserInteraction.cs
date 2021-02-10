@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using Chess.Enums;
+using Chess.Models.Player;
 using Chess.Models.Position;
 
 namespace Chess.ConsoleApp.Helpers
@@ -64,6 +66,57 @@ namespace Chess.ConsoleApp.Helpers
             }
 
             return new Position(x-1, y-1);
+        }
+
+        private static (string, string) GetUserNames()
+        {
+            Console.WriteLine("User 1 name: ");
+            string firstUserName = ReadNotEmptyStringFromUser();
+            Console.WriteLine("User 2 name: ");
+            string secondUserName = ReadNotEmptyStringFromUser();
+            return (firstUserName, secondUserName);
+        }
+
+        private static (TeamColor, TeamColor) GetTeamColors(string player1Name)
+        {
+            Console.WriteLine($"{player1Name} team: ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(" 1. White");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine(" 2. Black");
+            Console.ForegroundColor = ConsoleColor.White;
+            int choice = GetPositiveNumberFromUser("", "Expected positive number, please try again");
+            TeamColor value1 = TeamColor.None; 
+            TeamColor value2 = TeamColor.None;
+
+            if (choice == 1)
+                return (TeamColor.White, TeamColor.Black);
+            if (choice == 2)
+                return (TeamColor.Black, TeamColor.White);
+
+            Console.WriteLine($"Option {choice} not found. Please try again.");
+            return GetTeamColors(player1Name);
+        }
+        
+        public static (Player, Player) GetColorFromPlayer()
+        {
+            var names = GetUserNames();
+            while (names.Item1.Equals(names.Item2))
+            {
+                Console.WriteLine("Users cannot have the same names");
+                names = GetUserNames();
+            }
+
+            var colors = GetTeamColors(names.Item1);
+
+            Console.WriteLine($"{names.Item1} has color: {colors.Item1}\n{names.Item2} has color: {colors.Item2}");
+            return (new Player()
+            {
+                Name = names.Item1, TeamColor = colors.Item1
+            }, new Player()
+            {
+                Name = names.Item2, TeamColor = colors.Item2
+            });
         }
     }
 }

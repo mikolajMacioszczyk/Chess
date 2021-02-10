@@ -1,7 +1,7 @@
 ﻿using System;
 using Chess.Enums;
 using Chess.Game.MoveResult;
-using Chess.Models.Board;
+using Chess.Models.Player;
 
 namespace Chess.GameSaver
 {
@@ -10,6 +10,7 @@ namespace Chess.GameSaver
     {
         public IMoveResult LastGameMoveResult { get; set; }
         public bool IsEnded { get; set; }
+        public Player[] Players { get; set; }
         public TeamColor CurrentMovingTeam { get; set; }
         public PlayerMode PlayerMode { get; set; }
     }

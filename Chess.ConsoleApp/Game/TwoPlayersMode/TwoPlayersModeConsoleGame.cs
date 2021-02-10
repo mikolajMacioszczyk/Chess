@@ -4,20 +4,20 @@ using Chess.Enums;
 using Chess.Game.GameManager;
 using Chess.Game.MoveResult;
 using Chess.GameSaver;
+using Chess.Models.Player;
 using Chess.Models.Position;
 
 namespace Chess.ConsoleApp.Game.TwoPlayersMode
 {
     public class TwoPlayersModeConsoleGame : IConsoleGame
     {
-        private TeamColor _player1Color;
-        private TeamColor _player2Color;
+        private readonly Player[] _players = new Player[2];
         private readonly GameConductor _gameConductor;
-        private IMoveResult _moveResult;
+        private readonly IMoveResult _moveResult;
         
         public TwoPlayersModeConsoleGame()
         {
-            SetUserColors();
+            SetUsers();
             _gameConductor = new GameConductor();
             _moveResult = _gameConductor.Start();
         }
@@ -25,43 +25,21 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         public TwoPlayersModeConsoleGame(ChessGameState state)
         {
             BoardDisplay.ShowBoard(state.LastGameMoveResult.GetBoard());
-            SetUserColors();
+            _players = state.Players;
             _gameConductor = new GameConductor(state);
             _moveResult = state.LastGameMoveResult;
         }
         
-        private void SetUserColors()
+        private void SetUsers()
         {
-            Console.WriteLine(" ======================== Team ========================");
-            Console.ForegroundColor = ConsoleColor.Blue;
-            Console.WriteLine(" 1. White");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine(" 2. Black");
-            Console.ForegroundColor = ConsoleColor.White;
-            int choice = UserInteraction.GetPositiveNumberFromUser(
-                "Select color for User 1: ", "Expected positive number, please try again");
-            switch (choice)
-            {
-                case 1:
-                    _player1Color = TeamColor.White;
-                    _player2Color = TeamColor.Black;
-                    break;
-                case 2:
-                    _player1Color = TeamColor.Black;
-                    _player2Color = TeamColor.White;
-                    break;
-                default:
-                    Console.WriteLine($"Option {choice} not found. Please try again.");
-                    SetUserColors();
-                    break;
-            }
-
-            Console.WriteLine($"User 1 has color: {_player1Color}\nUser 2 has color: {_player2Color}");
+            var colors = UserInteraction.GetColorFromPlayer();
+            _players[0] = colors.Item1;
+            _players[1] = colors.Item2;
         }
         
         public void Start()
         {
-            if (_player1Color == _gameConductor.CurrentMoveTeam())
+            if (_players[0].TeamColor == _gameConductor.CurrentMoveTeam())
                 User1Move(_moveResult);
             else
                 User2Move(_moveResult);
@@ -84,20 +62,17 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         {
             int choice = UserInteraction.GetPositiveNumberFromUser(
                 "1. Submit\n2. Undo", "Expected positive number. Try again");
-            switch (choice)
+            if (choice == 1)
+                return true;
+
+            if (choice == 2)
             {
-                case 1:
-                    return true;
-                case 2:
-                    if (_gameConductor.Undo())
-                        Console.WriteLine("The move has been withdrawn");
-                    else
-                        Console.WriteLine("YOu cannot withdraw this move");   
-                    return false;
-                default:
-                    Console.WriteLine($"Option {choice} not found. Please try again.");
-                    return UserSubmitMovement();
+                Console.WriteLine(_gameConductor.Undo() ? "The move has been withdrawn" : "You cannot withdraw this move");
+                return false;
             }
+            
+            Console.WriteLine($"Option {choice} not found. Please try again.");
+            return UserSubmitMovement();
         }
 
         private IMoveResult MoveHelper()
@@ -107,11 +82,8 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             var isValid = moveResult.IsValidMove();
             while (isValid.Status != MoveResultStatus.Valid)
             {
-                Console.WriteLine(isValid.Cause);
-                Console.WriteLine("Try again");
-                movePositions = GetMovePositions();
-                moveResult = _gameConductor.DoMove(movePositions.From, movePositions.Destination);
-                isValid = moveResult.IsValidMove();
+                Console.WriteLine($"Invalid move: {isValid.Cause}");
+                return MoveHelper();
             }
             BoardDisplay.ShowBoard(moveResult.GetBoard());
             return moveResult;
@@ -127,7 +99,8 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             {
                 IsEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White),
                 PlayerMode = PlayerMode.TwoPlayers,
-                CurrentMovingTeam = currentPlayer == 1 ? _player1Color : _player2Color,
+                Players = _players,
+                CurrentMovingTeam = _players[currentPlayer-1].TeamColor,
                 LastGameMoveResult = moveResult
             };
             
@@ -140,7 +113,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         {
             BoardDisplay.ShowBoard(moveResult.GetBoard());
             
-            Console.WriteLine($"\n ==================== User {playerNumber} ===================== ");
+            Console.WriteLine($"\n ==================== {_players[playerNumber]} ===================== ");
             int choice = UserInteraction.GetPositiveNumberFromUser(
                 "1. Next move\n2. Save game", "Number should be positive. Please try again");
             switch (choice)
@@ -162,12 +135,12 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         private void User1Move(IMoveResult moveResult)
         {
-            if (moveResult.IsCheckMate(_player1Color))
+            if (moveResult.IsCheckMate(_players[0].TeamColor))
             {
-                EndGame(_player2Color);
+                EndGame(1);
             }
 
-            moveResult = NextTurn(moveResult, 1);
+            moveResult = NextTurn(moveResult, 0);
             if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
             {
                 return;
@@ -178,12 +151,12 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
 
         private void User2Move(IMoveResult moveResult)
         {
-            if (moveResult.IsCheckMate(_player2Color))
+            if (moveResult.IsCheckMate(_players[1].TeamColor))
             {
-                EndGame(_player1Color);
+                EndGame(1);
             }
             
-            moveResult = NextTurn(moveResult,2);
+            moveResult = NextTurn(moveResult,1);
             if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
             {
                 return;
@@ -192,10 +165,10 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             User1Move(moveResult);
         }
 
-        private void EndGame(TeamColor winner)
+        private void EndGame(int winner)
         {
             Console.WriteLine("\n \n \n \n");
-            Console.WriteLine($"Team {winner} wins!");
+            Console.WriteLine($"Player {_players[winner]} wins!");
         }
     }
 }

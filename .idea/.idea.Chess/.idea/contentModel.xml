@@ -84,6 +84,9 @@
             </e>
             <e p="FigureType.cs" t="Include" />
           </e>
+          <e p="Player" t="Include">
+            <e p="Player.cs" t="Include" />
+          </e>
           <e p="Position" t="Include">
             <e p="Position.cs" t="Include" />
             <e p="Vector.cs" t="Include" />
