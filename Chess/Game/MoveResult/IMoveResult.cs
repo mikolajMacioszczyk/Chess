@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Chess.Enums;
 using Chess.Models.Figures;
 using Chess.ViewModels.BoardViewModel;
@@ -15,6 +16,7 @@ namespace Chess.Game.MoveResult
         (Figure, Models.Position.Position, Models.Position.Position) LastMoveFigureAndPositionFromAndDest();
         bool IsLastMoveSmash();
         Figure SmashedFigure();
+        IEnumerable<Figure> AllSmashedFigures();
         BoardViewModel GetBoard();
     }
 }

@@ -20,17 +20,20 @@ namespace Chess.Game.MoveResult
         private readonly ICheckVerifier _verifier;
         private readonly IMoveValidator _moveValidator;
         private readonly LastMoveViewModel _lastMove;
+        private readonly IEnumerable<Figure> _allSmashedFigures;
         
         public ValidMoveResult(
             IBoard board, 
             ICheckVerifier verifier,
             IMoveValidator moveValidator, 
-            LastMoveViewModel lastMove)
+            LastMoveViewModel lastMove, 
+            IEnumerable<Figure> allSmashedFigures)
         {
             _board = board; 
             _verifier = verifier;
             _moveValidator = moveValidator;
             _lastMove = lastMove;
+            _allSmashedFigures = allSmashedFigures;
         }
 
         public IsValidMoveResult IsValidMove()
@@ -268,6 +271,11 @@ namespace Chess.Game.MoveResult
         public Figure SmashedFigure()
         {
             return _lastMove.Smashed;
+        }
+
+        public IEnumerable<Figure> AllSmashedFigures()
+        {
+            return _allSmashedFigures;
         }
 
         public BoardViewModel GetBoard()

@@ -56,7 +56,7 @@ namespace Chess.Game.MoveManager
             return (true, "OK");
         }
 
-        public IMoveResult Move(Position @from, Position destination)
+        public (IBoard, ICheckVerifier, IMoveValidator, LastMoveViewModel) Move(Position @from, Position destination)
         {
             _canUndo = true;
             RewriteTheFigures(_board, _previous);
@@ -67,7 +67,7 @@ namespace Chess.Game.MoveManager
             figure.Move(destination);
             _board.SetFigure(figure, destination);
             var lastMoveViewModel = new LastMoveViewModel(figure, from, destination, killed);
-            return new ValidMoveResult(_board, _verifier, _moveValidator, lastMoveViewModel);
+            return (_board, _verifier, _moveValidator, lastMoveViewModel);
         }
 
         public bool IsAllyAtPosition(Position position, TeamColor myTeamColor)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Chess.Enums;
 using Chess.Models.Figures;
 using Chess.Models.Position;
@@ -51,6 +52,11 @@ namespace Chess.Game.MoveResult
         }
 
         public Figure SmashedFigure()
+        {
+            throw new InvalidOperationException(CallbackInfo);
+        }
+
+        public IEnumerable<Figure> AllSmashedFigures()
         {
             throw new InvalidOperationException(CallbackInfo);
         }

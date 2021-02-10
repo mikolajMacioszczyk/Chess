@@ -1,4 +1,5 @@
-﻿using Chess.Enums;
+﻿using System.Collections.Generic;
+using Chess.Enums;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Position;
@@ -45,6 +46,11 @@ namespace Chess.Game.MoveResult
         }
 
         public Figure SmashedFigure()
+        {
+            return null;
+        }
+
+        public IEnumerable<Figure> AllSmashedFigures()
         {
             return null;
         }

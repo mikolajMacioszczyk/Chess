@@ -13,7 +13,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
     {
         private readonly Player[] _players = new Player[2];
         private readonly GameConductor _gameConductor;
-        private IMoveResult _moveResult;
+        private readonly IMoveResult _moveResult;
         
         public TwoPlayersModeConsoleGame()
         {
@@ -24,7 +24,6 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
 
         public TwoPlayersModeConsoleGame(ChessGameState state)
         {
-            BoardDisplay.ShowBoard(state.LastGameMoveResult.GetBoard());
             _players = state.Players;
             _gameConductor = new GameConductor(state);
             _moveResult = state.LastGameMoveResult;
@@ -36,6 +35,15 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             _players[0] = colors.Item1;
             _players[1] = colors.Item2;
         }
+        
+        private void ShowBoard(IMoveResult moveResult)
+        {
+            BoardDisplay.DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.White);
+            Console.WriteLine();
+            BoardDisplay.DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.Black);
+            BoardDisplay.ShowBoard(moveResult.GetBoard());
+        }
+
         
         public void Start()
         {
@@ -98,24 +106,18 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 Console.WriteLine($"Invalid move: {isValid.Cause}");
                 return MoveHelper();
             }
-            BoardDisplay.ShowBoard(moveResult.GetBoard());
+            ShowBoard(moveResult);
             return moveResult;
         }
-
         private IMoveResult SaveGame(IMoveResult moveResult, int currentPlayer)
         {
             Console.WriteLine("Under what name save the game?");
             string file = UserInteraction.ReadNotEmptyStringFromUser();
             var saveRepository = SaveRepository.GetDefaultRepository();
 
-            var state = new ChessGameState()
-            {
-                IsEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White),
-                PlayerMode = PlayerMode.TwoPlayers,
-                Players = _players,
-                CurrentMovingTeam = _players[currentPlayer].TeamColor,
-                LastGameMoveResult = moveResult
-            };
+            bool isEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White);
+            var state = new ChessGameState(moveResult, isEnded, _players, 
+                _players[currentPlayer].TeamColor, PlayerMode.TwoPlayers);
             
             saveRepository.Save(file+".bin", state);
             Console.WriteLine("Game saved.");
@@ -134,16 +136,25 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         private IMoveResult NextTurn(IMoveResult moveResult, int playerNumber)
         {
-            BoardDisplay.ShowBoard(moveResult.GetBoard());
+            ShowBoard(moveResult);
             VerifyCheckAndDisplayMessage(moveResult, playerNumber);
             
             Console.WriteLine($"\n ==================== {_players[playerNumber]} ===================== ");
             var newMoveResult = MoveHelper();
+            
+            if (newMoveResult.IsLastMoveSmash())
+            {
+                var smashed = newMoveResult.SmashedFigure();
+                Console.WriteLine($"Player {_players[playerNumber].Name} smashed " +
+                                  $"{_players[playerNumber == 0 ? 1 : 0].Name}'s {smashed.FigureType}");
+            }
+            
             var playerApprove = PlayerActionApprove(ref newMoveResult, playerNumber);
             if (playerApprove == PlayerAction.Undo)
             {
                 return NextTurn(moveResult, playerNumber);
             }
+
             return newMoveResult;
         }
         

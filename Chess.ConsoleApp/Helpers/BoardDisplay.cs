@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using Chess.Enums;
 using Chess.Models.Figures;
 using Chess.ViewModels.BoardViewModel;
@@ -7,6 +9,25 @@ namespace Chess.ConsoleApp.Helpers
 {
     public static class BoardDisplay
     {
+        public static void DisplaySmashed(IEnumerable<Figure> smashed, TeamColor teamColor)
+        {
+            if (smashed == null)
+            {
+                return;
+            }
+            var fromGiveTeam = 
+                smashed.Where(f => f.TeamColor == teamColor)
+                    .OrderBy(f => f.FigureType).ToArray();
+            if (fromGiveTeam.Any())
+            {
+                Console.Write($"Smashed figures from team: {teamColor}: ");
+                foreach (var figure in fromGiveTeam)
+                {
+                    ShowFigure(figure);
+                }
+            }
+        }
+        
         public static void ShowBoard(BoardViewModel board)
         {
             Console.WriteLine();

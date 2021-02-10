@@ -70,9 +70,9 @@ namespace Chess.ConsoleApp.Helpers
 
         private static (string, string) GetUserNames()
         {
-            Console.Write("User 1 name:\t\t");
+            Console.Write("User 1 name:\t");
             string firstUserName = ReadNotEmptyStringFromUser();
-            Console.Write("User 2 name:\t\t");
+            Console.Write("User 2 name:\t");
             string secondUserName = ReadNotEmptyStringFromUser();
             return (firstUserName, secondUserName);
         }

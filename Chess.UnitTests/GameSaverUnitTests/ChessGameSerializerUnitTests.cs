@@ -25,18 +25,14 @@ namespace Chess.UnitTests.GameSaverUnitTests
             var verifier = new OrdinaryBoardCheckVerifier(board, validator);
             var lastMoveVm = new LastMoveViewModel(new King(new Position(1,2), TeamColor.Black), 
                 new Position(1,2), new Position(2, 3), null);
-            var moveResult = new ValidMoveResult(board, verifier, validator, lastMoveVm);
+            var moveResult = new ValidMoveResult(board, verifier, validator, lastMoveVm,null);
             const bool isGameEnded = false;
             TeamColor currentTeam = TeamColor.Black;
 
             const string filePath = "Test_Serialize_NextDeserialize_ValidObjects.bin";
 
-            ChessGameState gameState = new ChessGameState()
-            {
-                LastGameMoveResult = moveResult,
-                IsEnded = isGameEnded,
-                CurrentMovingTeam = currentTeam
-            };
+            ChessGameState gameState = 
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
@@ -59,18 +55,14 @@ namespace Chess.UnitTests.GameSaverUnitTests
             var board = new OrdinaryChessBoard();
             var validator = new OrdinaryBoardMoveValidator(board);
             var verifier = new OrdinaryBoardCheckVerifier(board, validator);
-            var moveResult = new ValidMoveResult(board, verifier, validator, null);
+            var moveResult = new ValidMoveResult(board, verifier, validator, null,null);
             const bool isGameEnded = false;
             TeamColor currentTeam = TeamColor.Black;
 
             const string filePath = "Test_Serialize_NextDeserialize_NullObject.bin";
 
-            ChessGameState gameState = new ChessGameState()
-            {
-                LastGameMoveResult = moveResult,
-                IsEnded = isGameEnded,
-                CurrentMovingTeam = currentTeam
-            };
+            ChessGameState gameState = 
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
@@ -93,18 +85,14 @@ namespace Chess.UnitTests.GameSaverUnitTests
             var verifier = new OrdinaryBoardCheckVerifier(board, validator);
             LastMoveViewModel lastMoveVm = new LastMoveViewModel(new King(new Position(1,2), TeamColor.Black), 
                 new Position(1,2), new Position(2, 3), null);
-            var moveResult = new ValidMoveResult(board, verifier, validator, lastMoveVm);
+            var moveResult = new ValidMoveResult(board, verifier, validator, lastMoveVm,null);
             const bool isGameEnded = false;
             TeamColor currentTeam = TeamColor.Black;
 
             const string filePath = "Serialize_NextDeserialize_AlreadyWrittenFile.bin";
 
-            ChessGameState gameState = new ChessGameState()
-            {
-                LastGameMoveResult = moveResult,
-                IsEnded = isGameEnded,
-                CurrentMovingTeam = currentTeam
-            };
+            ChessGameState gameState =
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
@@ -156,13 +144,12 @@ namespace Chess.UnitTests.GameSaverUnitTests
         {
             // arrange
             const string filePath = "Test_TryReadFromFileTest_NotExistingFile_ShouldReturnNewObject.bin";
-            var expected = new HashSet<string>();
-            
+
             // act
             HashSet<string> fromFile = ChessGameSerializer.TryReadFromFile<HashSet<string>>(filePath);
 
             // assert
-            Assert.True(fromFile.SequenceEqual(expected));
+            Assert.False(fromFile.Any());
         }
     }
 }
