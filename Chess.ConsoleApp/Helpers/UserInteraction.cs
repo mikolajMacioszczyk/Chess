@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using Chess.Enums;
 using Chess.Models.Player;
 using Chess.Models.Position;
+using PlayerComputerAI.AI;
 
 namespace Chess.ConsoleApp.Helpers
 {
@@ -67,19 +68,16 @@ namespace Chess.ConsoleApp.Helpers
 
             return new Position(x-1, y-1);
         }
-
-        private static (string, string) GetUserNames()
+        
+        private static string GetPlayerName(int number)
         {
-            Console.Write("User 1 name:\t");
-            string firstUserName = ReadNotEmptyStringFromUser();
-            Console.Write("User 2 name:\t");
-            string secondUserName = ReadNotEmptyStringFromUser();
-            return (firstUserName, secondUserName);
+            Console.Write($"User {number} name:\t");
+            return ReadNotEmptyStringFromUser();
         }
 
-        private static (TeamColor, TeamColor) GetTeamColors(string player1Name)
+        private static TeamColor GetTeamColorFromPlayer(string name)
         {
-            Console.WriteLine($"{player1Name} team: ");
+            Console.WriteLine($"{name} team: ");
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(" 1. White");
             Console.ForegroundColor = ConsoleColor.Red;
@@ -88,15 +86,39 @@ namespace Chess.ConsoleApp.Helpers
             int choice = GetPositiveNumberFromUser("", "Expected positive number, please try again");
 
             if (choice == 1)
-                return (TeamColor.White, TeamColor.Black);
+                return TeamColor.White;
             if (choice == 2)
-                return (TeamColor.Black, TeamColor.White);
-
+                return TeamColor.Black;
+            
             Console.WriteLine($"Option {choice} not found. Please try again.");
-            return GetTeamColors(player1Name);
+            return GetTeamColorFromPlayer(name);
+        }
+
+        public static Player GetPlayerFromUser()
+        {
+            var name = GetPlayerName(1);
+            var color = GetTeamColorFromPlayer(name);
+
+            return new Player(name, color);
+        }
+
+        private static (string, string) GetUserNames()
+        {
+            return (GetPlayerName(1), GetPlayerName(2));
+        }
+
+        private static (TeamColor, TeamColor) GetTeamColorsForPlayer(string player1Name)
+        {
+            TeamColor fromPlayer = GetTeamColorFromPlayer(player1Name);
+            if (fromPlayer == TeamColor.Black)
+            {
+                return (TeamColor.Black, TeamColor.White);
+            }
+
+            return (TeamColor.White, TeamColor.Black);
         }
         
-        public static (Player, Player) GetColorFromPlayer()
+        public static (Player, Player) GetColorFromTwoPlayers()
         {
             var names = GetUserNames();
             while (names.Item1.Equals(names.Item2))
@@ -105,10 +127,35 @@ namespace Chess.ConsoleApp.Helpers
                 names = GetUserNames();
             }
 
-            var colors = GetTeamColors(names.Item1);
+            var colors = GetTeamColorsForPlayer(names.Item1);
 
             Console.WriteLine($"{names.Item1} has color: {colors.Item1}\n{names.Item2} has color: {colors.Item2}");
             return (new Player(names.Item1, colors.Item1), new Player(names.Item2, colors.Item2));
+        }
+
+        public static DifficultyLevel GetDifficultyLevelFromUser()
+        {
+            Console.WriteLine("Select difficulty level:");
+            Console.WriteLine("1. Low");
+            Console.WriteLine("2. Normal");
+            Console.WriteLine("3. High");
+            Console.WriteLine("4. Expert");
+            int choice = GetPositiveNumberFromUser(
+                "", "Expected positive number. Try again");
+            switch (choice)
+            {
+                case 1:
+                    return DifficultyLevel.Low;
+                case 2:
+                    return DifficultyLevel.Normal;
+                case 3:
+                    return DifficultyLevel.High;
+                case 4:
+                    return DifficultyLevel.Expert;
+                default:
+                    Console.WriteLine($"Option {choice} not found. Please try again.");
+                    return GetDifficultyLevelFromUser();
+            }
         }
     }
 }

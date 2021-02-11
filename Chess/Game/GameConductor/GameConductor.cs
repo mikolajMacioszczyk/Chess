@@ -41,6 +41,11 @@ namespace Chess.Game.GameConductor
 
         public IMoveResult DoMove(Position @from, Position destination)
         {
+            if (!_moveManager.VerifyPositionInBoundaries(from) || !_moveManager.VerifyPositionInBoundaries(destination))
+            {
+                return new InvalidMoveResult("Position out of board");
+            }
+            
             if (!_moveManager.IsAllyAtPosition(from, _currentMovingTeam))
             {
                 return new InvalidMoveResult($"Your figure is not in the given position");

@@ -48,7 +48,7 @@ namespace Chess.Models.Position
         
         public override string ToString()
         {
-            return $"[{Row} : {Column}]";
+            return $"[{Row+1} : {Column+1}]";
         }
     }
 }

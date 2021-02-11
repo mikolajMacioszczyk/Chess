@@ -30,6 +30,11 @@ namespace Chess.Game.MoveManager
             _verifier = new OrdinaryBoardCheckVerifier(_board, _moveValidator);
         }
 
+        public bool VerifyPositionInBoundaries(Position position)
+        {
+            return _moveValidator.VerifyPositionInBoundaries(position);
+        }
+
         public (bool, string) CanMove(Position from, Position destination)
         {
             var figure = _board.FigureAt(from);

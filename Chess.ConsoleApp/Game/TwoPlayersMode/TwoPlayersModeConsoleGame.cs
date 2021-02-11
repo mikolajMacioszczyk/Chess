@@ -32,7 +32,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         private void SetUsers()
         {
-            var colors = UserInteraction.GetColorFromPlayer();
+            var colors = UserInteraction.GetColorFromTwoPlayers();
             _players[0] = colors.Item1;
             _players[1] = colors.Item2;
         }
@@ -40,6 +40,21 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         public void Start()
         {
             UserMove(_moveResult, _players[0].TeamColor == _gameConductor.CurrentMoveTeam() ? 0 : 1);
+        }
+        
+        private void UserMove(IMoveResult moveResult, int userIdx)
+        {
+            while (!moveResult.IsCheckMate(_players[userIdx].TeamColor))
+            {
+                moveResult = NextTurn(moveResult, userIdx);
+                if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
+                {
+                    return;
+                }
+
+                userIdx = userIdx == 1 ? 0 : 1;
+            }
+            EndGame(userIdx);
         }
 
         private MovePositions GetMovePositions()
@@ -134,21 +149,6 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return newMoveResult;
         }
 
-        private void UserMove(IMoveResult moveResult, int userIdx)
-        {
-            while (!moveResult.IsCheckMate(_players[userIdx].TeamColor))
-            {
-                moveResult = NextTurn(moveResult, userIdx);
-                if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
-                {
-                    return;
-                }
-
-                userIdx = userIdx == 1 ? 0 : 1;
-            }
-            EndGame(userIdx);
-        }
-        
         private void EndGame(int winner)
         {
             Console.WriteLine("\n \n \n \n");

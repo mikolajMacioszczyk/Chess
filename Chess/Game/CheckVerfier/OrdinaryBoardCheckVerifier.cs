@@ -130,7 +130,7 @@ namespace Chess.Game.CheckVerfier
                 throw new InvalidMoveException(from, destination, figure);
             }
             var verifier = new OrdinaryBoardCheckVerifier(copyBoard, new OrdinaryBoardMoveValidator(copyBoard));
-            return verifier.IsCheck(TeamColor.Black) || verifier.IsCheck(TeamColor.White);
+            return verifier.IsCheck(figure.TeamColor);
         }
     }
 }

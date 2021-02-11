@@ -45,7 +45,7 @@ namespace Chess.Game.MoveValidator
             _board = board;
         }
 
-        private bool VerifyPositionInBoundaries(Position position)
+        public bool VerifyPositionInBoundaries(Position position)
         {
             if (position.Row < 0 || 
                 position.Column < 0 || 

@@ -4,15 +4,22 @@
     <projectFile>Chess.ConsoleApp/Chess.ConsoleApp.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Create simple AI computer player">
-      <change afterPath="$PROJECT_DIR$/Chess.UnitTests/PlayerComputerAIUnitTests/ComputerPLayerUnitTests.cs" afterDir="false" />
+    <list default="true" id="5d4c50af-19df-47ba-8005-87a4ae654e02" name="Default Changelist" comment="Computer AI refactoring">
+      <change afterPath="$PROJECT_DIR$/PlayerComputerAI/AI/DifficultyLevel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Chess/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Chess.ConsoleApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Chess.ConsoleApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeConsoleGame.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.UnitTests/Chess.UnitTests.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.UnitTests/Chess.UnitTests.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Chess.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/GameConductor/GameConductor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/GameConductor/GameConductor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Chess/Models/Position/Position.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Chess/Models/Position/Position.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PlayerComputerAI/AI/ComputerPlayer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerComputerAI/AI/ComputerPlayer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PlayerComputerAI/ScoreAndMove.cs" beforeDir="false" afterPath="$PROJECT_DIR$/PlayerComputerAI/ScoreAndMove.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,10 +50,6 @@
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
-      <option value="$PROJECT_DIR$/Chess/Models/Figures/FigureImplementation/Rook.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStatus.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveResult/IsValidMoveResult.cs" />
-      <option value="$PROJECT_DIR$/Chess/Enums/TeamColor.cs" />
       <option value="$PROJECT_DIR$/Chess/Enums/PlayerMode.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/ChessGameSerializer.cs" />
       <option value="$PROJECT_DIR$/Chess/GameSaver/SaveRepository.cs" />
@@ -60,12 +63,7 @@
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Program.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Application/RepositoryGameManager.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveManagerUnitTests/MoveManagerUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" />
       <option value="$PROJECT_DIR$/Chess.UnitTests/GameUnitTests/MoveValidatorUnitTests/OrdinaryMoveValidatorUnitTests.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/IMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/InvalidMoveResult.cs" />
       <option value="$PROJECT_DIR$/Chess/Game/MoveResult/MoveResultStart.cs" />
@@ -82,9 +80,6 @@
       <option value="$PROJECT_DIR$/Chess/ViewModels/LastMoveViewModel.cs" />
       <option value="$PROJECT_DIR$/Chess/ViewModels/BoardViewModel.cs" />
       <option value="$PROJECT_DIR$/Chess/Models/Player/Player.cs" />
-      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/GameConductor/GameConductor.cs" />
-      <option value="$PROJECT_DIR$/Chess/Game/GameConductor/IGameConductor.cs" />
       <option value="$PROJECT_DIR$/PlayerComputerAI/OrdinaryComputerPlayer.cs" />
       <option value="$PROJECT_DIR$/PlayerComputerAI/ComputerPlayer.cs" />
       <option value="$PROJECT_DIR$/PlayerComputerAI/Exceptions/ImpossibleMoveExeption.cs" />
@@ -92,8 +87,20 @@
       <option value="$PROJECT_DIR$/Chess.UnitTests/PlayerComputerAIUnitTests/ComputerPLayerUnitTests.cs" />
       <option value="$PROJECT_DIR$/Chess/ViewModels/MovePositions.cs" />
       <option value="$PROJECT_DIR$/PlayerComputerAI/ScoreAndMove.cs" />
-      <option value="$PROJECT_DIR$/PlayerComputerAI/AI/ComputerPlayer.cs" />
       <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/TwoPlayersMode/TwoPlayersModeConsoleGame.cs" />
+      <option value="$PROJECT_DIR$/Chess/Models/Position/Position.cs" />
+      <option value="$PROJECT_DIR$/PlayerComputerAI/AI/ComputerPlayer.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/OrdinaryBoardMoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveValidator/IMoveValidator.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/IMoveManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/MoveManager/MoveManager.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/GameConductor/GameConductor.cs" />
+      <option value="$PROJECT_DIR$/PlayerComputerAI/AI/IntelligenceLevel.cs" />
+      <option value="$PROJECT_DIR$/PlayerComputerAI/AI/DifficultyLevel.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Helpers/UserInteraction.cs" />
+      <option value="$PROJECT_DIR$/Chess.ConsoleApp/Game/SinglePlayerMode/SinglePlayerModeConsoleGame.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/GameConductor/IGameConductor.cs" />
+      <option value="$PROJECT_DIR$/Chess/Game/CheckVerfier/OrdinaryBoardCheckVerifier.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="1ljuJFHGi3B8omW2MhKRyV75RZi" />
@@ -169,7 +176,7 @@
       <workItem from="1612966016285" duration="345000" />
       <workItem from="1612966389213" duration="6153000" />
       <workItem from="1612977016115" duration="10652000" />
-      <workItem from="1613028347024" duration="11058000" />
+      <workItem from="1613028347024" duration="18363000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <created>1608128839378</created>
@@ -297,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1613034846236</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Computer AI refactoring">
+      <created>1613039554616</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1613039554616</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +366,8 @@
     <MESSAGE value="More detailed answers" />
     <MESSAGE value="More detailed statistics" />
     <MESSAGE value="Create simple AI computer player" />
-    <option name="LAST_COMMIT_MESSAGE" value="Create simple AI computer player" />
+    <MESSAGE value="Computer AI refactoring" />
+    <option name="LAST_COMMIT_MESSAGE" value="Computer AI refactoring" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

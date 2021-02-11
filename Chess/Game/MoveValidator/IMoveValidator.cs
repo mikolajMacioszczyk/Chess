@@ -1,5 +1,6 @@
 using Chess.Models.Board;
 using Chess.Models.Figures;
+using Chess.Models.Position;
 
 namespace Chess.Game.MoveValidator
 {
@@ -16,6 +17,8 @@ namespace Chess.Game.MoveValidator
         /// <returns></returns>
         (bool, string) CanMove(Figure figure, Models.Position.Position position);
 
+        bool VerifyPositionInBoundaries(Position position);
+        
         void Update(IBoard board);
     }
 }

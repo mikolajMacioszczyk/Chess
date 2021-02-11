@@ -188,6 +188,7 @@
       <e p="PlayerComputerAI" t="IncludeRecursive">
         <e p="AI" t="Include">
           <e p="ComputerPlayer.cs" t="Include" />
+          <e p="DifficultyLevel.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="Exceptions" t="Include">
