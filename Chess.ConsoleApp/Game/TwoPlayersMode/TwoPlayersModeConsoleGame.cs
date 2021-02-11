@@ -1,11 +1,12 @@
 ﻿using System;
 using Chess.ConsoleApp.Helpers;
 using Chess.Enums;
-using Chess.Game.GameManager;
+using Chess.Game.GameConductor;
 using Chess.Game.MoveResult;
 using Chess.GameSaver;
 using Chess.Models.Player;
 using Chess.Models.Position;
+using Chess.ViewModels;
 
 namespace Chess.ConsoleApp.Game.TwoPlayersMode
 {
@@ -36,28 +37,12 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             _players[1] = colors.Item2;
         }
         
-        private void ShowBoard(IMoveResult moveResult)
-        {
-            BoardDisplay.DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.White);
-            Console.WriteLine();
-            BoardDisplay.DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.Black);
-            BoardDisplay.ShowBoard(moveResult.GetBoard());
-        }
-
-        
         public void Start()
         {
-            if (_players[0].TeamColor == _gameConductor.CurrentMoveTeam())
-                User1Move(_moveResult);
-            else
-                User2Move(_moveResult);
+            UserMove(_moveResult, _players[0].TeamColor == _gameConductor.CurrentMoveTeam() ? 0 : 1);
         }
         
-        private struct MovePositions
-        {
-            public Position From { get; set; }
-            public Position Destination { get; set; }
-        }
+        
 
         private MovePositions GetMovePositions()
         {
@@ -66,13 +51,6 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
             return new MovePositions() {From = from, Destination = destination};
         }
 
-        enum PlayerAction
-        {
-            Submit,
-            Undo,
-            Save
-        }
-        
         private PlayerAction PlayerActionApprove(ref IMoveResult moveResult, int currentPlayer)
         {
             int choice = UserInteraction.GetPositiveNumberFromUser(
@@ -106,7 +84,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 Console.WriteLine($"Invalid move: {isValid.Cause}");
                 return MoveHelper();
             }
-            ShowBoard(moveResult);
+            BoardDisplay.ShowFullInfoBoard(moveResult);
             return moveResult;
         }
         private IMoveResult SaveGame(IMoveResult moveResult, int currentPlayer)
@@ -136,7 +114,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         
         private IMoveResult NextTurn(IMoveResult moveResult, int playerNumber)
         {
-            ShowBoard(moveResult);
+            BoardDisplay.ShowFullInfoBoard(moveResult);
             VerifyCheckAndDisplayMessage(moveResult, playerNumber);
             
             Console.WriteLine($"\n ==================== {_players[playerNumber]} ===================== ");
@@ -157,39 +135,22 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
 
             return newMoveResult;
         }
+
+        private void UserMove(IMoveResult moveResult, int userIdx)
+        {
+            while (!moveResult.IsCheckMate(_players[userIdx].TeamColor))
+            {
+                moveResult = NextTurn(moveResult, userIdx);
+                if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
+                {
+                    return;
+                }
+
+                userIdx = userIdx == 1 ? 0 : 1;
+            }
+            EndGame(userIdx);
+        }
         
-        private void User1Move(IMoveResult moveResult)
-        {
-            if (moveResult.IsCheckMate(_players[0].TeamColor))
-            {
-                EndGame(1);
-            }
-
-            moveResult = NextTurn(moveResult, 0);
-            if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
-            {
-                return;
-            }
-
-            User2Move(moveResult);
-        }
-
-        private void User2Move(IMoveResult moveResult)
-        {
-            if (moveResult.IsCheckMate(_players[1].TeamColor))
-            {
-                EndGame(1);
-            }
-            
-            moveResult = NextTurn(moveResult,1);
-            if (moveResult.IsValidMove().Status == MoveResultStatus.Stopped)
-            {
-                return;
-            }
-            
-            User1Move(moveResult);
-        }
-
         private void EndGame(int winner)
         {
             Console.WriteLine("\n \n \n \n");

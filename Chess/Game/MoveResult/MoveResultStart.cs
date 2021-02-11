@@ -3,7 +3,7 @@ using Chess.Enums;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Position;
-using Chess.ViewModels.BoardViewModel;
+using Chess.ViewModels;
 
 namespace Chess.Game.MoveResult
 {

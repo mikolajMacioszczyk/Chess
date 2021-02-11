@@ -4,7 +4,7 @@ using Chess.Game.MoveResult;
 using Chess.Game.MoveValidator;
 using Chess.Models.Board;
 using Chess.Models.Position;
-using Chess.ViewModels.LastMoveViewModel;
+using Chess.ViewModels;
 
 namespace Chess.Game.MoveManager
 {

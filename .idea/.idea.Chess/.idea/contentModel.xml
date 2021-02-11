@@ -18,6 +18,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Chess.csproj" t="IncludeRecursive" />
         <e p="Enums" t="Include">
+          <e p="PlayerAction.cs" t="Include" />
           <e p="PlayerMode.cs" t="Include" />
           <e p="TeamColor.cs" t="Include" />
         </e>
@@ -36,7 +37,7 @@
             <e p="ICheckVerifier.cs" t="Include" />
             <e p="OrdinaryBoardCheckVerifier.cs" t="Include" />
           </e>
-          <e p="GameManager" t="Include">
+          <e p="GameConductor" t="Include">
             <e p="GameConductor.cs" t="Include" />
             <e p="IGameConductor.cs" t="Include" />
           </e>
@@ -100,12 +101,9 @@
           </e>
         </e>
         <e p="ViewModels" t="Include">
-          <e p="BoardViewModel" t="Include">
-            <e p="BoardViewModel.cs" t="Include" />
-          </e>
-          <e p="LastMoveViewModel" t="Include">
-            <e p="LastMoveViewModel.cs" t="Include" />
-          </e>
+          <e p="BoardViewModel.cs" t="Include" />
+          <e p="LastMoveViewModel.cs" t="Include" />
+          <e p="MovePositions.cs" t="Include" />
         </e>
       </e>
       <e p="Chess.ConsoleApp" t="IncludeRecursive">
@@ -185,7 +183,13 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PlayerComputerAI" t="IncludeRecursive">
+        <e p="AI" t="Include">
+          <e p="ComputerPlayer.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
+        <e p="Exceptions" t="Include">
+          <e p="ImpossibleMoveException.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Release" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -194,6 +198,7 @@
           </e>
         </e>
         <e p="PlayerComputerAI.csproj" t="IncludeRecursive" />
+        <e p="ScoreAndMove.cs" t="Include" />
       </e>
     </e>
   </component>

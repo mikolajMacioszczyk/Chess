@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Chess.Enums;
 using Chess.Models.Figures;
-using Chess.ViewModels.BoardViewModel;
+using Chess.ViewModels;
 
 namespace Chess.Game.MoveResult
 {

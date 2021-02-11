@@ -2,7 +2,7 @@ using System;
 using Chess.Models.Figures;
 using Chess.Models.Position;
 
-namespace Chess.ViewModels.LastMoveViewModel
+namespace Chess.ViewModels
 {
     [Serializable]
     public class LastMoveViewModel

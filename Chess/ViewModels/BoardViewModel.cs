@@ -2,7 +2,7 @@ using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.Models.Position;
 
-namespace Chess.ViewModels.BoardViewModel
+namespace Chess.ViewModels
 {
     public class BoardViewModel
     {

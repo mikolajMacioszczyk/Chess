@@ -2,7 +2,7 @@ using Chess.Enums;
 using Chess.Game.MoveResult;
 using Chess.Models.Position;
 
-namespace Chess.Game.GameManager
+namespace Chess.Game.GameConductor
 {
     public interface IGameConductor
     {

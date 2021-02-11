@@ -2,13 +2,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Chess.Enums;
+using Chess.Game.MoveResult;
 using Chess.Models.Figures;
-using Chess.ViewModels.BoardViewModel;
+using Chess.ViewModels;
 
 namespace Chess.ConsoleApp.Helpers
 {
     public static class BoardDisplay
     {
+        public static void ShowFullInfoBoard(IMoveResult moveResult)
+        {
+            DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.White);
+            Console.WriteLine();
+            DisplaySmashed(moveResult.AllSmashedFigures(), TeamColor.Black);
+            ShowBoard(moveResult.GetBoard());
+        }
         public static void DisplaySmashed(IEnumerable<Figure> smashed, TeamColor teamColor)
         {
             if (smashed == null)

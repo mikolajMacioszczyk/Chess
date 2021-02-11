@@ -108,13 +108,7 @@ namespace Chess.ConsoleApp.Helpers
             var colors = GetTeamColors(names.Item1);
 
             Console.WriteLine($"{names.Item1} has color: {colors.Item1}\n{names.Item2} has color: {colors.Item2}");
-            return (new Player()
-            {
-                Name = names.Item1, TeamColor = colors.Item1
-            }, new Player()
-            {
-                Name = names.Item2, TeamColor = colors.Item2
-            });
+            return (new Player(names.Item1, colors.Item1), new Player(names.Item2, colors.Item2));
         }
     }
 }

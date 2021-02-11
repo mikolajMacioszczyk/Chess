@@ -2,7 +2,7 @@
 using Chess.ConsoleApp.Application;
 using Chess.ConsoleApp.Helpers;
 using Chess.Models.Board;
-using Chess.ViewModels.BoardViewModel;
+using Chess.ViewModels;
 
 namespace Chess.ConsoleApp
 {

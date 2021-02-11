@@ -6,9 +6,9 @@ using Chess.Game.MoveResult;
 using Chess.GameSaver;
 using Chess.Models.Figures;
 using Chess.Models.Position;
-using Chess.ViewModels.LastMoveViewModel;
+using Chess.ViewModels;
 
-namespace Chess.Game.GameManager
+namespace Chess.Game.GameConductor
 {
     public class GameConductor : IGameConductor
     {

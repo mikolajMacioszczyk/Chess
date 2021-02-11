@@ -8,7 +8,7 @@ using Chess.GameSaver;
 using Chess.Models.Board;
 using Chess.Models.Figures.FigureImplementation;
 using Chess.Models.Position;
-using Chess.ViewModels.LastMoveViewModel;
+using Chess.ViewModels;
 using NUnit.Framework;
 
 namespace Chess.UnitTests.GameSaverUnitTests
