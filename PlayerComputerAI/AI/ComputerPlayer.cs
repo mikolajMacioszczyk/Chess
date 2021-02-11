@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Chess.Enums;
 using Chess.Game.MoveManager;
-using Chess.Game.MoveResult;
 using Chess.Models.Board;
 using Chess.Models.Figures;
 using Chess.ViewModels;
@@ -14,10 +13,10 @@ namespace PlayerComputerAI.AI
     public class ComputerPlayer
     {
         private readonly int _searchDepth;
-        private int _breadthSearch;
+        private readonly int _breadthSearch;
         public string Name { get; }
         private readonly TeamColor _myTeamColor;
-        private TeamColor _opponentTeamColor;
+        private readonly TeamColor _opponentTeamColor;
 
         public ComputerPlayer(TeamColor teamColor, int searchDepth, int breadthSearch)
         {
@@ -28,15 +27,15 @@ namespace PlayerComputerAI.AI
             _breadthSearch = Math.Max(breadthSearch, 1);
         }
 
-        public MovePositions NextMove(IMoveResult lastMoveResult)
+        public ScoreAndMove NextMove(BoardViewModel boardVm)
         {
-            var board = lastMoveResult.GetBoard().GetCopy();
+            var board = boardVm.GetCopy();
             var moveManager = new MoveManager(board);
             var possibleMoves = GetAllPossibleMoves(_myTeamColor, moveManager, board);
             var score = GetScore(board, possibleMoves, _searchDepth, false);
             if (score.HasValue)
             {
-                return new MovePositions() {From = score.Value.From, Destination = score.Value.Destination};
+                return score.Value;
             }
             throw new ImpossibleMoveException();
         }
@@ -59,29 +58,36 @@ namespace PlayerComputerAI.AI
                 board.SetFigure(figure, movePosition.Destination);
                 return (board, movePosition);
             });
-            
-            List<(int, MovePositions, IBoard)> scores = boardsAfterMoves
-                .Select(bm => (bm.board.GetScoreForTeam(_myTeamColor), bm.movePosition, bm.board)).ToList();
 
-            scores = (isOpponentMove ? scores.OrderBy(s => s.Item1) : scores.OrderByDescending(s => s.Item1))
-                .ToList();
+            List<(int, MovePositions, IBoard)> sortedScores = TransformAndSortScoresDependingOnTeam(isOpponentMove, boardsAfterMoves);
 
-            if (currentDepth == 0)
+            if (!sortedScores.Any())
             {
-                if (scores.Any())
-                {
-                    return new ScoreAndMove(){Score = scores[0].Item1, From = scores[0].Item2.From, Destination = scores[1].Item2.Destination};
-                }
                 return null;
+            }
+            if (currentDepth <= 1)
+            {
+                return new ScoreAndMove(sortedScores[0].Item1, sortedScores[0].Item2.From, sortedScores[1].Item2.Destination);
             }
             
             // recursive call
-            if (!scores.Any())
-            {
-                return null;
-            }
+            return GetResultFromDeeperSearch(sortedScores, currentDepth, isOpponentMove);
+        }
+
+        private List<(int, MovePositions, IBoard)> TransformAndSortScoresDependingOnTeam(
+            bool isOpponentMove, IEnumerable<(IBoard, MovePositions)> data)
+        {
+            var scores = data
+                .Select(bm => (bm.Item1.GetScoreForTeam(_myTeamColor), bm.Item2, bm.Item1));
+            if (isOpponentMove)
+                return scores.OrderBy(s => s.Item1).ToList();
+            return scores.OrderByDescending(s => s.Item1).ToList();
+        }
+
+        private ScoreAndMove? GetResultFromDeeperSearch(List<(int, MovePositions, IBoard)> scores, int currentDepth, bool isOpponentMove)
+        {
             scores = scores.Take(_breadthSearch).ToList();
-            var maxScore = new ScoreAndMove() {Score = scores[0].Item1, From = scores[0].Item2.From, Destination = scores[0].Item2.Destination};
+            var maxScore = new ScoreAndMove(){Score = Int32.MinValue};
             foreach (var score in scores)
             {
                 var board = score.Item3;
@@ -89,11 +95,15 @@ namespace PlayerComputerAI.AI
                 var moves = 
                     GetAllPossibleMoves(isOpponentMove ? _myTeamColor : _opponentTeamColor, moveManager, board);
                 var deeperResult = GetScore(board, moves, currentDepth - 1, !isOpponentMove);
-                if (deeperResult.HasValue && deeperResult.Value.Score > maxScore.Score)
+                if (deeperResult.HasValue)
                 {
-                    maxScore.Score = deeperResult.Value.Score;
-                    maxScore.From = deeperResult.Value.From;
-                    maxScore.Destination = deeperResult.Value.Destination;
+                    if (!isOpponentMove && deeperResult.Value.Score > maxScore.Score
+                    || isOpponentMove && deeperResult.Value.Score < maxScore.Score)
+                    {
+                        maxScore.Score = deeperResult.Value.Score;
+                        maxScore.From = deeperResult.Value.From;
+                        maxScore.Destination = deeperResult.Value.Destination;
+                    }
                 }
             }
             return maxScore;
@@ -109,14 +119,14 @@ namespace PlayerComputerAI.AI
                     var figure = board.FigureAt(board.GetPositionAt(i, j));
                     if (figure != null  && figure.TeamColor == teamColor)
                     {
-                        output.AddRange(GetPossibleMoves(figure, moveManager, board));
+                        output.AddRange(GetPossibleMovesForFigure(figure, moveManager, board));
                     }
                 }
             }
             return output;
         }
 
-        private List<MovePositions> GetPossibleMoves(Figure figure, IMoveManager moveManager, IBoard board)
+        private List<MovePositions> GetPossibleMovesForFigure(Figure figure, IMoveManager moveManager, IBoard board)
         {
             var output = new List<MovePositions>();
             for (int i = 0; i < board.GetBoardSize(); i++)

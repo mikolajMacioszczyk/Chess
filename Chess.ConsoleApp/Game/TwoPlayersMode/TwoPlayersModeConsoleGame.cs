@@ -41,8 +41,6 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
         {
             UserMove(_moveResult, _players[0].TeamColor == _gameConductor.CurrentMoveTeam() ? 0 : 1);
         }
-        
-        
 
         private MovePositions GetMovePositions()
         {

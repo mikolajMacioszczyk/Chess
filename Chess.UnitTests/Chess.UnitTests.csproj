@@ -15,6 +15,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Chess\Chess.csproj" />
+      <ProjectReference Include="..\PlayerComputerAI\PlayerComputerAI.csproj" />
     </ItemGroup>
 
     <ItemGroup>

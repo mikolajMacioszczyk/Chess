@@ -180,6 +180,9 @@
             </e>
           </e>
         </e>
+        <e p="PlayerComputerAIUnitTests" t="Include">
+          <e p="ComputerPLayerUnitTests.cs" t="Include" />
+        </e>
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="PlayerComputerAI" t="IncludeRecursive">
