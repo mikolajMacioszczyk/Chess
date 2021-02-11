@@ -32,7 +32,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             const string filePath = "Test_Serialize_NextDeserialize_ValidObjects.bin";
 
             ChessGameState gameState = 
-                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers,10);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
@@ -43,6 +43,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.AreEqual(fromFile.CurrentMovingTeam, currentTeam);
             Assert.AreEqual(fromFile.LastGameMoveResult.LastMoveFigureAndPositionFromAndDest().Item2,
                 moveResult.LastMoveFigureAndPositionFromAndDest().Item2);
+            Assert.AreEqual(10, fromFile.DifficultyLevel);
             
             // clear
             Assert.True(ChessGameSerializer.ClearFile(filePath));
@@ -62,7 +63,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             const string filePath = "Test_Serialize_NextDeserialize_NullObject.bin";
 
             ChessGameState gameState = 
-                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers,0);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);
@@ -92,7 +93,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             const string filePath = "Serialize_NextDeserialize_AlreadyWrittenFile.bin";
 
             ChessGameState gameState =
-                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers);
+                new ChessGameState(moveResult, isGameEnded, null, currentTeam, PlayerMode.TwoPlayers,0);
 
             // act
             ChessGameSerializer.SaveInFile(filePath, gameState);

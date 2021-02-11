@@ -15,18 +15,21 @@ namespace Chess.GameSaver
         public Player[] Players { get; set; }
         public TeamColor CurrentMovingTeam { get; set; }
         public PlayerMode PlayerMode { get; set; }
+        public int DifficultyLevel { get; set; }
         public ChessGameState(
             IMoveResult lastGameMoveResult, 
             bool isEnded, 
             Player[] players, 
             TeamColor currentMovingTeam, 
-            PlayerMode playerMode)
+            PlayerMode playerMode, 
+            int difficultyLevel)
         {
             LastGameMoveResult = lastGameMoveResult;
             IsEnded = isEnded;
             Players = players;
             CurrentMovingTeam = currentMovingTeam;
             PlayerMode = playerMode;
+            DifficultyLevel = difficultyLevel;
         }
     }
 }

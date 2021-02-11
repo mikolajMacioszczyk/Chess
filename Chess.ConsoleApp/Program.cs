@@ -6,7 +6,7 @@ using Chess.ViewModels;
 
 namespace Chess.ConsoleApp
 {
-    class Program
+    static class Program
     {
         private static string _introText1 =
             "\nWelcome in Chess Console Game.\nYou will be able to make movements through the following steps:\n\t1. Selecting your figure by entering its position, first row, then column.\n" +
@@ -64,7 +64,7 @@ namespace Chess.ConsoleApp
             Console.WriteLine(_introText10);
         }
         
-        static void Main(string[] args)
+        static void Main()
         {
             ShowInstructions();
             Console.WriteLine();
@@ -74,13 +74,10 @@ namespace Chess.ConsoleApp
             while (choice != choiceEnd)
             {
                 ShowIntroductionMenu();
-                choice = UserInteraction.GetPositiveNumberFromUser(
-                    "Hello! Select action: ", "Expected positive number, please try again.");
+                choice = UserInteraction.GetNumberFromUser(
+                    "Hello! Select action: ", $"Option {choice} not found. Please try again.", 1, choiceEnd);
                 switch (choice)
                 {
-                    case 1: 
-                        NewGameManager.Run();
-                        break;
                     case 2:
                         RepositoryGameManager.Read();
                         break;
@@ -90,7 +87,7 @@ namespace Chess.ConsoleApp
                     case choiceEnd:
                         break;
                     default:
-                        Console.WriteLine($"Option {choice} not found. Please try again.");
+                        NewGameManager.Run();
                         break;
                 }
             }

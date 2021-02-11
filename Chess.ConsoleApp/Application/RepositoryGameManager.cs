@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Chess.ConsoleApp.Game.SinglePlayerMode;
 using Chess.ConsoleApp.Game.TwoPlayersMode;
 using Chess.ConsoleApp.Helpers;
 using Chess.Enums;
@@ -28,11 +29,18 @@ namespace Chess.ConsoleApp.Application
                 Console.WriteLine($"Mode: {mode}");
                 Console.WriteLine($"Current moving team: {state.CurrentMovingTeam}");
 
-                new TwoPlayersModeConsoleGame(state).Start();
+                if (state.PlayerMode == PlayerMode.TwoPlayers)
+                {
+                    new TwoPlayersModeConsoleGame(state).Start();
+                }
+                else
+                {
+                    new SinglePlayerModeConsoleGame(state).Start();
+                }
             }
         }
 
-        struct RepoFilesChoice
+        readonly struct RepoFilesChoice
         {
             public SaveRepository Repository { get; }
             public List<string> Files { get;  }
@@ -61,14 +69,8 @@ namespace Chess.ConsoleApp.Application
         {
             var repo = SaveRepository.GetDefaultRepository();
             var files = ShowSavedGamesAndReturnAsList(repo);
-            var choice = UserInteraction.GetPositiveNumberFromUser(
-                message, "Expected positive number. Please try again");
-            while (choice - 1 >= files.Count)
-            {
-                Console.WriteLine($"Option {choice} not found. Please try again");
-                choice = UserInteraction.GetPositiveNumberFromUser(
-                    message, "Expected positive number. Please try again");
-            }
+            var choice = UserInteraction.GetNumberFromUser(
+                message, "Option not found. Please try again", 0, files.Count);
 
             return new RepoFilesChoice(repo, files, choice);
         }

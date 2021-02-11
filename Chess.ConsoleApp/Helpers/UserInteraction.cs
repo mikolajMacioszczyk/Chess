@@ -9,17 +9,17 @@ namespace Chess.ConsoleApp.Helpers
 {
     public static class UserInteraction
     {
-        public static int GetPositiveNumberFromUser(string message, string callback)
+        public static int GetNumberFromUser(string message, string callback, int min, int max)
         {
             Console.WriteLine(message);
             string input = Console.ReadLine();
-            if (int.TryParse(input, out int number) && number >= 0)
+            if (int.TryParse(input, out int number) && number >= 0 && number <= max)
             {
                 return number;
             }
             
             Console.WriteLine(callback);
-            return GetPositiveNumberFromUser(message, callback);
+            return GetNumberFromUser(message, callback, min, max);
         }
 
         private static bool ParseStringToIntCoordinate(string coordinate, out int num)
@@ -83,15 +83,11 @@ namespace Chess.ConsoleApp.Helpers
             Console.ForegroundColor = ConsoleColor.Red;
             Console.Write(" 2. Black");
             Console.ForegroundColor = ConsoleColor.White;
-            int choice = GetPositiveNumberFromUser("", "Expected positive number, please try again");
+            int choice = GetNumberFromUser("", "Option {choice} not found. Please try again.", 1, 2);
 
             if (choice == 1)
                 return TeamColor.White;
-            if (choice == 2)
-                return TeamColor.Black;
-            
-            Console.WriteLine($"Option {choice} not found. Please try again.");
-            return GetTeamColorFromPlayer(name);
+            return TeamColor.Black;
         }
 
         public static Player GetPlayerFromUser()
@@ -140,8 +136,8 @@ namespace Chess.ConsoleApp.Helpers
             Console.WriteLine("2. Normal");
             Console.WriteLine("3. High");
             Console.WriteLine("4. Expert");
-            int choice = GetPositiveNumberFromUser(
-                "", "Expected positive number. Try again");
+            int choice = GetNumberFromUser(
+                "", "Option {choice} not found. Please try again.", 1, 4);
             switch (choice)
             {
                 case 1:
@@ -150,11 +146,8 @@ namespace Chess.ConsoleApp.Helpers
                     return DifficultyLevel.Normal;
                 case 3:
                     return DifficultyLevel.High;
-                case 4:
-                    return DifficultyLevel.Expert;
                 default:
-                    Console.WriteLine($"Option {choice} not found. Please try again.");
-                    return GetDifficultyLevelFromUser();
+                    return DifficultyLevel.Expert;
             }
         }
     }

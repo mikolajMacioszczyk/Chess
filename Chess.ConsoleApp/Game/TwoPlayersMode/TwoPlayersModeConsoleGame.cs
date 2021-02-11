@@ -66,8 +66,8 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
 
         private PlayerAction PlayerActionApprove(ref IMoveResult moveResult, int currentPlayer)
         {
-            int choice = UserInteraction.GetPositiveNumberFromUser(
-                "1. Submit\n2. Undo\n3. Save", "Expected positive number. Try again");
+            int choice = UserInteraction.GetNumberFromUser(
+                "1. Submit\n2. Undo\n3. Save", $"Option not found. Please try again.", 1, 3);
             if (choice == 1)
                 return PlayerAction.Submit;
 
@@ -76,15 +76,8 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
                 Console.WriteLine(_gameConductor.Undo() ? "The move has been withdrawn" : "You cannot withdraw this move");
                 return PlayerAction.Undo;
             }
-
-            if (choice == 3)
-            {
-                moveResult = SaveGame(moveResult, currentPlayer == 0 ? 1 : 0);
-                return PlayerAction.Save;
-            }
-            
-            Console.WriteLine($"Option {choice} not found. Please try again.");
-            return PlayerActionApprove(ref moveResult, currentPlayer);
+            moveResult = SaveGame(moveResult, currentPlayer == 0 ? 1 : 0);
+            return PlayerAction.Save;
         }
 
         private IMoveResult MoveHelper()
@@ -108,7 +101,7 @@ namespace Chess.ConsoleApp.Game.TwoPlayersMode
 
             bool isEnded = moveResult.IsCheckMate(TeamColor.Black) || moveResult.IsCheckMate(TeamColor.White);
             var state = new ChessGameState(moveResult, isEnded, _players, 
-                _players[currentPlayer].TeamColor, PlayerMode.TwoPlayers);
+                _players[currentPlayer].TeamColor, PlayerMode.TwoPlayers, 0);
             
             saveRepository.Save(file+".bin", state);
             Console.WriteLine("Game saved.");

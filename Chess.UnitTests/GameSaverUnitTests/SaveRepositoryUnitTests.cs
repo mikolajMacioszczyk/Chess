@@ -17,7 +17,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.False(Directory.Exists(repoDirectory));
             const string repoPath = "Save_EmptyRepository_ShouldSave_Repo.bin";
             const string entryPath = "Test_Save_EmptyRepository_ShouldSave_Entry.bin";
-            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer);
+            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer,0);
             var repo = new SaveRepository(repoDirectory, repoPath);
             
             // act
@@ -45,8 +45,8 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.False(Directory.Exists(repoDirectory));
             const string repoPath = "Save_FileAlreadySaved_ShouldOverwrite.bin";
             const string entryPath = "Test_Save_FileAlreadySaved_ShouldOverwrite.bin";
-            var gameStateOld = new ChessGameState(null, false, null, TeamColor.None, PlayerMode.SinglePlayer);
-            var gameStateNew = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer);
+            var gameStateOld = new ChessGameState(null, false, null, TeamColor.None, PlayerMode.SinglePlayer,0);
+            var gameStateNew = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer,0);
             var repo = new SaveRepository(repoDirectory, repoPath);
             repo.Save(entryPath, gameStateOld);
             
@@ -75,7 +75,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.False(Directory.Exists(repoDirectory));
             const string repoPath = "Contains_Contains_ShouldReturnTrue.bin";
             const string entryPath = "Test_Contains_Contains_ShouldReturnTrue.bin";
-            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer);
+            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer,0);
             var repo = new SaveRepository(repoDirectory, repoPath);
             repo.Save(entryPath, gameState);
 
@@ -99,7 +99,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.False(Directory.Exists(repoDirectory));
             const string repoPath = "Read_ValidPath_ShouldReturnSavedValue.bin";
             const string entryPath = "Test_Read_ValidPath_ShouldReturnSavedValue.bin";
-            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer);
+            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer,0);
             var repoSaver = new SaveRepository(repoDirectory, repoPath);
             repoSaver.Save(entryPath, gameState);
 
@@ -148,7 +148,7 @@ namespace Chess.UnitTests.GameSaverUnitTests
             Assert.False(Directory.Exists(repoDirectory));
             const string repoPath = "Delete_EntryInRepo_ShouldDelete_ShouldReturnTrue.bin";
             const string entryPath = "Test_Delete_EntryInRepo_ShouldDelete_ShouldReturnTrue.bin";
-            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer);
+            var gameState = new ChessGameState(null, true, null, TeamColor.None, PlayerMode.SinglePlayer,0);
             var repoSaver = new SaveRepository(repoDirectory, repoPath);
             repoSaver.Save(entryPath, gameState);
 

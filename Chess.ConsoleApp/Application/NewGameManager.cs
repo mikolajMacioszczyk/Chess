@@ -19,16 +19,11 @@ namespace Chess.ConsoleApp.Application
         private static PlayerMode SelectMode()
         {
             ShowModeMenu();
-            int choice = UserInteraction.GetPositiveNumberFromUser(
-                "Select Mode: ", "Expected positive number, please try again.");
-            switch (choice)
-            {
-                case 1: return PlayerMode.SinglePlayer;
-                case 2: return PlayerMode.TwoPlayers;
-                default:
-                    Console.WriteLine($"Option {choice} not found. Please try again.");
-                    return SelectMode();
-            }
+            int choice = UserInteraction.GetNumberFromUser(
+                "Select Mode: ", $"Option not found. Please try again.", 1, 2);
+            if (choice == 1)
+                return PlayerMode.SinglePlayer;
+            return PlayerMode.TwoPlayers;
         }
         
         static IConsoleGame GetGameManager()
